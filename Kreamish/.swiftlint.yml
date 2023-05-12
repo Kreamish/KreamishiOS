@@ -1,0 +1,24 @@
+disabled_rules:
+    - nesting
+
+opt_in_rules:
+    - empty_string
+    - file_name_no_space
+    - file_types_order
+    - force_unwrapping
+    - multiline_arguments
+    - multiline_function_chains
+    - multiline_parameters_brackets
+    - unused_import
+    - sorted_imports
+    - vertical_parameter_alignment_on_call
+    - vertical_whitespace_closing_braces
+    - weak_delegate
+    
+excluded:
+    - ${TARGETNAME}/Resource
+
+identifier_name:
+  excluded:
+    - id
+    - URL

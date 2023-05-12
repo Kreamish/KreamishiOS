@@ -8,7 +8,7 @@
 import UIKit
 
 final class TabBarController: UITabBarController {
-    private lazy var HomeViewController: UIViewController = {
+    private lazy var homeViewController: UIViewController = {
         let viewController = UIViewController()
         let imageConfiguration = UIImage.SymbolConfiguration(hierarchicalColor: .black)
         let normalImage = UIImage(systemName: "house", withConfiguration: imageConfiguration)
@@ -16,11 +16,9 @@ final class TabBarController: UITabBarController {
         let tabBarItem = UITabBarItem(title: "HOME", image: normalImage, tag: 0)
         tabBarItem.selectedImage = selectedImage
         viewController.tabBarItem = tabBarItem
-            
         return viewController
     }()
-    
-    private lazy var ShopViewController: UIViewController = {
+    private lazy var shopViewController: UIViewController = {
         let viewController = UIViewController()
         let imageConfiguration = UIImage.SymbolConfiguration(hierarchicalColor: .black)
         let normalImage = UIImage(systemName: "magnifyingglass.circle", withConfiguration: imageConfiguration)
@@ -30,8 +28,7 @@ final class TabBarController: UITabBarController {
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
-    
-    private lazy var MyViewController: UIViewController = {
+    private lazy var myViewController: UIViewController = {
         let viewController = UIViewController()
         let imageConfiguration = UIImage.SymbolConfiguration(hierarchicalColor: .black)
         let normalImage = UIImage(systemName: "person", withConfiguration: imageConfiguration)
@@ -41,16 +38,15 @@ final class TabBarController: UITabBarController {
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
 }
 
-private extension TabBarController{
-    func configureUI(){
-        self.viewControllers = [HomeViewController, ShopViewController, MyViewController]
+private extension TabBarController {
+    func configureUI() {
+        self.viewControllers = [homeViewController, shopViewController, myViewController]
         self.tabBar.tintColor = .black
     }
 }

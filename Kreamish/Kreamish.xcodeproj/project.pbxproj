@@ -11,7 +11,7 @@
 		537A0B832A0A18C500CDEAC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537A0B822A0A18C500CDEAC3 /* SceneDelegate.swift */; };
 		537A0B8A2A0A18C700CDEAC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 537A0B892A0A18C700CDEAC3 /* Assets.xcassets */; };
 		537A0B8D2A0A18C700CDEAC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537A0B8B2A0A18C700CDEAC3 /* LaunchScreen.storyboard */; };
-		537A0B962A0A1A0900CDEAC3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537A0B952A0A1A0900CDEAC3 /* TabBarController.swift */; };
+		53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +21,8 @@
 		537A0B892A0A18C700CDEAC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		537A0B8C2A0A18C700CDEAC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		537A0B8E2A0A18C700CDEAC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		537A0B952A0A1A0900CDEAC3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		53CD0E262A0E46EC009A504A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +190,7 @@
 		53DDE6D62A0F82B1007C57BD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				537A0B952A0A1A0900CDEAC3 /* TabBarController.swift */,
+				53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				537A0B962A0A1A0900CDEAC3 /* TabBarController.swift in Sources */,
+				53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */,
 				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
 				537A0B832A0A18C500CDEAC3 /* SceneDelegate.swift in Sources */,
 			);

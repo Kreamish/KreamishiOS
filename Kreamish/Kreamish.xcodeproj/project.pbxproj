@@ -12,6 +12,10 @@
 		537A0B8A2A0A18C700CDEAC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 537A0B892A0A18C700CDEAC3 /* Assets.xcassets */; };
 		537A0B8D2A0A18C700CDEAC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537A0B8B2A0A18C700CDEAC3 /* LaunchScreen.storyboard */; };
 		53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */; };
+		D32A31F42A11048600579599 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D32A31F32A11048600579599 /* Tabman */; };
+		D32A31F72A1104F600579599 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31F62A1104F600579599 /* ShopViewController.swift */; };
+		D32A31F92A11052400579599 /* ShopTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31F82A11052400579599 /* ShopTabViewController.swift */; };
+		D32A31FC2A1106CF00579599 /* UIViewController+StatusBar .swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31FB2A1106CF00579599 /* UIViewController+StatusBar .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,9 @@
 		537A0B8E2A0A18C700CDEAC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53CD0E262A0E46EC009A504A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D32A31F62A1104F600579599 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		D32A31F82A11052400579599 /* ShopTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTabViewController.swift; sourceTree = "<group>"; };
+		D32A31FB2A1106CF00579599 /* UIViewController+StatusBar .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StatusBar .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32A31F42A11048600579599 /* Tabman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +198,8 @@
 		53DDE6D62A0F82B1007C57BD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D32A31FB2A1106CF00579599 /* UIViewController+StatusBar .swift */,
+				D32A31F52A1104B700579599 /* Shop */,
 				53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */,
 			);
 			path = View;
@@ -210,6 +220,15 @@
 			path = Dummies;
 			sourceTree = "<group>";
 		};
+		D32A31F52A1104B700579599 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				D32A31F62A1104F600579599 /* ShopViewController.swift */,
+				D32A31F82A11052400579599 /* ShopTabViewController.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -227,6 +246,9 @@
 			dependencies = (
 			);
 			name = Kreamish;
+			packageProductDependencies = (
+				D32A31F32A11048600579599 /* Tabman */,
+			);
 			productName = Kreamish;
 			productReference = 537A0B7D2A0A18C500CDEAC3 /* Kreamish.app */;
 			productType = "com.apple.product-type.application";
@@ -255,6 +277,9 @@
 				Base,
 			);
 			mainGroup = 537A0B742A0A18C500CDEAC3;
+			packageReferences = (
+				D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */,
+			);
 			productRefGroup = 537A0B7E2A0A18C500CDEAC3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -302,6 +327,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32A31F72A1104F600579599 /* ShopViewController.swift in Sources */,
+				D32A31FC2A1106CF00579599 /* UIViewController+StatusBar .swift in Sources */,
+				D32A31F92A11052400579599 /* ShopTabViewController.swift in Sources */,
 				53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */,
 				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
 				537A0B832A0A18C500CDEAC3 /* SceneDelegate.swift in Sources */,
@@ -512,6 +540,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D32A31F32A11048600579599 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 537A0B752A0A18C500CDEAC3 /* Project object */;
 }

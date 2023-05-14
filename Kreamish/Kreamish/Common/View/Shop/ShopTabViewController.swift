@@ -7,17 +7,14 @@
 
 import UIKit
 
-import Tabman
 import Pageboy
+import Tabman
 
 final class ShopTabViewController: TabmanViewController, PageboyViewControllerDataSource, TMBarDataSource {
-   
-    private var viewControllers: Array<UIViewController> = []
-    
-    private lazy var tempView: UIView = {   //상단 탭바 들어갈 자리
+    private var viewControllers: [UIViewController] = []
+    private lazy var tempView: UIView = {   // 상단 탭바 들어갈 자리
         return UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
     }()
-    
     private lazy var allViewController: UIViewController = {
         let viewController = UIViewController()
         viewController.view.backgroundColor = .white
@@ -47,7 +44,7 @@ final class ShopTabViewController: TabmanViewController, PageboyViewControllerDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(tempView)   //상단탭 들어갈 영역
+        view.addSubview(tempView)   // 상단탭 들어갈 영역
         
         viewControllers.append(allViewController)
         viewControllers.append(shoesViewController)
@@ -83,11 +80,16 @@ final class ShopTabViewController: TabmanViewController, PageboyViewControllerDa
     }
     
     // PageboyViewControllerDataSource
-    func numberOfViewControllers(in pageboyViewController: Pageboy.PageboyViewController) -> Int {
+    func numberOfViewControllers(
+        in pageboyViewController: Pageboy.PageboyViewController
+    ) -> Int {
         viewControllers.count
     }
 
-    func viewController(for pageboyViewController: Pageboy.PageboyViewController, at index: Pageboy.PageboyViewController.PageIndex) -> UIViewController? {
+    func viewController(
+        for pageboyViewController: Pageboy.PageboyViewController,
+        at index: Pageboy.PageboyViewController.PageIndex
+    ) -> UIViewController? {
         viewControllers[index]
     }
 

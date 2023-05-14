@@ -9,7 +9,7 @@ import UIKit
 
 class ShopViewController: UIViewController {
     
-    lazy var searchBar: UITextField = { //검색창
+    lazy var searchBar: UITextField = { // 검색창
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.backgroundColor = .systemGray6
@@ -38,7 +38,7 @@ class ShopViewController: UIViewController {
         NSLayoutConstraint.activate([
             searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: (statusBar?.frame.height)! + 10),
+            searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: (statusBar?.frame.height) ?? 50 + 10),
             
             contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),

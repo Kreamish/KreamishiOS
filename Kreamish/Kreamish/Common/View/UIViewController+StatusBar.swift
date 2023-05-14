@@ -9,8 +9,8 @@ import UIKit
 
 extension UIViewController {
     var statusBar: UIView? {
-        //status bar design  scene는 싱글톤 느낌으로 같이 사용가능
-        //scenedelegate 접근
+        // status bar design  scene는 싱글톤 느낌으로 같이 사용가능
+        // scenedelegate 접근
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         
         let scenes = UIApplication.shared.connectedScenes

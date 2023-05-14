@@ -15,7 +15,7 @@
 		D32A31F42A11048600579599 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D32A31F32A11048600579599 /* Tabman */; };
 		D32A31F72A1104F600579599 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31F62A1104F600579599 /* ShopViewController.swift */; };
 		D32A31F92A11052400579599 /* ShopTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31F82A11052400579599 /* ShopTabViewController.swift */; };
-		D32A31FC2A1106CF00579599 /* UIViewController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31FB2A1106CF00579599 /* UIViewController+StatusBar.swift */; };
+		D32A31FC2A1106CF00579599 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31FB2A1106CF00579599 /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D32A31F62A1104F600579599 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		D32A31F82A11052400579599 /* ShopTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTabViewController.swift; sourceTree = "<group>"; };
-		D32A31FB2A1106CF00579599 /* UIViewController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+StatusBar.swift"; sourceTree = "<group>"; };
+		D32A31FB2A1106CF00579599 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,7 +198,7 @@
 		53DDE6D62A0F82B1007C57BD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D32A31FB2A1106CF00579599 /* UIViewController+StatusBar.swift */,
+				D32A31FB2A1106CF00579599 /* UIViewController+.swift */,
 				D32A31F52A1104B700579599 /* Shop */,
 				53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */,
 			);
@@ -329,7 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D32A31F72A1104F600579599 /* ShopViewController.swift in Sources */,
-				D32A31FC2A1106CF00579599 /* UIViewController+StatusBar.swift in Sources */,
+				D32A31FC2A1106CF00579599 /* UIViewController+.swift in Sources */,
 				D32A31F92A11052400579599 /* ShopTabViewController.swift in Sources */,
 				53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */,
 				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
@@ -480,6 +480,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,6 +510,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

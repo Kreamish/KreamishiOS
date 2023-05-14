@@ -20,6 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         statusBarView.frame =  window?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
+        
+        if #available(iOS 13.0, *) {
+            self.window?.overrideUserInterfaceStyle = .light // 라이트모드만 지원하기
+        }
     }
 
     

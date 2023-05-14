@@ -1,5 +1,5 @@
 //
-//  ShopViewController.swift
+//  ShopTabViewController.swift
 //  Kreamish
 //
 //  Created by Miyo Lee on 2023/05/11.

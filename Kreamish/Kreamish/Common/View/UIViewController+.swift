@@ -22,4 +22,14 @@ extension UIViewController {
         }
         return sceneDelegate?.statusBarView
     }
+    
+    func hideKeyboardWhenTappedBackground() {
+        let tapEvent = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapEvent.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapEvent)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

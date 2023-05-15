@@ -16,11 +16,6 @@ final class BannerCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         return imageView
     }()
-    private lazy var separatorView: SeparatorView = {
-        let view = SeparatorView()
-        view.backgroundColor = .opaqueSeparator
-        return view
-    }()
     func setUp(_ bannerImage: UIImage) {
         self.bannerImageView.image = bannerImage
         self.configureUI()
@@ -30,8 +25,7 @@ final class BannerCollectionViewCell: UICollectionViewCell {
 extension BannerCollectionViewCell {
     func configureUI() {
         [
-            self.bannerImageView,
-            self.separatorView
+            self.bannerImageView
         ].forEach {
             self.addSubview($0)
         }
@@ -40,12 +34,6 @@ extension BannerCollectionViewCell {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
-        }
-        self.separatorView.snp.makeConstraints {
-            $0.height.equalTo(15)
-            $0.leading.equalTo(self.bannerImageView.snp.leading).inset(15)
-            $0.trailing.equalTo(self.bannerImageView.snp.trailing).inset(15)
-            $0.bottom.equalTo(self.bannerImageView.snp.bottom).inset(30)
         }
     }
 }

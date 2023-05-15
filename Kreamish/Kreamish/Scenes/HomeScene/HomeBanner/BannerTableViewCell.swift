@@ -19,6 +19,7 @@ final class BannerTableViewCell: UITableViewCell {
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumLineSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -52,7 +53,6 @@ extension BannerTableViewCell: UICollectionViewDelegateFlowLayout {
         return CGSize(width: self.collectionView.frame.width, height: self.collectionView.frame.width)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("클릭")
     }
 }
 

@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class SeparatorView: UIView {
+final class IndicatorView: UIView {
     private lazy var separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = .opaqueSeparator
@@ -24,7 +24,7 @@ final class SeparatorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-extension SeparatorView {
+extension IndicatorView {
     private func configureUI() {
         self.addSubview(separatorView)
         self.separatorView.snp.makeConstraints {

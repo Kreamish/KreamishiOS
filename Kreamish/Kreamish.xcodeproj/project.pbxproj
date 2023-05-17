@@ -81,6 +81,7 @@
 		537A0B942A0A19BB00CDEAC3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				D32A31FE2A150E6C00579599 /* ShopScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -199,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				D32A31FB2A1106CF00579599 /* UIViewController+.swift */,
-				D32A31F52A1104B700579599 /* Shop */,
 				53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */,
 			);
 			path = View;
@@ -220,13 +220,13 @@
 			path = Dummies;
 			sourceTree = "<group>";
 		};
-		D32A31F52A1104B700579599 /* Shop */ = {
+		D32A31FE2A150E6C00579599 /* ShopScene */ = {
 			isa = PBXGroup;
 			children = (
 				D32A31F62A1104F600579599 /* ShopViewController.swift */,
 				D32A31F82A11052400579599 /* ShopTabViewController.swift */,
 			);
-			path = Shop;
+			path = ShopScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .systemBackground
         tableView.showsHorizontalScrollIndicator = false
-        tableView.register(BannerTableViewCell.self, forCellReuseIdentifier: "BannerTableViewCell")
+        tableView.register(HomeBannerTableViewCell.self, forCellReuseIdentifier: "BannerTableViewCell")
         return tableView
     }()
     override func viewDidLoad() {
@@ -54,7 +54,9 @@ extension HomeViewController: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BannerTableViewCell") as? BannerTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "BannerTableViewCell"
+        ) as? HomeBannerTableViewCell else {
             return UITableViewCell()
         }
         cell.setUp()

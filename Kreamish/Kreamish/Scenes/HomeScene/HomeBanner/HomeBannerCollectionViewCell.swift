@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class BannerCollectionViewCell: UICollectionViewCell {
+final class HomeBannerCollectionViewCell: UICollectionViewCell {
     private lazy var bannerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -22,7 +22,7 @@ final class BannerCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension BannerCollectionViewCell {
+extension HomeBannerCollectionViewCell {
     func configureUI() {
         [
             self.bannerImageView

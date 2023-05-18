@@ -17,7 +17,7 @@ final class HomeBannerTableViewCell: UITableViewCell {
         UIImage(named: "Kream_1")!,
         UIImage(named: "Kream_2")!,
         UIImage(named: "Kream_3")!,
-        UIImage(named: "Kream_4")!
+        UIImage(named: "Kream_4")!,
     ]
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -30,7 +30,9 @@ final class HomeBannerTableViewCell: UITableViewCell {
         collectionView.backgroundColor = .systemBackground
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isUserInteractionEnabled = true
-        collectionView.register(HomeBannerCollectionViewCell.self, forCellWithReuseIdentifier: "BannerCollectionViewCell")
+        collectionView.register(HomeBannerCollectionViewCell.self,
+                                forCellWithReuseIdentifier: "BannerCollectionViewCell"
+        )
         return collectionView
     }()
     private lazy var indicatorView: IndicatorView = {
@@ -38,12 +40,9 @@ final class HomeBannerTableViewCell: UITableViewCell {
         let indicatorView = IndicatorView(viewModel: viewModel)
         return indicatorView
     }()
-//    convenience init() {
-//        self.init(frame: .zero)
-//
-//    }
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
+        self.entryCollectionItem()
         self.bindWidthRatio(
             self.collectionView.contentSize.width,
             self.collectionView.contentInset.left,
@@ -54,6 +53,10 @@ final class HomeBannerTableViewCell: UITableViewCell {
     func setUp(viewModel: HomeViewModel) {
         self.viewModel = viewModel
         self.configureUI()
+        self.imageList.insert(self.imageList[self.imageList.count - 1], at: 0)
+        self.imageList.append(imageList[1])
+        self.imageList.insert(self.imageList[self.imageList.count - 3], at: 0)
+        self.imageList.append(imageList[3])
     }
 }
 
@@ -89,6 +92,10 @@ extension HomeBannerTableViewCell {
         )
         self.indicatorView.layoutIfNeeded()
     }
+    private func entryCollectionItem() {
+        let indexPath = IndexPath(item: 1, section: 0)
+        self.collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: false)
+    }
 }
 
 extension HomeBannerTableViewCell: UICollectionViewDelegateFlowLayout {
@@ -109,6 +116,20 @@ extension HomeBannerTableViewCell: UICollectionViewDelegateFlowLayout {
             scrollView.contentInset.left,
             scrollView.contentInset.right
         )
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard let collectionView = scrollView as? UICollectionView else { return }
+        let visibleIndexPaths = collectionView.indexPathsForVisibleItems
+        guard let currentVisibleIndexPath = visibleIndexPaths.first else { return }
+        let currentIndex = currentVisibleIndexPath.item
+        var indexPath: IndexPath?
+        if currentIndex == self.imageList.endIndex - 2 {
+            indexPath = IndexPath(item: 2, section: 0)
+        } else if currentIndex == 1 {
+            indexPath = IndexPath(item: self.imageList.endIndex - 3, section: 0)
+        }
+        guard let indexPath = indexPath else { return }
+        self.collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: false)
     }
 }
 

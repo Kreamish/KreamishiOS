@@ -13,13 +13,7 @@ import SnapKit
 final class IndicatorView: UIView {
     private var subscription = Set<AnyCancellable>()
     private var trackViewLeftInsetConstraint: Constraint?
-    private var homeViewModel: HomeViewModel?
-    var trackViewLeftOffsetRatio: Double? {
-      didSet {
-        guard let leftOffsetRatio = self.trackViewLeftOffsetRatio else { return }
-        self.trackViewLeftInsetConstraint?.update(inset: leftOffsetRatio * self.bounds.width)
-      }
-    }
+    private var viewModel: HomeViewModel?
     private lazy var lineView: UIView = {
         let view = UIView()
         view.backgroundColor = .white.withAlphaComponent(0.5)
@@ -32,7 +26,7 @@ final class IndicatorView: UIView {
     }()
     convenience init(viewModel: HomeViewModel) {
         self.init(frame: .zero)
-        homeViewModel = HomeViewModel()
+        self.viewModel = viewModel
         self.configureUI()
         self.bindUI()
     }
@@ -55,8 +49,8 @@ extension IndicatorView {
         }
     }
     private func bindUI() {
-        guard let homeViewModel = self.homeViewModel else {return}
-        homeViewModel.widthRatioPublisher
+        guard let viewModel = self.viewModel else {return}
+        viewModel.widthRatioPublisher
             .receive(on: DispatchQueue.main)
             .sink { widthRatio in
                 guard let widthRatio = widthRatio else {return}
@@ -67,6 +61,12 @@ extension IndicatorView {
                   $0.right.lessThanOrEqualToSuperview()
                   self.trackViewLeftInsetConstraint = $0.left.equalToSuperview().priority(999).constraint
                 }
+            }
+            .store(in: &subscription)
+        viewModel.leftOffsetRatioPublisher
+            .sink { leftOffsetRatio in
+                guard let leftOffsetRatio = leftOffsetRatio else {return}
+                self.trackViewLeftInsetConstraint?.update(inset: leftOffsetRatio * self.bounds.width)
             }
             .store(in: &subscription)
     }

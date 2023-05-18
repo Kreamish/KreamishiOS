@@ -102,10 +102,13 @@ extension HomeBannerTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scroll = scrollView.contentOffset.x + scrollView.contentInset.left
-        let width = scrollView.contentSize.width + scrollView.contentInset.left + scrollView.contentInset.right
-        let scrollRatio = scroll / width
-        self.indicatorView.trackViewLeftOffsetRatio = scrollRatio
+        guard let viewModel = viewModel else {return}
+        viewModel.computeLeftOffsetRatio(
+            scrollView.contentSize.width,
+            scrollView.contentOffset.x,
+            scrollView.contentInset.left,
+            scrollView.contentInset.right
+        )
     }
 }
 

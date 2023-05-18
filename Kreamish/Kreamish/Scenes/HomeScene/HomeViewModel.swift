@@ -18,6 +18,7 @@ protocol HomeViewModelInput {
 
 protocol HomeViewModelOutput {
     var widthRatioPublisher: AnyPublisher<Double?, Never> { get }
+    var leftOffsetRatioPublisher: AnyPublisher<Double?, Never> { get }
 }
 
 typealias HomeViewModelProtocol = HomeViewModelInput & HomeViewModelOutput
@@ -26,8 +27,13 @@ final class HomeViewModel: HomeViewModelProtocol {
     var widthRatioPublisher: AnyPublisher<Double?, Never> {
         self.$widthRatio.eraseToAnyPublisher()
     }
+    var leftOffsetRatioPublisher: AnyPublisher<Double?, Never> {
+        self.$leftOffsetRatio.eraseToAnyPublisher()
+    }
     @Published var widthRatio: Double?
-    @Published var indicatorViewLeftOffsetRatio: Double?
+    @Published var leftOffsetRatio: Double?
+}
+extension HomeViewModel {
     func computeWidthRatio(
         _ contentSizeWidth: Double,
         _ contentInsetLeft: CGFloat,
@@ -37,5 +43,16 @@ final class HomeViewModel: HomeViewModelProtocol {
         let allContentSizeWidth = contentSizeWidth + contentInsetLeft + contentInsetRight
         let widthRatio = showingWidth / allContentSizeWidth
         self.widthRatio = widthRatio
+    }
+    func computeLeftOffsetRatio(
+        _ contentSizeWidth: Double,
+        _ contentOffsetX: Double,
+        _ contentInsetLeft: CGFloat,
+        _ contentInsetRight: CGFloat
+    ) {
+        let leftOffset = contentOffsetX + contentInsetLeft
+        let entireWidth = contentSizeWidth + contentInsetLeft + contentInsetRight
+        let leftOffsetRatio = leftOffset / entireWidth
+        self.leftOffsetRatio = leftOffsetRatio
     }
 }

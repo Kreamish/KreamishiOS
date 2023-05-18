@@ -5,11 +5,14 @@
 //  Created by 안종표 on 2023/05/13.
 //
 
+import Combine
 import UIKit
 
 import SnapKit
 
 final class HomeBannerTableViewCell: UITableViewCell {
+    private var subscription = Set<AnyCancellable>()
+    private var viewModel: HomeViewModel?
     private var imageList: [UIImage] = [
         UIImage(named: "Kream_1")!,
         UIImage(named: "Kream_2")!,
@@ -31,14 +34,25 @@ final class HomeBannerTableViewCell: UITableViewCell {
         return collectionView
     }()
     private lazy var indicatorView: IndicatorView = {
-        let indicatorView = IndicatorView()
+        guard let viewModel = viewModel else {return IndicatorView()}
+        let indicatorView = IndicatorView(viewModel: viewModel)
         return indicatorView
     }()
+//    convenience init() {
+//        self.init(frame: .zero)
+//
+//    }
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
-        indicatorViewWidth()
+        self.bindWidthRatio(
+            self.collectionView.contentSize.width,
+            self.collectionView.contentInset.left,
+            self.collectionView.contentInset.right,
+            self.collectionView.bounds.width
+        )
     }
-    func setUp() {
+    func setUp(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
         self.configureUI()
     }
 }
@@ -60,13 +74,19 @@ extension HomeBannerTableViewCell {
             $0.height.equalTo(4)
         }
     }
-    private func indicatorViewWidth() {
-        let allContentSizeWidth =
-            self.collectionView.contentSize.width +
-            self.collectionView.contentInset.left +
-            self.collectionView.contentInset.right
-        let showingWidth = self.collectionView.bounds.width
-        self.indicatorView.trackViewWidthRatio = showingWidth / allContentSizeWidth
+    private func bindWidthRatio(
+        _ contentSizeWidth: Double,
+        _ contentInsetLeft: CGFloat,
+        _ contentInsetRight: CGFloat,
+        _ showingWidth: Double
+    ) {
+        guard let homeViewModel = self.viewModel else {return}
+        homeViewModel.computeWidthRatio(
+            contentSizeWidth,
+            contentInsetLeft,
+            contentInsetRight,
+            showingWidth
+        )
         self.indicatorView.layoutIfNeeded()
     }
 }

@@ -5,24 +5,15 @@
 //  Created by 안종표 on 2023/05/13.
 //
 
+import Combine
 import UIKit
 
 import SnapKit
 
 final class IndicatorView: UIView {
+    private var subscription = Set<AnyCancellable>()
     private var trackViewLeftInsetConstraint: Constraint?
-    var trackViewWidthRatio: Double? {
-      didSet {
-        guard let widthRatio = self.trackViewWidthRatio else { return }
-        self.trackView.snp.remakeConstraints {
-          $0.top.bottom.equalToSuperview()
-          $0.width.equalToSuperview().multipliedBy(widthRatio)
-          $0.left.greaterThanOrEqualToSuperview()
-          $0.right.lessThanOrEqualToSuperview()
-          self.trackViewLeftInsetConstraint = $0.left.equalToSuperview().priority(999).constraint
-        }
-      }
-    }
+    private var homeViewModel: HomeViewModel?
     var trackViewLeftOffsetRatio: Double? {
       didSet {
         guard let leftOffsetRatio = self.trackViewLeftOffsetRatio else { return }
@@ -39,13 +30,11 @@ final class IndicatorView: UIView {
         view.backgroundColor = .white
         return view
     }()
-
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
+    convenience init(viewModel: HomeViewModel) {
+        self.init(frame: .zero)
+        homeViewModel = HomeViewModel()
         self.configureUI()
-    }
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.bindUI()
     }
 }
 extension IndicatorView {
@@ -61,7 +50,24 @@ extension IndicatorView {
             $0.top.bottom.equalToSuperview()
             $0.leading.greaterThanOrEqualToSuperview()
             $0.trailing.lessThanOrEqualToSuperview()
+            $0.width.equalToSuperview().multipliedBy(1.0/4.0)
             self.trackViewLeftInsetConstraint = $0.left.equalToSuperview().priority(999).constraint
         }
+    }
+    private func bindUI() {
+        guard let homeViewModel = self.homeViewModel else {return}
+        homeViewModel.widthRatioPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { widthRatio in
+                guard let widthRatio = widthRatio else {return}
+                self.trackView.snp.remakeConstraints {
+                  $0.top.bottom.equalToSuperview()
+                  $0.width.equalToSuperview().multipliedBy(widthRatio)
+                  $0.left.greaterThanOrEqualToSuperview()
+                  $0.right.lessThanOrEqualToSuperview()
+                  self.trackViewLeftInsetConstraint = $0.left.equalToSuperview().priority(999).constraint
+                }
+            }
+            .store(in: &subscription)
     }
 }

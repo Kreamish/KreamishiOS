@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 final class HomeViewController: UIViewController {
+    private var viewModel: HomeViewModel?
     private var cellList: [UITableViewCell] = []
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -22,6 +23,7 @@ final class HomeViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel = HomeViewModel()
         self.configureUI()
     }
 }
@@ -54,12 +56,14 @@ extension HomeViewController: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "BannerTableViewCell"
-        ) as? HomeBannerTableViewCell else {
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BannerTableViewCell"
+            ) as? HomeBannerTableViewCell,
+            let viewModel = self.viewModel
+        else {
             return UITableViewCell()
         }
-        cell.setUp()
+        cell.setUp(viewModel: viewModel)
         return cell
     }
 }

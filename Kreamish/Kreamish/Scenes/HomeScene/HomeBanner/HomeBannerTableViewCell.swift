@@ -50,6 +50,7 @@ final class HomeBannerTableViewCell: UITableViewCell {
             self.collectionView.bounds.width,
             self.imageList.count
         )
+        self.bannerTimer()
     }
     func setUp(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -99,6 +100,28 @@ extension HomeBannerTableViewCell {
         let indexPath = IndexPath(item: 2, section: 0)
         self.collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: false)
     }
+    func computeCurrentIndex() -> Int{
+        let visibleIndexPaths = self.collectionView.indexPathsForVisibleItems
+        guard let currentVisibleIndexPath = visibleIndexPaths.first else { return 0}
+        let currentIndex = currentVisibleIndexPath.item
+        return currentIndex
+    }
+    private func bannerTimer() {
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
+            self.bannerMove()
+        }
+    }
+    private func bannerMove() {
+        let currentIndex = self.computeCurrentIndex()
+        var indexPath: IndexPath?
+        if currentIndex == self.imageList.endIndex - 3 {
+            indexPath = IndexPath(item: 2, section: 0)
+        } else {
+            indexPath = IndexPath(item: currentIndex + 1, section: 0)
+        }
+        guard let indexPath = indexPath else {return}
+        self.collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
+    }
 }
 
 extension HomeBannerTableViewCell: UICollectionViewDelegateFlowLayout {
@@ -122,14 +145,12 @@ extension HomeBannerTableViewCell: UICollectionViewDelegateFlowLayout {
         )
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        guard let collectionView = scrollView as? UICollectionView else { return }
-        let visibleIndexPaths = collectionView.indexPathsForVisibleItems
-        guard let currentVisibleIndexPath = visibleIndexPaths.first else { return }
-        let currentIndex = currentVisibleIndexPath.item
+        
+        let currentIndex = computeCurrentIndex()
         var indexPath: IndexPath?
         if currentIndex == self.imageList.endIndex - 1 {
             indexPath = IndexPath(item: 3, section: 0)
-        }else if currentIndex == self.imageList.endIndex - 2 {
+        } else if currentIndex == self.imageList.endIndex - 2 {
             indexPath = IndexPath(item: 2, section: 0)
         } else if currentIndex == 1 {
             indexPath = IndexPath(item: self.imageList.endIndex - 3, section: 0)

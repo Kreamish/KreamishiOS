@@ -47,7 +47,8 @@ final class HomeBannerTableViewCell: UITableViewCell {
             self.collectionView.contentSize.width,
             self.collectionView.contentInset.left,
             self.collectionView.contentInset.right,
-            self.collectionView.bounds.width
+            self.collectionView.bounds.width,
+            self.imageList.count
         )
     }
     func setUp(viewModel: HomeViewModel) {
@@ -81,19 +82,21 @@ extension HomeBannerTableViewCell {
         _ contentSizeWidth: Double,
         _ contentInsetLeft: CGFloat,
         _ contentInsetRight: CGFloat,
-        _ showingWidth: Double
+        _ showingWidth: Double,
+        _ numberOfData: Int
     ) {
         guard let homeViewModel = self.viewModel else {return}
         homeViewModel.computeWidthRatio(
             contentSizeWidth,
             contentInsetLeft,
             contentInsetRight,
-            showingWidth
+            showingWidth,
+            numberOfData
         )
         self.indicatorView.layoutIfNeeded()
     }
     private func entryCollectionItem() {
-        let indexPath = IndexPath(item: 1, section: 0)
+        let indexPath = IndexPath(item: 2, section: 0)
         self.collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: false)
     }
 }
@@ -114,7 +117,8 @@ extension HomeBannerTableViewCell: UICollectionViewDelegateFlowLayout {
             scrollView.contentSize.width,
             scrollView.contentOffset.x,
             scrollView.contentInset.left,
-            scrollView.contentInset.right
+            scrollView.contentInset.right,
+            self.imageList.count
         )
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -123,10 +127,14 @@ extension HomeBannerTableViewCell: UICollectionViewDelegateFlowLayout {
         guard let currentVisibleIndexPath = visibleIndexPaths.first else { return }
         let currentIndex = currentVisibleIndexPath.item
         var indexPath: IndexPath?
-        if currentIndex == self.imageList.endIndex - 2 {
+        if currentIndex == self.imageList.endIndex - 1 {
+            indexPath = IndexPath(item: 3, section: 0)
+        }else if currentIndex == self.imageList.endIndex - 2 {
             indexPath = IndexPath(item: 2, section: 0)
         } else if currentIndex == 1 {
             indexPath = IndexPath(item: self.imageList.endIndex - 3, section: 0)
+        } else if currentIndex == 0 {
+            indexPath = IndexPath(item: self.imageList.endIndex - 4, section: 0)
         }
         guard let indexPath = indexPath else { return }
         self.collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: false)

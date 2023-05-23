@@ -12,7 +12,8 @@ protocol HomeViewModelInput {
         _ contentSizeWidth: Double,
         _ contentInsetLeft: CGFloat,
         _ contentInsetRight: CGFloat,
-        _ showingWidth: Double
+        _ showingWidth: Double,
+        _ numberOfData: Int
     )
 }
 
@@ -38,20 +39,24 @@ extension HomeViewModel {
         _ contentSizeWidth: Double,
         _ contentInsetLeft: CGFloat,
         _ contentInsetRight: CGFloat,
-        _ showingWidth: Double
+        _ showingWidth: Double,
+        _ numberOfData: Int
     ) {
         let allContentSizeWidth = contentSizeWidth + contentInsetLeft + contentInsetRight
-        let widthRatio = showingWidth / allContentSizeWidth
+        let widthRatio = showingWidth / (allContentSizeWidth *
+                                         (CGFloat((numberOfData - 4)) / CGFloat(numberOfData)))
         self.widthRatio = widthRatio
     }
     func computeLeftOffsetRatio(
         _ contentSizeWidth: Double,
         _ contentOffsetX: Double,
         _ contentInsetLeft: CGFloat,
-        _ contentInsetRight: CGFloat
+        _ contentInsetRight: CGFloat,
+        _ numberOfData: Int
     ) {
-        let leftOffset = contentOffsetX + contentInsetLeft
-        let entireWidth = contentSizeWidth + contentInsetLeft + contentInsetRight
+        let leftOffset = (contentOffsetX - ((contentSizeWidth / Double(numberOfData)) * 2)) + contentInsetLeft
+        let entireWidth = (contentSizeWidth * CGFloat((numberOfData - 4)) /
+                           CGFloat(numberOfData)) + contentInsetLeft + contentInsetRight
         let leftOffsetRatio = leftOffset / entireWidth
         self.leftOffsetRatio = leftOffsetRatio
     }

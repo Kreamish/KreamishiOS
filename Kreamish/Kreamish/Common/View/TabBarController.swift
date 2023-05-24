@@ -9,7 +9,7 @@ import UIKit
 
 final class TabBarController: UITabBarController {
     private lazy var homeViewController: UIViewController = {
-        let viewController = UIViewController()
+        let viewController = HomeViewController()
         let imageConfiguration = UIImage.SymbolConfiguration(hierarchicalColor: .black)
         let normalImage = UIImage(systemName: "house", withConfiguration: imageConfiguration)
         let selectedImage = UIImage(systemName: "house.fill", withConfiguration: imageConfiguration)

@@ -52,7 +52,7 @@ final class HomeBannerTableViewCell: UITableViewCell {
         )
         self.bannerTimer()
     }
-    func setUp(viewModel: HomeViewModel) {
+    func setUp(_ viewModel: HomeViewModel) {
         self.viewModel = viewModel
         self.configureUI()
         self.imageList.insert(self.imageList[self.imageList.count - 1], at: 0)

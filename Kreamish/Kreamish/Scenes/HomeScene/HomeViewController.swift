@@ -17,6 +17,7 @@ enum KindOfCell {
 final class HomeViewController: UIViewController {
     private var viewModel: HomeViewModel?
     private var cellList: [UITableViewCell] = []
+    private var cells: [KindOfCell] = []
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.delegate = self
@@ -37,6 +38,7 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.viewModel = HomeViewModel()
         self.configureUI()
+        self.addCells()
     }
 }
 extension HomeViewController {
@@ -48,6 +50,11 @@ extension HomeViewController {
             $0.trailing.equalToSuperview()
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
+    }
+    private func addCells() {
+        guard let viewModel = self.viewModel else { return }
+        self.cells.append(.banner(viewModel: viewModel))
+        self.cells.append(.recommendCategory(viewModel: viewModel))
     }
 }
 
@@ -62,33 +69,29 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.cells.count
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let viewModel = self.viewModel else { return UITableViewCell() }
-        let cells: [KindOfCell] = [
-            .banner(viewModel: viewModel),
-            .recommendCategory(viewModel: viewModel)
-        ]
-        switch cells[indexPath.item] {
+        switch self.cells[indexPath.item] {
         case let .banner(viewModel: viewModel):
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "HomeBannerTableViewCell"
             ) as? HomeBannerTableViewCell else {
                 return UITableViewCell()
             }
-            cell.setUp(viewModel: viewModel)
+            cell.setUp(viewModel)
             return cell
         case let .recommendCategory(viewModel: viewModel):
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "HomeRecommendCategoryTableViewCell"
-            ) as? HomeBannerTableViewCell else {
+            ) as? HomeRecommendCategoryTableViewCell else {
                 return UITableViewCell()
             }
-            cell.setUp(viewModel: viewModel)
+            cell.setUp(viewModel)
             return cell
         }
     }

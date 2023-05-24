@@ -65,6 +65,14 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("클릭")
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        switch self.cells[indexPath.item] {
+        case .banner:
+            cell.separatorInset = UIEdgeInsets(top: 0, left: self.tableView.bounds.width, bottom: 0, right: 0)
+        default:
+            break
+        }
+    }
 }
 
 extension HomeViewController: UITableViewDataSource {

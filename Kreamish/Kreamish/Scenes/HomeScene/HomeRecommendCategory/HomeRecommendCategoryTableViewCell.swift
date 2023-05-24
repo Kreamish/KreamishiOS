@@ -22,7 +22,9 @@ final class HomeRecommendCategoryTableViewCell: UITableViewCell {
         "Test용 입니다4"
     ]
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero)
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isPagingEnabled = false

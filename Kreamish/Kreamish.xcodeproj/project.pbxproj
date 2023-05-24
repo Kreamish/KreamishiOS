@@ -12,6 +12,8 @@
 		537A0B8A2A0A18C700CDEAC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 537A0B892A0A18C700CDEAC3 /* Assets.xcassets */; };
 		537A0B8D2A0A18C700CDEAC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537A0B8B2A0A18C700CDEAC3 /* LaunchScreen.storyboard */; };
 		537F94242A14846D004AE7D7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F94232A14846D004AE7D7 /* HomeViewModel.swift */; };
+		53D1E2232A1E09F2000424FA /* HomeRecommendCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1E2222A1E09F2000424FA /* HomeRecommendCategoryTableViewCell.swift */; };
+		53D1E2252A1E0AE4000424FA /* HomeRecommendCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1E2242A1E0AE4000424FA /* HomeRecommendCategoryCollectionViewCell.swift */; };
 		53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */; };
 		53DDE6E22A0FB3A1007C57BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6E12A0FB3A1007C57BD /* HomeViewController.swift */; };
 		53DDE6E52A0FB409007C57BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 53DDE6E42A0FB409007C57BD /* SnapKit */; };
@@ -29,6 +31,8 @@
 		537A0B8E2A0A18C700CDEAC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		537F94232A14846D004AE7D7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		53CD0E262A0E46EC009A504A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		53D1E2222A1E09F2000424FA /* HomeRecommendCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		53D1E2242A1E0AE4000424FA /* HomeRecommendCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		53DDE6E12A0FB3A1007C57BD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		53DDE6E62A0FBD77007C57BD /* HomeBannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerTableViewCell.swift; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 				53DDE6D62A0F82B1007C57BD /* View */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		53D1E2212A1E09B8000424FA /* HomeRecommendCategory */ = {
+			isa = PBXGroup;
+			children = (
+				53D1E2222A1E09F2000424FA /* HomeRecommendCategoryTableViewCell.swift */,
+				53D1E2242A1E0AE4000424FA /* HomeRecommendCategoryCollectionViewCell.swift */,
+			);
+			path = HomeRecommendCategory;
 			sourceTree = "<group>";
 		};
 		53DDE6C92A0F8217007C57BD /* Domain */ = {
@@ -229,6 +242,7 @@
 				53DDE6E12A0FB3A1007C57BD /* HomeViewController.swift */,
 				537F94232A14846D004AE7D7 /* HomeViewModel.swift */,
 				53DDE6DF2A0FB347007C57BD /* HomeBanner */,
+				53D1E2212A1E09B8000424FA /* HomeRecommendCategory */,
 			);
 			path = HomeScene;
 			sourceTree = "<group>";
@@ -345,9 +359,11 @@
 				53DDE6E72A0FBD77007C57BD /* HomeBannerTableViewCell.swift in Sources */,
 				53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */,
 				537F94242A14846D004AE7D7 /* HomeViewModel.swift in Sources */,
+				53D1E2232A1E09F2000424FA /* HomeRecommendCategoryTableViewCell.swift in Sources */,
 				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
 				53DDE6EC2A0FC344007C57BD /* IndicatorView.swift in Sources */,
 				537A0B832A0A18C500CDEAC3 /* SceneDelegate.swift in Sources */,
+				53D1E2252A1E0AE4000424FA /* HomeRecommendCategoryCollectionViewCell.swift in Sources */,
 				53DDE6E22A0FB3A1007C57BD /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

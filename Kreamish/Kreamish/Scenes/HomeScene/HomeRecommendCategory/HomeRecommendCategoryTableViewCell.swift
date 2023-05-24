@@ -10,8 +10,12 @@ import UIKit
 final class HomeRecommendCategoryTableViewCell: UITableViewCell {
     private var viewModel: HomeViewModel?
     private let images: [UIImage] = [
-        UIImage(systemName: "square.and.arrow.up")!,
-        UIImage(systemName: "square.and.arrow.up.fill")!,
+        UIImage(systemName: "square.and.arrow.up.circle")!,
+        UIImage(systemName: "square.and.arrow.up.circle")!,
+        UIImage(systemName: "square.and.arrow.up.circle")!,
+        UIImage(systemName: "square.and.arrow.up.circle.fill")!,
+        UIImage(systemName: "square.and.arrow.up.circle")!,
+        UIImage(systemName: "square.and.arrow.up.circle")!,
         UIImage(systemName: "square.and.arrow.up.circle")!,
         UIImage(systemName: "square.and.arrow.up.circle.fill")!
     ]
@@ -19,7 +23,11 @@ final class HomeRecommendCategoryTableViewCell: UITableViewCell {
         "Test용 입니다1",
         "Test용 입니다2",
         "Test용 입니다3",
-        "Test용 입니다4"
+        "Test용 입니다4",
+        "Test용 입니다5",
+        "Test용 입니다6",
+        "Test용 입니다7",
+        "Test용 입니다8"
     ]
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -47,8 +55,8 @@ extension HomeRecommendCategoryTableViewCell {
         self.contentView.addSubview(self.collectionView)
         self.collectionView.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
+            $0.leading.equalToSuperview().inset(12)
+            $0.trailing.equalToSuperview().inset(12)
             $0.bottom.equalToSuperview()
         }
     }
@@ -59,8 +67,22 @@ extension HomeRecommendCategoryTableViewCell: UICollectionViewDelegateFlowLayout
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        let width = (self.collectionView.bounds.width / 5)
+        let width = (self.collectionView.bounds.width / 5.5)
         return CGSize(width: width, height: width + 20)
+    }
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumInteritemSpacingForSectionAt section: Int
+    ) -> CGFloat {
+        return 0.5
+    }
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
+        return 15
     }
 }
 

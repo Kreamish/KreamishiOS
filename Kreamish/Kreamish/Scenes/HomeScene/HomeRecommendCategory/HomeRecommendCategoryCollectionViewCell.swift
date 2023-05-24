@@ -12,7 +12,7 @@ import SnapKit
 final class HomeRecommendCategoryCollectionViewCell: UICollectionViewCell {
     private lazy var recommendImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = imageView.frame.width / 2
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
@@ -20,8 +20,9 @@ final class HomeRecommendCategoryCollectionViewCell: UICollectionViewCell {
     }()
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 9, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 10, weight: .regular)
         label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
     func setUp(_ image: UIImage, _ text: String) {
@@ -41,10 +42,9 @@ extension HomeRecommendCategoryCollectionViewCell {
         }
         self.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints {
-            $0.top.equalTo(self.recommendImageView.snp.bottom)
+            $0.top.equalTo(self.recommendImageView.snp.bottom).offset(7)
             $0.leading.equalTo(self.recommendImageView)
             $0.trailing.equalTo(self.recommendImageView)
-            $0.bottom.equalToSuperview()
         }
     }
 }

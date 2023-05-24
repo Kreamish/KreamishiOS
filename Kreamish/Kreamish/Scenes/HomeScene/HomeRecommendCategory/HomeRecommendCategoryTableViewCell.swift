@@ -10,24 +10,28 @@ import UIKit
 final class HomeRecommendCategoryTableViewCell: UITableViewCell {
     private var viewModel: HomeViewModel?
     private let images: [UIImage] = [
-        UIImage(systemName: "square.and.arrow.up.circle")!,
-        UIImage(systemName: "square.and.arrow.up.circle")!,
-        UIImage(systemName: "square.and.arrow.up.circle")!,
-        UIImage(systemName: "square.and.arrow.up.circle.fill")!,
-        UIImage(systemName: "square.and.arrow.up.circle")!,
-        UIImage(systemName: "square.and.arrow.up.circle")!,
-        UIImage(systemName: "square.and.arrow.up.circle")!,
-        UIImage(systemName: "square.and.arrow.up.circle.fill")!
+        UIImage(named: "Kream_Circle_1")!,
+        UIImage(named: "Kream_Circle_2")!,
+        UIImage(named: "Kream_Circle_3")!,
+        UIImage(named: "Kream_Circle_4")!,
+        UIImage(named: "Kream_Circle_5")!,
+        UIImage(named: "Kream_Circle_6")!,
+        UIImage(named: "Kream_Circle_7")!,
+        UIImage(named: "Kream_Circle_8")!,
+        UIImage(named: "Kream_Circle_9")!,
+        UIImage(named: "Kream_Circle_10")!
     ]
     private let texts: [String] = [
-        "Test용 입니다1",
-        "Test용 입니다2",
-        "Test용 입니다3",
-        "Test용 입니다4",
-        "Test용 입니다5",
-        "Test용 입니다6",
-        "Test용 입니다7",
-        "Test용 입니다8"
+        "5월 가입\n이벤트",
+        "셀럽픽",
+        "남성 추천",
+        "여성 추천",
+        "인기 브랜드",
+        "정가 아래",
+        "인기 럭셔리",
+        "페스티벌룩",
+        "친구 초대\n포인트",
+        "~8천 포인트"
     ]
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

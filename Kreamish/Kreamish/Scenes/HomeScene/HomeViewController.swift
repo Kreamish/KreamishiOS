@@ -9,6 +9,11 @@ import UIKit
 
 import SnapKit
 
+enum KindOfCell {
+    case banner(viewModel: HomeViewModel)
+    case recommendCategory(viewModel: HomeViewModel)
+}
+
 final class HomeViewController: UIViewController {
     private var viewModel: HomeViewModel?
     private var cellList: [UITableViewCell] = []
@@ -18,7 +23,14 @@ final class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .systemBackground
         tableView.showsHorizontalScrollIndicator = false
-        tableView.register(HomeBannerTableViewCell.self, forCellReuseIdentifier: "BannerTableViewCell")
+        tableView.register(
+            HomeBannerTableViewCell.self,
+            forCellReuseIdentifier: "HomeBannerTableViewCell"
+        )
+        tableView.register(
+            HomeRecommendCategoryTableViewCell.self,
+            forCellReuseIdentifier: "HomeRecommendCategoryTableViewCell"
+        )
         return tableView
     }()
     override func viewDidLoad() {
@@ -56,14 +68,28 @@ extension HomeViewController: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BannerTableViewCell"
-            ) as? HomeBannerTableViewCell,
-            let viewModel = self.viewModel
-        else {
-            return UITableViewCell()
+        guard let viewModel = self.viewModel else { return UITableViewCell() }
+        let cells: [KindOfCell] = [
+            .banner(viewModel: viewModel),
+            .recommendCategory(viewModel: viewModel)
+        ]
+        switch cells[indexPath.item] {
+        case let .banner(viewModel: viewModel):
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "HomeBannerTableViewCell"
+            ) as? HomeBannerTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.setUp(viewModel: viewModel)
+            return cell
+        case let .recommendCategory(viewModel: viewModel):
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "HomeRecommendCategoryTableViewCell"
+            ) as? HomeBannerTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.setUp(viewModel: viewModel)
+            return cell
         }
-        cell.setUp(viewModel: viewModel)
-        return cell
     }
 }

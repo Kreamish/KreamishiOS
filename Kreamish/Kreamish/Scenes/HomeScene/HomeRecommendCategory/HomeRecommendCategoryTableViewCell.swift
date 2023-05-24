@@ -8,6 +8,7 @@
 import UIKit
 
 final class HomeRecommendCategoryTableViewCell: UITableViewCell {
+    private var viewModel: HomeViewModel?
     private let images: [UIImage] = [
         UIImage(systemName: "square.and.arrow.up")!,
         UIImage(systemName: "square.and.arrow.up.fill")!,
@@ -34,7 +35,8 @@ final class HomeRecommendCategoryTableViewCell: UITableViewCell {
         )
         return collectionView
     }()
-    func setUp() {
+    func setUp(_ viewModel: HomeViewModel) {
+        self.viewModel = viewModel
         self.configureUI()
     }
 }

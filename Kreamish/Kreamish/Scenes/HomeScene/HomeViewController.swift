@@ -12,6 +12,7 @@ import SnapKit
 enum KindOfCell {
     case banner(viewModel: HomeViewModel)
     case recommendCategory(viewModel: HomeViewModel)
+    case dropped(viewModel: HomeViewModel)
 }
 
 final class HomeViewController: UIViewController {
@@ -85,7 +86,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let viewModel = self.viewModel else { return UITableViewCell() }
         switch self.cells[indexPath.item] {
-        case let .banner(viewModel: viewModel):
+        case .banner:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "HomeBannerTableViewCell"
             ) as? HomeBannerTableViewCell else {
@@ -93,13 +94,20 @@ extension HomeViewController: UITableViewDataSource {
             }
             cell.setUp(viewModel)
             return cell
-        case let .recommendCategory(viewModel: viewModel):
+        case .recommendCategory:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "HomeRecommendCategoryTableViewCell"
             ) as? HomeRecommendCategoryTableViewCell else {
                 return UITableViewCell()
             }
             cell.setUp(viewModel)
+            return cell
+        case .dropped:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "HomeDroppedTableViewCell"
+            ) as? HomeDroppedTableViewCell else {
+                return UITableViewCell()
+            }
             return cell
         }
     }

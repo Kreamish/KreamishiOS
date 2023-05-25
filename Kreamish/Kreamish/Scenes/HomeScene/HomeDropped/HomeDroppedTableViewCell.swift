@@ -10,6 +10,11 @@ import UIKit
 import SnapKit
 
 final class HomeDroppedTableViewCell: UITableViewCell {
+    private let images: [UIImage] = []
+    private let names: [String] = []
+    private let descriptions: [String] = []
+    private let prices: [String] = []
+    private var viewModel: HomeViewModel?
     private lazy var mainLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
@@ -37,6 +42,10 @@ final class HomeDroppedTableViewCell: UITableViewCell {
                                 forCellWithReuseIdentifier: "HomeDroppedCollectionViewCell")
         return collectionView
     }()
+    func setUp(_ viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        self.configureUI()
+    }
 }
 extension HomeDroppedTableViewCell {
     private func configureUI() {
@@ -85,7 +94,12 @@ extension HomeDroppedTableViewCell: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "HomeDroppedCollectionViewCell", for: indexPath
             ) as? HomeDroppedCollectionViewCell else { return UICollectionViewCell() }
-//        cell.setUp(<#T##goodsImage: UIImage##UIImage#>, <#T##goodsName: String##String#>, <#T##goodsDescription: String##String#>, <#T##goodsPrice: String##String#>)
+        cell.setUp(
+            self.images[indexPath.item],
+            self.names[indexPath.item],
+            self.descriptions[indexPath.item],
+            self.prices[indexPath.item]
+        )
         return cell
     }
 }

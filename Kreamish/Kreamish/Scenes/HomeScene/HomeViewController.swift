@@ -33,6 +33,10 @@ final class HomeViewController: UIViewController {
             HomeRecommendCategoryTableViewCell.self,
             forCellReuseIdentifier: "HomeRecommendCategoryTableViewCell"
         )
+        tableView.register(
+            HomeDroppedTableViewCell.self,
+            forCellReuseIdentifier: "HomeDroppedTableViewCell"
+        )
         return tableView
     }()
     override func viewDidLoad() {
@@ -56,6 +60,7 @@ extension HomeViewController {
         guard let viewModel = self.viewModel else { return }
         self.cells.append(.banner(viewModel: viewModel))
         self.cells.append(.recommendCategory(viewModel: viewModel))
+        self.cells.append(.dropped(viewModel: viewModel))
     }
 }
 
@@ -108,6 +113,7 @@ extension HomeViewController: UITableViewDataSource {
             ) as? HomeDroppedTableViewCell else {
                 return UITableViewCell()
             }
+            cell.setUp(viewModel)
             return cell
         }
     }

@@ -66,8 +66,10 @@ extension HomeViewController {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 1 {
-            return self.view.frame.height / 3.35
+        if indexPath.row == 0 {
+            return self.view.frame.height / 2
+        } else if indexPath.row == 1 {
+            return self.view.frame.height / 3.55
         } else {
             return self.view.frame.height / 2
         }

@@ -58,7 +58,7 @@ extension HomeRecommendCategoryTableViewCell {
     private func configureUI() {
         self.contentView.addSubview(self.collectionView)
         self.collectionView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(10)
             $0.leading.equalToSuperview().inset(12)
             $0.trailing.equalToSuperview().inset(12)
             $0.bottom.equalToSuperview()

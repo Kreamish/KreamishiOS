@@ -66,7 +66,11 @@ extension HomeViewController {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.frame.height / 2
+        if indexPath.row == 1 {
+            return self.view.frame.height / 3.35
+        } else {
+            return self.view.frame.height / 2
+        }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("클릭")
@@ -76,7 +80,7 @@ extension HomeViewController: UITableViewDelegate {
         case .banner:
             cell.separatorInset = UIEdgeInsets(top: 0, left: self.tableView.bounds.width, bottom: 0, right: 0)
         default:
-            break
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
     }
 }

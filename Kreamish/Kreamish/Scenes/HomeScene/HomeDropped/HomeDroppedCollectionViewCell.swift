@@ -13,7 +13,8 @@ final class HomeDroppedCollectionViewCell: UICollectionViewCell {
     private lazy var goodsImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 0.3
+        imageView.layer.cornerRadius = 10.0
+        imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         imageView.backgroundColor = .black
         return imageView

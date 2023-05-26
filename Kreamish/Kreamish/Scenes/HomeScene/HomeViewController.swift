@@ -12,6 +12,7 @@ import SnapKit
 enum KindOfCell {
     case banner(viewModel: HomeViewModel)
     case recommendCategory(viewModel: HomeViewModel)
+    case dropped(viewModel: HomeViewModel)
 }
 
 final class HomeViewController: UIViewController {
@@ -31,6 +32,10 @@ final class HomeViewController: UIViewController {
         tableView.register(
             HomeRecommendCategoryTableViewCell.self,
             forCellReuseIdentifier: "HomeRecommendCategoryTableViewCell"
+        )
+        tableView.register(
+            HomeDroppedTableViewCell.self,
+            forCellReuseIdentifier: "HomeDroppedTableViewCell"
         )
         return tableView
     }()
@@ -55,12 +60,17 @@ extension HomeViewController {
         guard let viewModel = self.viewModel else { return }
         self.cells.append(.banner(viewModel: viewModel))
         self.cells.append(.recommendCategory(viewModel: viewModel))
+        self.cells.append(.dropped(viewModel: viewModel))
     }
 }
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.frame.height / 2
+        if indexPath.row == 1 {
+            return self.view.frame.height / 3.35
+        } else {
+            return self.view.frame.height / 2
+        }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("클릭")
@@ -70,7 +80,7 @@ extension HomeViewController: UITableViewDelegate {
         case .banner:
             cell.separatorInset = UIEdgeInsets(top: 0, left: self.tableView.bounds.width, bottom: 0, right: 0)
         default:
-            break
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
     }
 }
@@ -85,7 +95,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let viewModel = self.viewModel else { return UITableViewCell() }
         switch self.cells[indexPath.item] {
-        case let .banner(viewModel: viewModel):
+        case .banner:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "HomeBannerTableViewCell"
             ) as? HomeBannerTableViewCell else {
@@ -93,10 +103,18 @@ extension HomeViewController: UITableViewDataSource {
             }
             cell.setUp(viewModel)
             return cell
-        case let .recommendCategory(viewModel: viewModel):
+        case .recommendCategory:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "HomeRecommendCategoryTableViewCell"
             ) as? HomeRecommendCategoryTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.setUp(viewModel)
+            return cell
+        case .dropped:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "HomeDroppedTableViewCell"
+            ) as? HomeDroppedTableViewCell else {
                 return UITableViewCell()
             }
             cell.setUp(viewModel)

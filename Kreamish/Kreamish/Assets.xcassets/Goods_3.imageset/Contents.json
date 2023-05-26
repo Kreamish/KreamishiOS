@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Kream_Circle_7.png",
+      "filename" : "Goods_3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Kream_Circle_7@2x.png",
+      "filename" : "Goods_3@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Kream_Circle_7@3x.png",
+      "filename" : "Goods_3@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

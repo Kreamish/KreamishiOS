@@ -24,18 +24,20 @@ class ProductCollectionViewCell: UICollectionViewCell {
     private lazy var thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .black
+        imageView.layer.cornerRadius = 10.0
+        imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .white
         return imageView
     }()
     private lazy var brandLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
     }()
     private lazy var englishNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.numberOfLines = 2
         return label
     }()
@@ -51,6 +53,30 @@ class ProductCollectionViewCell: UICollectionViewCell {
         label.text = "즉시 구매가"
         return label
     }()
+    private lazy var bookMarkButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        button.tintColor = .gray
+        return button
+    }()
+    private lazy var bookMarkCountLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12, weight: .light)
+        label.textColor = .gray
+        return label
+    }()
+    private lazy var commentButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "ellipsis.bubble"), for: .normal)
+        button.tintColor = .gray
+        return button
+    }()
+    private lazy var commentCountLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12, weight: .light)
+        label.textColor = .gray
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,33 +86,50 @@ class ProductCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(englishNameLabel)
         contentView.addSubview(priceLabel)
         contentView.addSubview(priceTypeLabel)
+        contentView.addSubview(bookMarkButton)
+        contentView.addSubview(commentButton)
+        contentView.addSubview(bookMarkCountLabel)
+        contentView.addSubview(commentCountLabel)
         
         thumbnailImageView.snp.makeConstraints({ make in
-            make.centerX.equalToSuperview()
-            make.leading.equalToSuperview().inset(10)
             make.top.equalToSuperview().inset(10)
-            make.width.equalToSuperview().inset(10)
+            make.width.equalToSuperview()
             make.height.equalTo(thumbnailImageView.snp.width)
         })
         brandLabel.snp.makeConstraints({ make in
             make.leading.equalToSuperview().inset(10)
-            make.top.equalTo(thumbnailImageView.snp.bottom).offset(10)
+            make.top.equalTo(thumbnailImageView.snp.bottom).offset(8)
         })
         englishNameLabel.snp.makeConstraints({ make in
             make.centerX.equalToSuperview()
             make.leading.equalToSuperview().inset(10)
-            make.top.equalTo(brandLabel.snp.bottom).offset(10)
+            make.top.equalTo(brandLabel.snp.bottom).offset(8)
         })
         priceLabel.snp.makeConstraints({ make in
             make.leading.equalToSuperview().inset(10)
-            make.bottom.equalToSuperview().inset(40)
+            make.top.equalTo(englishNameLabel.snp.bottom).offset(8)
         })
         priceTypeLabel.snp.makeConstraints({ make in
             make.leading.equalToSuperview().inset(10)
             make.top.equalTo(priceLabel.snp.bottom).offset(4)
         })
-        
-        contentView.backgroundColor = .systemGray6
+        bookMarkButton.snp.makeConstraints({ make in
+            make.leading.equalToSuperview().inset(10)
+            make.top.equalTo(priceTypeLabel.snp.bottom).offset(10)
+        })
+        bookMarkCountLabel.snp.makeConstraints({ make in
+            make.leading.equalTo(bookMarkButton.snp.trailing).offset(2)
+            make.centerY.equalTo(bookMarkButton)
+        })
+        commentButton.snp.makeConstraints({ make in
+            make.leading.equalTo(bookMarkCountLabel.snp.trailing).offset(10)
+            make.top.equalTo(priceTypeLabel.snp.bottom).offset(10)
+        })
+        commentCountLabel.snp.makeConstraints({ make in
+            make.leading.equalTo(commentButton.snp.trailing).offset(2)
+            make.centerY.equalTo(commentButton)
+        })
+        contentView.backgroundColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -104,6 +147,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
             brandLabel.text = model.brand
             englishNameLabel.text = model.englishName
             priceLabel.text = model.price + "원"
+            bookMarkCountLabel.text = "2.4" + "만"
+            commentCountLabel.text = "2,545"
         }
     }
 }

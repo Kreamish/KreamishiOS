@@ -11,7 +11,14 @@
 		537A0B832A0A18C500CDEAC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537A0B822A0A18C500CDEAC3 /* SceneDelegate.swift */; };
 		537A0B8A2A0A18C700CDEAC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 537A0B892A0A18C700CDEAC3 /* Assets.xcassets */; };
 		537A0B8D2A0A18C700CDEAC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537A0B8B2A0A18C700CDEAC3 /* LaunchScreen.storyboard */; };
+		537F94242A14846D004AE7D7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F94232A14846D004AE7D7 /* HomeViewModel.swift */; };
+		53D1E2232A1E09F2000424FA /* HomeRecommendCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1E2222A1E09F2000424FA /* HomeRecommendCategoryTableViewCell.swift */; };
+		53D1E2252A1E0AE4000424FA /* HomeRecommendCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1E2242A1E0AE4000424FA /* HomeRecommendCategoryCollectionViewCell.swift */; };
+		53D1E2282A1F3EA8000424FA /* HomeDroppedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1E2272A1F3EA8000424FA /* HomeDroppedTableViewCell.swift */; };
+		53D1E22A2A1F3EBE000424FA /* HomeDroppedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1E2292A1F3EBE000424FA /* HomeDroppedCollectionViewCell.swift */; };
+		53D1E22C2A1F4D3C000424FA /* DroppedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1E22B2A1F4D3C000424FA /* DroppedText.swift */; };
 		53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */; };
+
 		D32A31F42A11048600579599 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D32A31F32A11048600579599 /* Tabman */; };
 		D32A31F72A1104F600579599 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31F62A1104F600579599 /* ShopViewController.swift */; };
 		D32A31F92A11052400579599 /* ShopTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31F82A11052400579599 /* ShopTabViewController.swift */; };
@@ -21,6 +28,13 @@
 		D32A320B2A1662F600579599 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A320A2A1662F600579599 /* ProductCollectionViewCell.swift */; };
 		D32A320D2A16696300579599 /* ProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A320C2A16696300579599 /* ProductCollectionViewController.swift */; };
 		D32A32102A1A1C2500579599 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D32A320F2A1A1C2500579599 /* SnapKit */; };
+
+		53DDE6E22A0FB3A1007C57BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6E12A0FB3A1007C57BD /* HomeViewController.swift */; };
+		53DDE6E52A0FB409007C57BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 53DDE6E42A0FB409007C57BD /* SnapKit */; };
+		53DDE6E72A0FBD77007C57BD /* HomeBannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6E62A0FBD77007C57BD /* HomeBannerTableViewCell.swift */; };
+		53DDE6EA2A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6E92A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift */; };
+		53DDE6EC2A0FC344007C57BD /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6EB2A0FC344007C57BD /* IndicatorView.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +44,15 @@
 		537A0B892A0A18C700CDEAC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		537A0B8C2A0A18C700CDEAC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		537A0B8E2A0A18C700CDEAC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		537F94232A14846D004AE7D7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		53CD0E262A0E46EC009A504A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		53D1E2222A1E09F2000424FA /* HomeRecommendCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		53D1E2242A1E0AE4000424FA /* HomeRecommendCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		53D1E2272A1F3EA8000424FA /* HomeDroppedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDroppedTableViewCell.swift; sourceTree = "<group>"; };
+		53D1E2292A1F3EBE000424FA /* HomeDroppedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDroppedCollectionViewCell.swift; sourceTree = "<group>"; };
+		53D1E22B2A1F4D3C000424FA /* DroppedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppedText.swift; sourceTree = "<group>"; };
 		53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+
 		D32A31F62A1104F600579599 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		D32A31F82A11052400579599 /* ShopTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTabViewController.swift; sourceTree = "<group>"; };
 		D32A31FB2A1106CF00579599 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -39,6 +60,12 @@
 		D32A32052A165EA600579599 /* ShopContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopContentTableViewCell.swift; sourceTree = "<group>"; };
 		D32A320A2A1662F600579599 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		D32A320C2A16696300579599 /* ProductCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewController.swift; sourceTree = "<group>"; };
+
+		53DDE6E12A0FB3A1007C57BD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		53DDE6E62A0FBD77007C57BD /* HomeBannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerTableViewCell.swift; sourceTree = "<group>"; };
+		53DDE6E92A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		53DDE6EB2A0FC344007C57BD /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,8 +73,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				D32A31F42A11048600579599 /* Tabman in Frameworks */,
 				D32A32102A1A1C2500579599 /* SnapKit in Frameworks */,
+
+				53DDE6E52A0FB409007C57BD /* SnapKit in Frameworks */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +122,11 @@
 		537A0B942A0A19BB00CDEAC3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+
 				D32A31FE2A150E6C00579599 /* ShopScene */,
+
+				53DDE6DE2A0FB324007C57BD /* HomeScene */,
+
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -111,6 +146,25 @@
 				53DDE6D62A0F82B1007C57BD /* View */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		53D1E2212A1E09B8000424FA /* HomeRecommendCategory */ = {
+			isa = PBXGroup;
+			children = (
+				53D1E2222A1E09F2000424FA /* HomeRecommendCategoryTableViewCell.swift */,
+				53D1E2242A1E0AE4000424FA /* HomeRecommendCategoryCollectionViewCell.swift */,
+			);
+			path = HomeRecommendCategory;
+			sourceTree = "<group>";
+		};
+		53D1E2262A1F3E7C000424FA /* HomeDropped */ = {
+			isa = PBXGroup;
+			children = (
+				53D1E2272A1F3EA8000424FA /* HomeDroppedTableViewCell.swift */,
+				53D1E2292A1F3EBE000424FA /* HomeDroppedCollectionViewCell.swift */,
+				53D1E22B2A1F4D3C000424FA /* DroppedText.swift */,
+			);
+			path = HomeDropped;
 			sourceTree = "<group>";
 		};
 		53DDE6C92A0F8217007C57BD /* Domain */ = {
@@ -230,6 +284,7 @@
 			path = Dummies;
 			sourceTree = "<group>";
 		};
+
 		D32A31FE2A150E6C00579599 /* ShopScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +328,28 @@
 			children = (
 			);
 			path = FilterCollection;
+
+		53DDE6DE2A0FB324007C57BD /* HomeScene */ = {
+			isa = PBXGroup;
+			children = (
+				53DDE6E12A0FB3A1007C57BD /* HomeViewController.swift */,
+				537F94232A14846D004AE7D7 /* HomeViewModel.swift */,
+				53DDE6DF2A0FB347007C57BD /* HomeBanner */,
+				53D1E2212A1E09B8000424FA /* HomeRecommendCategory */,
+				53D1E2262A1F3E7C000424FA /* HomeDropped */,
+			);
+			path = HomeScene;
+			sourceTree = "<group>";
+		};
+		53DDE6DF2A0FB347007C57BD /* HomeBanner */ = {
+			isa = PBXGroup;
+			children = (
+				53DDE6E62A0FBD77007C57BD /* HomeBannerTableViewCell.swift */,
+				53DDE6E92A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift */,
+				53DDE6EB2A0FC344007C57BD /* IndicatorView.swift */,
+			);
+			path = HomeBanner;
+
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,8 +370,12 @@
 			);
 			name = Kreamish;
 			packageProductDependencies = (
+
 				D32A31F32A11048600579599 /* Tabman */,
 				D32A320F2A1A1C2500579599 /* SnapKit */,
+
+				53DDE6E42A0FB409007C57BD /* SnapKit */,
+
 			);
 			productName = Kreamish;
 			productReference = 537A0B7D2A0A18C500CDEAC3 /* Kreamish.app */;
@@ -325,8 +406,12 @@
 			);
 			mainGroup = 537A0B742A0A18C500CDEAC3;
 			packageReferences = (
+
 				D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */,
 				D32A320E2A1A1C2500579599 /* XCRemoteSwiftPackageReference "SnapKit" */,
+
+				53DDE6E32A0FB409007C57BD /* XCRemoteSwiftPackageReference "SnapKit" */,
+
 			);
 			productRefGroup = 537A0B7E2A0A18C500CDEAC3 /* Products */;
 			projectDirPath = "";
@@ -376,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				D32A31F72A1104F600579599 /* ShopViewController.swift in Sources */,
 				D32A32062A165EA600579599 /* ShopContentTableViewCell.swift in Sources */,
 				D32A31FC2A1106CF00579599 /* UIViewController+.swift in Sources */,
@@ -385,7 +471,21 @@
 				D32A320D2A16696300579599 /* ProductCollectionViewController.swift in Sources */,
 				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
 				D32A320B2A1662F600579599 /* ProductCollectionViewCell.swift in Sources */,
+
+				53D1E22A2A1F3EBE000424FA /* HomeDroppedCollectionViewCell.swift in Sources */,
+				53DDE6EA2A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift in Sources */,
+				53DDE6E72A0FBD77007C57BD /* HomeBannerTableViewCell.swift in Sources */,
+				53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */,
+				537F94242A14846D004AE7D7 /* HomeViewModel.swift in Sources */,
+				53D1E2232A1E09F2000424FA /* HomeRecommendCategoryTableViewCell.swift in Sources */,
+				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
+				53D1E2282A1F3EA8000424FA /* HomeDroppedTableViewCell.swift in Sources */,
+				53DDE6EC2A0FC344007C57BD /* IndicatorView.swift in Sources */,
+
 				537A0B832A0A18C500CDEAC3 /* SceneDelegate.swift in Sources */,
+				53D1E2252A1E0AE4000424FA /* HomeRecommendCategoryCollectionViewCell.swift in Sources */,
+				53D1E22C2A1F4D3C000424FA /* DroppedText.swift in Sources */,
+				53DDE6E22A0FB3A1007C57BD /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +701,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+
 		D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uias/Tabman";
@@ -615,11 +716,20 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
+
+		53DDE6E32A0FB409007C57BD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+
 		D32A31F32A11048600579599 /* Tabman */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */;
@@ -628,6 +738,11 @@
 		D32A320F2A1A1C2500579599 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D32A320E2A1A1C2500579599 /* XCRemoteSwiftPackageReference "SnapKit" */;
+
+		53DDE6E42A0FB409007C57BD /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53DDE6E32A0FB409007C57BD /* XCRemoteSwiftPackageReference "SnapKit" */;
+
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

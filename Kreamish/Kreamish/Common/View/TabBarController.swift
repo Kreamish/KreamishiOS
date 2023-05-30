@@ -18,16 +18,18 @@ final class TabBarController: UITabBarController {
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
-    private lazy var shopViewController: UIViewController = {
-        let viewController = UIViewController()
+
+    private lazy var shopViewNavigationController: UINavigationController = {
+        let shopViewNavigationController  = UINavigationController(rootViewController: ShopViewController())
         let imageConfiguration = UIImage.SymbolConfiguration(hierarchicalColor: .black)
         let normalImage = UIImage(systemName: "magnifyingglass.circle", withConfiguration: imageConfiguration)
         let selectedImage = UIImage(systemName: "magnifyingglass.circle.fill", withConfiguration: imageConfiguration)
         let tabBarItem = UITabBarItem(title: "SHOP", image: normalImage, tag: 1)
         tabBarItem.selectedImage = selectedImage
-        viewController.tabBarItem = tabBarItem
-        return viewController
+        shopViewNavigationController.tabBarItem = tabBarItem
+        return shopViewNavigationController
     }()
+    
     private lazy var myViewController: UIViewController = {
         let viewController = UIViewController()
         let imageConfiguration = UIImage.SymbolConfiguration(hierarchicalColor: .black)
@@ -38,6 +40,7 @@ final class TabBarController: UITabBarController {
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -46,7 +49,7 @@ final class TabBarController: UITabBarController {
 
 private extension TabBarController {
     func configureUI() {
-        self.viewControllers = [homeViewController, shopViewController, myViewController]
+        self.viewControllers = [homeViewController, shopViewNavigationController, myViewController]
         self.tabBar.tintColor = .black
     }
 }

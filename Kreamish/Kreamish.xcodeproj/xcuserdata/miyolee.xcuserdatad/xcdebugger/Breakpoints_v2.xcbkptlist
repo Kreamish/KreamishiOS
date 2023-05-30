@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "FF5E07C8-6473-4EC5-AC78-6AB9E966E93F"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20FF9292-2A24-43BA-A452-0C4F12EB43AC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1E578637-3AB8-47B0-BB87-2D2225306AA6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Scenes/ShopScene/ShopContent/ShopContentTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1E578637-3AB8-47B0-BB87-2D2225306AA6 - f96a9db58d4a7118"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.ShopContentTableViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Scenes/ShopScene/ShopContent/ShopContentTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "484">
+               </Location>
+               <Location
+                  uuid = "1E578637-3AB8-47B0-BB87-2D2225306AA6 - f96a9db58d4a7118"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.ShopContentTableViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Scenes/ShopScene/ShopContent/ShopContentTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "492">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6036DC96-83CE-448F-B7E1-AE8AEA1D0A3F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6036DC96-83CE-448F-B7E1-AE8AEA1D0A3F - dd62d8894d4a3c5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.ProductCollectionViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "452">
+               </Location>
+               <Location
+                  uuid = "6036DC96-83CE-448F-B7E1-AE8AEA1D0A3F - dd62d8894d4a3c5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.ProductCollectionViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "584">
+               </Location>
+               <Location
+                  uuid = "6036DC96-83CE-448F-B7E1-AE8AEA1D0A3F - dd62d8894d4a3c5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.ProductCollectionViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ABBBB6B2-E524-4B91-B3F6-16D2FFC35DA6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9AF15992-3A48-4160-B550-4B26B8AF5AB6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE6417EF-1679-4CDC-8E7F-A6A2F7E7B8D4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30913727-F9AA-4D29-B49F-A46C75D6C142"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82C3234B-7C68-48D6-96BA-6B69B71DE292"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "init(frame:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3BBFCB7D-9E16-43CD-B65A-24DDBCA762BE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3BBFCB7D-9E16-43CD-B65A-24DDBCA762BE - 372c04e86e92bb6b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.ProductCollectionViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "668">
+               </Location>
+               <Location
+                  uuid = "3BBFCB7D-9E16-43CD-B65A-24DDBCA762BE - 372c04e86e92bb08"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.ProductCollectionViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "668">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "99BEEF8A-7DAE-4374-9B35-2A483EC695BC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "configure()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "99BEEF8A-7DAE-4374-9B35-2A483EC695BC - fbb76c7c40e4df6a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.ProductCollectionViewController.configure() -&gt; ()"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "99BEEF8A-7DAE-4374-9B35-2A483EC695BC - fbb76c7c40e4df0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.ProductCollectionViewController.configure() -&gt; ()"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9016AEA1-8885-4240-B7CA-63DB87294CB0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F836AE3F-1778-4860-953E-D9DAF246D995"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F836AE3F-1778-4860-953E-D9DAF246D995 - 7e6343280540c386"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.ProductCollectionViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "F836AE3F-1778-4860-953E-D9DAF246D995 - 7e6343280540c359"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.ProductCollectionViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

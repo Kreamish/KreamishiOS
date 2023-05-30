@@ -18,11 +18,23 @@
 		53D1E22A2A1F3EBE000424FA /* HomeDroppedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1E2292A1F3EBE000424FA /* HomeDroppedCollectionViewCell.swift */; };
 		53D1E22C2A1F4D3C000424FA /* DroppedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D1E22B2A1F4D3C000424FA /* DroppedText.swift */; };
 		53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */; };
+
+		D32A31F42A11048600579599 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D32A31F32A11048600579599 /* Tabman */; };
+		D32A31F72A1104F600579599 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31F62A1104F600579599 /* ShopViewController.swift */; };
+		D32A31F92A11052400579599 /* ShopTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31F82A11052400579599 /* ShopTabViewController.swift */; };
+		D32A31FC2A1106CF00579599 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31FB2A1106CF00579599 /* UIViewController+.swift */; };
+		D32A32032A165CBB00579599 /* ShopContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A32022A165CBB00579599 /* ShopContentTableViewController.swift */; };
+		D32A32062A165EA600579599 /* ShopContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A32052A165EA600579599 /* ShopContentTableViewCell.swift */; };
+		D32A320B2A1662F600579599 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A320A2A1662F600579599 /* ProductCollectionViewCell.swift */; };
+		D32A320D2A16696300579599 /* ProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A320C2A16696300579599 /* ProductCollectionViewController.swift */; };
+		D32A32102A1A1C2500579599 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D32A320F2A1A1C2500579599 /* SnapKit */; };
+
 		53DDE6E22A0FB3A1007C57BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6E12A0FB3A1007C57BD /* HomeViewController.swift */; };
 		53DDE6E52A0FB409007C57BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 53DDE6E42A0FB409007C57BD /* SnapKit */; };
 		53DDE6E72A0FBD77007C57BD /* HomeBannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6E62A0FBD77007C57BD /* HomeBannerTableViewCell.swift */; };
 		53DDE6EA2A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6E92A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift */; };
 		53DDE6EC2A0FC344007C57BD /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6EB2A0FC344007C57BD /* IndicatorView.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +52,20 @@
 		53D1E2292A1F3EBE000424FA /* HomeDroppedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDroppedCollectionViewCell.swift; sourceTree = "<group>"; };
 		53D1E22B2A1F4D3C000424FA /* DroppedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppedText.swift; sourceTree = "<group>"; };
 		53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+
+		D32A31F62A1104F600579599 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		D32A31F82A11052400579599 /* ShopTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTabViewController.swift; sourceTree = "<group>"; };
+		D32A31FB2A1106CF00579599 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		D32A32022A165CBB00579599 /* ShopContentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopContentTableViewController.swift; sourceTree = "<group>"; };
+		D32A32052A165EA600579599 /* ShopContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopContentTableViewCell.swift; sourceTree = "<group>"; };
+		D32A320A2A1662F600579599 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		D32A320C2A16696300579599 /* ProductCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewController.swift; sourceTree = "<group>"; };
+
 		53DDE6E12A0FB3A1007C57BD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		53DDE6E62A0FBD77007C57BD /* HomeBannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerTableViewCell.swift; sourceTree = "<group>"; };
 		53DDE6E92A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		53DDE6EB2A0FC344007C57BD /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +73,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				D32A31F42A11048600579599 /* Tabman in Frameworks */,
+				D32A32102A1A1C2500579599 /* SnapKit in Frameworks */,
+
 				53DDE6E52A0FB409007C57BD /* SnapKit in Frameworks */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +122,11 @@
 		537A0B942A0A19BB00CDEAC3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+
+				D32A31FE2A150E6C00579599 /* ShopScene */,
+
 				53DDE6DE2A0FB324007C57BD /* HomeScene */,
+
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -232,6 +263,7 @@
 		53DDE6D62A0F82B1007C57BD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D32A31FB2A1106CF00579599 /* UIViewController+.swift */,
 				53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */,
 			);
 			path = View;
@@ -252,6 +284,51 @@
 			path = Dummies;
 			sourceTree = "<group>";
 		};
+
+		D32A31FE2A150E6C00579599 /* ShopScene */ = {
+			isa = PBXGroup;
+			children = (
+				D32A32042A165CC400579599 /* ShopContent */,
+				D32A31F62A1104F600579599 /* ShopViewController.swift */,
+				D32A31F82A11052400579599 /* ShopTabViewController.swift */,
+			);
+			path = ShopScene;
+			sourceTree = "<group>";
+		};
+		D32A32042A165CC400579599 /* ShopContent */ = {
+			isa = PBXGroup;
+			children = (
+				D32A32092A16623200579599 /* FilterCollection */,
+				D32A32082A1661F700579599 /* SubCategoryCollection */,
+				D32A32072A1661F000579599 /* ProductCollection */,
+				D32A32022A165CBB00579599 /* ShopContentTableViewController.swift */,
+				D32A32052A165EA600579599 /* ShopContentTableViewCell.swift */,
+			);
+			path = ShopContent;
+			sourceTree = "<group>";
+		};
+		D32A32072A1661F000579599 /* ProductCollection */ = {
+			isa = PBXGroup;
+			children = (
+				D32A320C2A16696300579599 /* ProductCollectionViewController.swift */,
+				D32A320A2A1662F600579599 /* ProductCollectionViewCell.swift */,
+			);
+			path = ProductCollection;
+			sourceTree = "<group>";
+		};
+		D32A32082A1661F700579599 /* SubCategoryCollection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubCategoryCollection;
+			sourceTree = "<group>";
+		};
+		D32A32092A16623200579599 /* FilterCollection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FilterCollection;
+
 		53DDE6DE2A0FB324007C57BD /* HomeScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +349,7 @@
 				53DDE6EB2A0FC344007C57BD /* IndicatorView.swift */,
 			);
 			path = HomeBanner;
+
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,7 +370,12 @@
 			);
 			name = Kreamish;
 			packageProductDependencies = (
+
+				D32A31F32A11048600579599 /* Tabman */,
+				D32A320F2A1A1C2500579599 /* SnapKit */,
+
 				53DDE6E42A0FB409007C57BD /* SnapKit */,
+
 			);
 			productName = Kreamish;
 			productReference = 537A0B7D2A0A18C500CDEAC3 /* Kreamish.app */;
@@ -323,7 +406,12 @@
 			);
 			mainGroup = 537A0B742A0A18C500CDEAC3;
 			packageReferences = (
+
+				D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */,
+				D32A320E2A1A1C2500579599 /* XCRemoteSwiftPackageReference "SnapKit" */,
+
 				53DDE6E32A0FB409007C57BD /* XCRemoteSwiftPackageReference "SnapKit" */,
+
 			);
 			productRefGroup = 537A0B7E2A0A18C500CDEAC3 /* Products */;
 			projectDirPath = "";
@@ -349,6 +437,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		534264FF2A0E47230064FB8F /* SwiftLint Script */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -372,6 +461,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				D32A31F72A1104F600579599 /* ShopViewController.swift in Sources */,
+				D32A32062A165EA600579599 /* ShopContentTableViewCell.swift in Sources */,
+				D32A31FC2A1106CF00579599 /* UIViewController+.swift in Sources */,
+				D32A31F92A11052400579599 /* ShopTabViewController.swift in Sources */,
+				53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */,
+				D32A32032A165CBB00579599 /* ShopContentTableViewController.swift in Sources */,
+				D32A320D2A16696300579599 /* ProductCollectionViewController.swift in Sources */,
+				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
+				D32A320B2A1662F600579599 /* ProductCollectionViewCell.swift in Sources */,
+
 				53D1E22A2A1F3EBE000424FA /* HomeDroppedCollectionViewCell.swift in Sources */,
 				53DDE6EA2A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift in Sources */,
 				53DDE6E72A0FBD77007C57BD /* HomeBannerTableViewCell.swift in Sources */,
@@ -381,6 +481,7 @@
 				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
 				53D1E2282A1F3EA8000424FA /* HomeDroppedTableViewCell.swift in Sources */,
 				53DDE6EC2A0FC344007C57BD /* IndicatorView.swift in Sources */,
+
 				537A0B832A0A18C500CDEAC3 /* SceneDelegate.swift in Sources */,
 				53D1E2252A1E0AE4000424FA /* HomeRecommendCategoryCollectionViewCell.swift in Sources */,
 				53D1E22C2A1F4D3C000424FA /* DroppedText.swift in Sources */,
@@ -521,22 +622,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5UYBRX8UM9;
+				DEVELOPMENT_TEAM = 5XDH28DGCQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Kreamish/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jonpyoAhn.Kreamish;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miyo.Kreamish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -548,22 +652,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5UYBRX8UM9;
+				DEVELOPMENT_TEAM = 5XDH28DGCQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Kreamish/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jonpyoAhn.Kreamish;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miyo.Kreamish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -594,20 +701,48 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+
+		D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		D32A320E2A1A1C2500579599 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+
 		53DDE6E32A0FB409007C57BD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				branch = develop;
 				kind = branch;
+
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+
+		D32A31F32A11048600579599 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
+		};
+		D32A320F2A1A1C2500579599 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D32A320E2A1A1C2500579599 /* XCRemoteSwiftPackageReference "SnapKit" */;
+
 		53DDE6E42A0FB409007C57BD /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 53DDE6E32A0FB409007C57BD /* XCRemoteSwiftPackageReference "SnapKit" */;
+
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

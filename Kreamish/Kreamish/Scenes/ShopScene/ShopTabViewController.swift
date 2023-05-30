@@ -15,11 +15,7 @@ final class ShopTabViewController: TabmanViewController, PageboyViewControllerDa
     private lazy var tempView: UIView = {   // 상단 탭바 들어갈 자리
         return UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
     }()
-    private lazy var allViewController: UIViewController = {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .white
-        return viewController
-    }()
+    private lazy var allViewController = ShopContentTableViewController()
     private lazy var shoesViewController: UIViewController = {
         let viewController = UIViewController()
         viewController.view.backgroundColor = .white

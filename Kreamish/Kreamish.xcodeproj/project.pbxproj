@@ -16,6 +16,11 @@
 		D32A31F72A1104F600579599 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31F62A1104F600579599 /* ShopViewController.swift */; };
 		D32A31F92A11052400579599 /* ShopTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31F82A11052400579599 /* ShopTabViewController.swift */; };
 		D32A31FC2A1106CF00579599 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31FB2A1106CF00579599 /* UIViewController+.swift */; };
+		D32A32032A165CBB00579599 /* ShopContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A32022A165CBB00579599 /* ShopContentTableViewController.swift */; };
+		D32A32062A165EA600579599 /* ShopContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A32052A165EA600579599 /* ShopContentTableViewCell.swift */; };
+		D32A320B2A1662F600579599 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A320A2A1662F600579599 /* ProductCollectionViewCell.swift */; };
+		D32A320D2A16696300579599 /* ProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A320C2A16696300579599 /* ProductCollectionViewController.swift */; };
+		D32A32102A1A1C2500579599 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D32A320F2A1A1C2500579599 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,10 @@
 		D32A31F62A1104F600579599 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		D32A31F82A11052400579599 /* ShopTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTabViewController.swift; sourceTree = "<group>"; };
 		D32A31FB2A1106CF00579599 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		D32A32022A165CBB00579599 /* ShopContentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopContentTableViewController.swift; sourceTree = "<group>"; };
+		D32A32052A165EA600579599 /* ShopContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopContentTableViewCell.swift; sourceTree = "<group>"; };
+		D32A320A2A1662F600579599 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		D32A320C2A16696300579599 /* ProductCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +47,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D32A31F42A11048600579599 /* Tabman in Frameworks */,
+				D32A32102A1A1C2500579599 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,10 +233,46 @@
 		D32A31FE2A150E6C00579599 /* ShopScene */ = {
 			isa = PBXGroup;
 			children = (
+				D32A32042A165CC400579599 /* ShopContent */,
 				D32A31F62A1104F600579599 /* ShopViewController.swift */,
 				D32A31F82A11052400579599 /* ShopTabViewController.swift */,
 			);
 			path = ShopScene;
+			sourceTree = "<group>";
+		};
+		D32A32042A165CC400579599 /* ShopContent */ = {
+			isa = PBXGroup;
+			children = (
+				D32A32092A16623200579599 /* FilterCollection */,
+				D32A32082A1661F700579599 /* SubCategoryCollection */,
+				D32A32072A1661F000579599 /* ProductCollection */,
+				D32A32022A165CBB00579599 /* ShopContentTableViewController.swift */,
+				D32A32052A165EA600579599 /* ShopContentTableViewCell.swift */,
+			);
+			path = ShopContent;
+			sourceTree = "<group>";
+		};
+		D32A32072A1661F000579599 /* ProductCollection */ = {
+			isa = PBXGroup;
+			children = (
+				D32A320C2A16696300579599 /* ProductCollectionViewController.swift */,
+				D32A320A2A1662F600579599 /* ProductCollectionViewCell.swift */,
+			);
+			path = ProductCollection;
+			sourceTree = "<group>";
+		};
+		D32A32082A1661F700579599 /* SubCategoryCollection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubCategoryCollection;
+			sourceTree = "<group>";
+		};
+		D32A32092A16623200579599 /* FilterCollection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FilterCollection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +294,7 @@
 			name = Kreamish;
 			packageProductDependencies = (
 				D32A31F32A11048600579599 /* Tabman */,
+				D32A320F2A1A1C2500579599 /* SnapKit */,
 			);
 			productName = Kreamish;
 			productReference = 537A0B7D2A0A18C500CDEAC3 /* Kreamish.app */;
@@ -279,6 +326,7 @@
 			mainGroup = 537A0B742A0A18C500CDEAC3;
 			packageReferences = (
 				D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */,
+				D32A320E2A1A1C2500579599 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 537A0B7E2A0A18C500CDEAC3 /* Products */;
 			projectDirPath = "";
@@ -329,10 +377,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D32A31F72A1104F600579599 /* ShopViewController.swift in Sources */,
+				D32A32062A165EA600579599 /* ShopContentTableViewCell.swift in Sources */,
 				D32A31FC2A1106CF00579599 /* UIViewController+.swift in Sources */,
 				D32A31F92A11052400579599 /* ShopTabViewController.swift in Sources */,
 				53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */,
+				D32A32032A165CBB00579599 /* ShopContentTableViewController.swift in Sources */,
+				D32A320D2A16696300579599 /* ProductCollectionViewController.swift in Sources */,
 				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
+				D32A320B2A1662F600579599 /* ProductCollectionViewCell.swift in Sources */,
 				537A0B832A0A18C500CDEAC3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,6 +609,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		D32A320E2A1A1C2500579599 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -564,6 +624,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		D32A320F2A1A1C2500579599 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D32A320E2A1A1C2500579599 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -327,7 +327,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F836AE3F-1778-4860-953E-D9DAF246D995"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kreamish/Scenes/ShopScene/ShopContent/ProductCollection/ProductCollectionViewController.swift"

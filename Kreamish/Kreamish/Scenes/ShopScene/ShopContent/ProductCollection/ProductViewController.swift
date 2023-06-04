@@ -32,30 +32,26 @@ class ProductViewController: UIViewController {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.allowsSelection = true
+        collectionView.backgroundColor = .white
+        collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: ProductCollectionViewCell.id)
         return collectionView
     }()
     
-    private func configure() {
-        productCollectionView.allowsSelection = true
-        productCollectionView.backgroundColor = .white
-        
+    private func configureUI() {
         productCollectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(10)
             make.top.equalToSuperview()
-            make.height.equalTo(4000)
+            make.height.equalTo(2500)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.addSubview(productCollectionView)
-        
-        productCollectionView.delegate = self
-        productCollectionView.dataSource = self
-        productCollectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: ProductCollectionViewCell.id)
-        
-        configure()
+        configureUI()
     }
     
 }

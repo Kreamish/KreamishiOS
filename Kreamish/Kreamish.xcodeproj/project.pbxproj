@@ -23,6 +23,7 @@
 		53DDE6E72A0FBD77007C57BD /* HomeBannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6E62A0FBD77007C57BD /* HomeBannerTableViewCell.swift */; };
 		53DDE6EA2A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6E92A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift */; };
 		53DDE6EC2A0FC344007C57BD /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DDE6EB2A0FC344007C57BD /* IndicatorView.swift */; };
+		D3110D292A2C5A31002C8FED /* SubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3110D282A2C5A31002C8FED /* SubCategoryCollectionViewCell.swift */; };
 		D32A31F42A11048600579599 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D32A31F32A11048600579599 /* Tabman */; };
 		D32A31F72A1104F600579599 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31F62A1104F600579599 /* ShopViewController.swift */; };
 		D32A31F92A11052400579599 /* ShopTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A31F82A11052400579599 /* ShopTabViewController.swift */; };
@@ -32,7 +33,6 @@
 		D32A320B2A1662F600579599 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A320A2A1662F600579599 /* ProductCollectionViewCell.swift */; };
 		D32A320D2A16696300579599 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A320C2A16696300579599 /* ProductViewController.swift */; };
 		D3A576022A261DA50093D415 /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A576012A261DA50093D415 /* SubCategoryViewController.swift */; };
-		D3A576042A26243E0093D415 /* SubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A576032A26243E0093D415 /* SubCategoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +54,7 @@
 		53DDE6E62A0FBD77007C57BD /* HomeBannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerTableViewCell.swift; sourceTree = "<group>"; };
 		53DDE6E92A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		53DDE6EB2A0FC344007C57BD /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		D3110D282A2C5A31002C8FED /* SubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D32A31F62A1104F600579599 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		D32A31F82A11052400579599 /* ShopTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTabViewController.swift; sourceTree = "<group>"; };
 		D32A31FB2A1106CF00579599 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		D32A320A2A1662F600579599 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		D32A320C2A16696300579599 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		D3A576012A261DA50093D415 /* SubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
-		D3A576032A26243E0093D415 /* SubCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,7 +309,6 @@
 		D32A32042A165CC400579599 /* ShopContent */ = {
 			isa = PBXGroup;
 			children = (
-				D32A32092A16623200579599 /* FilterCollection */,
 				D32A32082A1661F700579599 /* SubCategoryCollection */,
 				D32A32072A1661F000579599 /* ProductCollection */,
 				D32A32022A165CBB00579599 /* ShopContentTableViewController.swift */,
@@ -331,17 +330,10 @@
 			isa = PBXGroup;
 			children = (
 				D3A576012A261DA50093D415 /* SubCategoryViewController.swift */,
-				D3A576032A26243E0093D415 /* SubCategoryTableViewCell.swift */,
+				D3110D282A2C5A31002C8FED /* SubCategoryCollectionViewCell.swift */,
 			);
 			path = SubCategoryCollection;
 			sourceTree = "<group>";
-		};
-		D32A32092A16623200579599 /* FilterCollection */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FilterCollection;
-			sourceTree = "<unknown>";
 		};
 /* End PBXGroup section */
 
@@ -449,6 +441,7 @@
 				D32A31FC2A1106CF00579599 /* UIViewController+.swift in Sources */,
 				D32A31F92A11052400579599 /* ShopTabViewController.swift in Sources */,
 				53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */,
+				D3110D292A2C5A31002C8FED /* SubCategoryCollectionViewCell.swift in Sources */,
 				D32A32032A165CBB00579599 /* ShopContentTableViewController.swift in Sources */,
 				D32A320D2A16696300579599 /* ProductViewController.swift in Sources */,
 				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
@@ -464,7 +457,6 @@
 				53DDE6EC2A0FC344007C57BD /* IndicatorView.swift in Sources */,
 				537A0B832A0A18C500CDEAC3 /* SceneDelegate.swift in Sources */,
 				53D1E2252A1E0AE4000424FA /* HomeRecommendCategoryCollectionViewCell.swift in Sources */,
-				D3A576042A26243E0093D415 /* SubCategoryTableViewCell.swift in Sources */,
 				D3A576022A261DA50093D415 /* SubCategoryViewController.swift in Sources */,
 				53D1E22C2A1F4D3C000424FA /* DroppedText.swift in Sources */,
 				53DDE6E22A0FB3A1007C57BD /* HomeViewController.swift in Sources */,

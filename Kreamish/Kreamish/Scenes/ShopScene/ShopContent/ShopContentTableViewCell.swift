@@ -17,6 +17,11 @@ class ShopContentTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        contentView.backgroundColor = .white
+        contentView.snp.makeConstraints {
+            $0.leading.trailing.top.bottom.equalToSuperview()
+        }
     }
     
     @available(*, unavailable)

@@ -1,6 +1,7 @@
 analyzer_rules:
     - unused_import
 disabled_rules:
+    - line_length
     - nesting
     - trailing_whitespace
     - vertical_whitespace_closing_braces

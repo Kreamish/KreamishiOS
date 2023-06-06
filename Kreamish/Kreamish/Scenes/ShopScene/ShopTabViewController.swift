@@ -33,6 +33,7 @@ final class ShopTabViewController: TabmanViewController, PageboyViewControllerDa
         viewControllers.append(bottomViewController)
         
         self.dataSource = self
+        self.isScrollEnabled = false    // 스와이프로 안움직이게 임시 처리.
         
         let bar = TMBar.ButtonBar()
         setTabBar(bar: bar)

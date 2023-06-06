@@ -80,7 +80,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         contentView.addSubview(thumbnailImageView)
         contentView.addSubview(brandLabel)
         contentView.addSubview(englishNameLabel)
@@ -91,6 +91,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(bookMarkCountLabel)
         contentView.addSubview(commentCountLabel)
         
+        // configureUI
         thumbnailImageView.snp.makeConstraints({ make in
             make.top.equalToSuperview().inset(10)
             make.width.equalToSuperview()

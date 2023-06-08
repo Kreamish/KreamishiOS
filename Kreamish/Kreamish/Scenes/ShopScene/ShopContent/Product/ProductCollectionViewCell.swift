@@ -78,9 +78,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
+    private func configureUI() {
         contentView.addSubview(thumbnailImageView)
         contentView.addSubview(brandLabel)
         contentView.addSubview(englishNameLabel)
@@ -91,7 +89,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(bookMarkCountLabel)
         contentView.addSubview(commentCountLabel)
         
-        // configureUI
         thumbnailImageView.snp.makeConstraints({ make in
             make.top.equalToSuperview().inset(10)
             make.width.equalToSuperview()
@@ -130,14 +127,11 @@ class ProductCollectionViewCell: UICollectionViewCell {
             make.leading.equalTo(commentButton.snp.trailing).offset(2)
             make.centerY.equalTo(commentButton)
         })
-        contentView.backgroundColor = .white
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func setup() {
+        configureUI()
     }
-    
-    func bind() {
+    private func bind() {
         if let model = model {
             DispatchQueue.global().async {
                 if let url = URL(string: model.imgUrl) {

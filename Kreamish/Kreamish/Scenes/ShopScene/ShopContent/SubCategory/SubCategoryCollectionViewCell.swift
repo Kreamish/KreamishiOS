@@ -36,9 +36,7 @@ class SubCategoryCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    private func configureUI() {
         contentView.addSubview(iconImageView)
         contentView.addSubview(nameLabel)
         
@@ -53,16 +51,13 @@ class SubCategoryCollectionViewCell: UICollectionViewCell {
             make.centerX.equalToSuperview()
         })
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func setUp() {
+        self.configureUI()
     }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
     }
-    
-    func bind() {
+    private func bind() {
         if let model = model {
             DispatchQueue.global().async {
                 if let url = URL(string: model.imgUrl){

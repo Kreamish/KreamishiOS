@@ -77,7 +77,7 @@ final class SubCategoryTableViewCell: UITableViewCell {
     }
     
     func setUp() {
-        configureUI()
+        self.configureUI()
         // set viewModel
     }
 }
@@ -89,12 +89,12 @@ extension SubCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SubCategoryCollectionViewCell.id, for: indexPath) as? SubCategoryCollectionViewCell {
-            cell.model = subCategoryList[indexPath.item]
-            return cell
-        } else {
-            fatalError("DequeueReusableCell failed while casting")
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SubCategoryCollectionViewCell.id, for: indexPath) as? SubCategoryCollectionViewCell else {
+            return UICollectionViewCell()
         }
+        cell.model = subCategoryList[indexPath.item]
+        cell.setUp()
+        return cell
     }
 }
 

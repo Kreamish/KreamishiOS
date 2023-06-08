@@ -1,5 +1,5 @@
 //
-//  SubCategoryViewController.swift
+//  SubCategoryTableViewCell.swift
 //  Kreamish
 //
 //  Created by Miyo Lee on 2023/05/30.
@@ -9,7 +9,11 @@ import UIKit
 
 import SnapKit
 
-class SubCategoryViewController: UIViewController {
+final class SubCategoryTableViewCell: UITableViewCell {
+    static var id: String {  // computed property. 메모리 공간 가지지 않음.
+        NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
+    }
+    static let cellHeight = 320.0
     
     private let subCategoryList: [SubCategory] = [
         SubCategory(name: "반팔", imgUrl: "https://kream-phinf.pstatic.net/MjAyMzA1MzBfMjY0/MDAxNjg1NDM0NjM5MjQ1.XaATmir_qbj-dvZ9OqRtvpgVNyXVKLxAGOFHLnJSC-kg.MCeNg9LTh6dRpyTSJu6gjfDrDbBZCdjSk4jj2XBFEvAg.PNG/a_tmp_file_38cb5ce0523d4e6caba2208a77c2e6c2.png?type=s"),
@@ -43,6 +47,7 @@ class SubCategoryViewController: UIViewController {
         collectionView.isPagingEnabled = true
         collectionView.isScrollEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isUserInteractionEnabled = true
         collectionView.register(SubCategoryCollectionViewCell.self, forCellWithReuseIdentifier: SubCategoryCollectionViewCell.id)
         return collectionView
     }()
@@ -58,9 +63,11 @@ class SubCategoryViewController: UIViewController {
     }()
     
     private func configureUI() {
+        self.contentView.addSubview(subCategoryCollectionView)
+        self.contentView.addSubview(pageControl)
         subCategoryCollectionView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(10)
-            $0.top.equalToSuperview().inset(40)   //상단탭 높이
+            $0.top.equalToSuperview().inset(40)   // 상단탭 높이
             $0.height.equalTo(240)
         }
         pageControl.snp.makeConstraints {
@@ -69,31 +76,32 @@ class SubCategoryViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(subCategoryCollectionView)
-        view.addSubview(pageControl)
+    func setUp() {
         configureUI()
+        // set viewModel
     }
 }
 
-extension SubCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SubCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return subCategoryList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = UICollectionViewCell()
-        cell = collectionView.dequeueReusableCell(withReuseIdentifier: SubCategoryCollectionViewCell.id, for: indexPath)
-        if let cell = cell as? SubCategoryCollectionViewCell {
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SubCategoryCollectionViewCell.id, for: indexPath) as? SubCategoryCollectionViewCell {
             cell.model = subCategoryList[indexPath.item]
+            return cell
+        } else {
+            fatalError("DequeueReusableCell failed while casting")
         }
-        return cell
     }
 }
 
-extension SubCategoryViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+extension SubCategoryTableViewCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemSpacing: CGFloat = 5
         let width: CGFloat = (collectionView.bounds.width - itemSpacing * 4) / 5
         let height: CGFloat = width * 1.5
@@ -109,7 +117,7 @@ extension SubCategoryViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension SubCategoryViewController: UIScrollViewDelegate {
+extension SubCategoryTableViewCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let width = scrollView.bounds.size.width
         // 좌표보정을 위해 절반의 너비를 더해줌

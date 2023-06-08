@@ -140,9 +140,11 @@ class ProductCollectionViewCell: UICollectionViewCell {
     func bind() {
         if let model = model {
             DispatchQueue.global().async {
-                let data = try? Data(contentsOf: URL(string: model.imgUrl)!)
-                DispatchQueue.main.async {
-                    self.thumbnailImageView.image = UIImage(data: data!)
+                if let url = URL(string: model.imgUrl) {
+                    let data = try? Data(contentsOf: url)
+                    DispatchQueue.main.async {
+                        self.thumbnailImageView.image = UIImage(data: data ?? Data())
+                    }
                 }
             }
             brandLabel.text = model.brand

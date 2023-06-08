@@ -58,12 +58,18 @@ class SubCategoryCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
     func bind() {
         if let model = model {
             DispatchQueue.global().async {
-                let data = try? Data(contentsOf: URL(string: model.imgUrl)!)
-                DispatchQueue.main.async {
-                    self.iconImageView.image = UIImage(data: data!)
+                if let url = URL(string: model.imgUrl){
+                    let data = try? Data(contentsOf: url)
+                    DispatchQueue.main.async {
+                        self.iconImageView.image = UIImage(data: data!)
+                    }
                 }
             }
             self.nameLabel.text = model.name

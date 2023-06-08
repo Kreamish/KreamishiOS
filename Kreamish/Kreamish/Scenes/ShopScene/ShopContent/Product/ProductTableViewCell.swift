@@ -1,5 +1,5 @@
 //
-//  ProductViewController.swift
+//  ProductTableViewCell.swift
 //  Kreamish
 //
 //  Created by Miyo Lee on 2023/05/18.
@@ -9,7 +9,11 @@ import UIKit
 
 import SnapKit
 
-class ProductViewController: UIViewController {
+class ProductTableViewCell: UITableViewCell {
+    static var id: String {
+        NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
+    }
+    static let cellHeight = 2500.0
     
     // swiftlint:disable line_length
     private let productList: [Product] = [
@@ -41,6 +45,7 @@ class ProductViewController: UIViewController {
     }()
     
     private func configureUI() {
+        self.contentView.addSubview(productCollectionView)
         productCollectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(10)
             make.top.equalToSuperview()
@@ -48,15 +53,13 @@ class ProductViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(productCollectionView)
+    func setUp() {
         configureUI()
     }
     
 }
 
-extension ProductViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ProductTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     
     // UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -81,7 +84,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 }
 
-extension ProductViewController: UICollectionViewDelegateFlowLayout {
+extension ProductTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemSpacing: CGFloat = 5
         //            let lineSpacing: CGFloat = 10

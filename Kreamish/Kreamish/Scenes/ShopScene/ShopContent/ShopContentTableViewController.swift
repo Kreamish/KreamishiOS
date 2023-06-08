@@ -1,8 +1,21 @@
 import UIKit
 
+enum Item {
+    case subCategory
+    case filter
+    case product
+}
+
 class ShopContentTableViewController: UITableViewController {
-    
+
     private let category: String    //enum으로 바꿔보기
+    
+    private var items: [Item] = [
+        .subCategory,
+        .filter,
+        .product
+    ]
+    
     init(category: String) {    //데이터 관련 초기화
         self.category = category
         super.init(style: .plain)
@@ -20,7 +33,10 @@ class ShopContentTableViewController: UITableViewController {
 //        tableView.estimatedRowHeight = 200;
         // auto height
         tableView.separatorInset.left = 0
-        tableView.register(ShopContentTableViewCell.self, forCellReuseIdentifier: ShopContentTableViewCell.id)
+        tableView.allowsSelection = false
+        tableView.register(SubCategoryTableViewCell.self, forCellReuseIdentifier: SubCategoryTableViewCell.id)
+        tableView.register(FilterTableViewCell.self, forCellReuseIdentifier: FilterTableViewCell.id)
+        tableView.register(ProductTableViewCell.self, forCellReuseIdentifier: ProductTableViewCell.id)
     }
     
     // MARK: - Table view data source
@@ -30,15 +46,17 @@ class ShopContentTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3 // Return the number of rows you want to display
+        return items.count // Return the number of rows you want to display
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-            // 수정해야함. 컨텐츠 크기에 맞게 조정되도록
-        case 0: return 320  //서브카테고리 영역
-        case 1: return 2500 //상품 리스트 영역
-        default: return 0
+        switch items[indexPath.item] {
+        case .subCategory:
+            return SubCategoryTableViewCell.cellHeight
+        case .filter:
+            return FilterTableViewCell.cellHeight
+        case .product:
+            return ProductTableViewCell.cellHeight // 수정해야함. 컨텐츠 크기에 맞게 조정되도록
         }
     }
     
@@ -49,28 +67,28 @@ class ShopContentTableViewController: UITableViewController {
     // auto height
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: ShopContentTableViewCell.id, for: indexPath) as? ShopContentTableViewCell {
-            
-            var viewController: UIViewController? = nil
-            switch indexPath.row {
-            case 0: //서브카테고리 영역
-                viewController = SubCategoryViewController()
-            case 1: //상품 리스트 영역
-                viewController = ProductViewController()
-            default:
-                print("default")
+        switch items[indexPath.item] {
+        case .subCategory:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: SubCategoryTableViewCell.id) as? SubCategoryTableViewCell {
+                cell.setUp()
+                return cell
+            } else {
+                return UITableViewCell()
             }
-            if let vc = viewController {
-                self.addChild(vc)
-                cell.contentView.addSubview(vc.view)
-                vc.didMove(toParent: self)
-                vc.view.layoutIfNeeded()
+        case .filter:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.id) as? FilterTableViewCell {
+                cell.setUp()
+                return cell
+            } else {
+                return UITableViewCell()
             }
-            return cell
-        } else {
-            fatalError("DequeueReusableCell failed while casting")
+        case .product:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.id) as? ProductTableViewCell {
+                cell.setUp()
+                return cell
+            } else {
+                return UITableViewCell()
+            }
         }
     }
 }
-

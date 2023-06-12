@@ -17,11 +17,6 @@ class ShopContentTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        contentView.backgroundColor = .white
-        contentView.snp.makeConstraints {
-            $0.leading.trailing.top.bottom.equalToSuperview()
-        }
     }
     
     @available(*, unavailable)
@@ -32,5 +27,11 @@ class ShopContentTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+    }
+    
 }
                                 

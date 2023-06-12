@@ -1,5 +1,5 @@
 //
-//  ProductViewController.swift
+//  ProductTableViewCell.swift
 //  Kreamish
 //
 //  Created by Miyo Lee on 2023/05/18.
@@ -9,7 +9,11 @@ import UIKit
 
 import SnapKit
 
-class ProductViewController: UIViewController {
+class ProductTableViewCell: UITableViewCell {
+    static var id: String {
+        NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
+    }
+    static let cellHeight = 2500.0
     
     // swiftlint:disable line_length
     private let productList: [Product] = [
@@ -28,6 +32,26 @@ class ProductViewController: UIViewController {
     ]
     // swiftlint:disable line_length
     
+    lazy var countLabel: UILabel = {
+        let label = UILabel()
+        label.text = "상품 " + "110,362"
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        return label
+    }()
+    lazy var sortLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        
+        let attributedString = NSMutableAttributedString(string: "")
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(systemName: "arrow.up.arrow.down")?.withTintColor(.systemGray3)
+        attributedString.append(NSAttributedString(string: "인기순 "))
+        attributedString.append(NSAttributedString(attachment: imageAttachment))
+        label.attributedText = attributedString
+        return label
+    }()
     lazy var productCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -41,22 +65,28 @@ class ProductViewController: UIViewController {
     }()
     
     private func configureUI() {
-        productCollectionView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(10)
-            make.top.equalToSuperview()
-            make.height.equalTo(2500)
+        self.contentView.addSubview(productCollectionView)
+        self.contentView.addSubview(countLabel)
+        self.contentView.addSubview(sortLabel)
+        countLabel.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().inset(20)
+        }
+        sortLabel.snp.makeConstraints {
+            $0.top.trailing.equalToSuperview().inset(20)
+        }
+        productCollectionView.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview().inset(20)
+            $0.top.equalTo(countLabel.snp.bottom).offset(20)
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(productCollectionView)
-        configureUI()
+    func setUp() {
+        self.configureUI()
     }
     
 }
 
-extension ProductViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ProductTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     
     // UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -66,9 +96,11 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.id, for: indexPath)
-        if let cell = cell as? ProductCollectionViewCell {
-            cell.model = productList[indexPath.item]
+        guard let cell = cell as? ProductCollectionViewCell else {
+            return UICollectionViewCell()
         }
+        cell.model = productList[indexPath.item]
+        cell.setup()
         return cell
     }
     
@@ -81,7 +113,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 }
 
-extension ProductViewController: UICollectionViewDelegateFlowLayout {
+extension ProductTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemSpacing: CGFloat = 5
         //            let lineSpacing: CGFloat = 10

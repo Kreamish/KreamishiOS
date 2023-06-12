@@ -32,7 +32,7 @@ class FilterTableViewCell: UITableViewCell {
     private func configureUI() {
         self.contentView.addSubview(filterCollectionView)
         filterCollectionView.snp.makeConstraints {
-            $0.leading.tr
+            $0.width.equalToSuperview()
             $0.height.equalToSuperview()
         }
     }

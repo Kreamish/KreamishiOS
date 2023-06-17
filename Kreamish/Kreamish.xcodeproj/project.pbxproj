@@ -35,7 +35,21 @@
 		D32A320B2A1662F600579599 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A320A2A1662F600579599 /* ProductCollectionViewCell.swift */; };
 		D32A320D2A16696300579599 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A320C2A16696300579599 /* ProductTableViewCell.swift */; };
 		D3A576022A261DA50093D415 /* SubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A576012A261DA50093D415 /* SubCategoryTableViewCell.swift */; };
+		D3FDD3FE2A3DEBD400C90E8F /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = D3FDD3FD2A3DEBD400C90E8F /* iOSDropDown */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D3FEA09A2A39B4A400CBD26E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		537A0B7D2A0A18C500CDEAC3 /* Kreamish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kreamish.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3FDD3FE2A3DEBD400C90E8F /* iOSDropDown in Frameworks */,
 				D32A31F42A11048600579599 /* Tabman in Frameworks */,
 				53DDE6E52A0FB409007C57BD /* SnapKit in Frameworks */,
 			);
@@ -89,6 +104,7 @@
 				537A0B7F2A0A18C500CDEAC3 /* Kreamish */,
 				53CD0E262A0E46EC009A504A /* .swiftlint.yml */,
 				537A0B7E2A0A18C500CDEAC3 /* Products */,
+				D3FEA0972A39B4A400CBD26E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -349,6 +365,13 @@
 			path = SubCategory;
 			sourceTree = "<group>";
 		};
+		D3FEA0972A39B4A400CBD26E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -360,6 +383,7 @@
 				537A0B792A0A18C500CDEAC3 /* Sources */,
 				537A0B7A2A0A18C500CDEAC3 /* Frameworks */,
 				537A0B7B2A0A18C500CDEAC3 /* Resources */,
+				D3FEA09A2A39B4A400CBD26E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -369,6 +393,7 @@
 			packageProductDependencies = (
 				D32A31F32A11048600579599 /* Tabman */,
 				53DDE6E42A0FB409007C57BD /* SnapKit */,
+				D3FDD3FD2A3DEBD400C90E8F /* iOSDropDown */,
 			);
 			productName = Kreamish;
 			productReference = 537A0B7D2A0A18C500CDEAC3 /* Kreamish.app */;
@@ -401,6 +426,7 @@
 			packageReferences = (
 				D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */,
 				53DDE6E32A0FB409007C57BD /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D3FDD3FC2A3DEBD400C90E8F /* XCRemoteSwiftPackageReference "iOSDropDown" */,
 			);
 			productRefGroup = 537A0B7E2A0A18C500CDEAC3 /* Products */;
 			projectDirPath = "";
@@ -707,6 +733,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		D3FDD3FC2A3DEBD400C90E8F /* XCRemoteSwiftPackageReference "iOSDropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jriosdev/iOSDropDown.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -719,6 +753,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D32A31F22A11048600579599 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		D3FDD3FD2A3DEBD400C90E8F /* iOSDropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3FDD3FC2A3DEBD400C90E8F /* XCRemoteSwiftPackageReference "iOSDropDown" */;
+			productName = iOSDropDown;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

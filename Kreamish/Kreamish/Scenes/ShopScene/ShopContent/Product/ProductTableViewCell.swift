@@ -7,6 +7,7 @@
 
 import UIKit
 
+import iOSDropDown
 import SnapKit
 
 class ProductTableViewCell: UITableViewCell {
@@ -39,19 +40,23 @@ class ProductTableViewCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 16, weight: .light)
         return label
     }()
-    lazy var sortLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
-        
-        let attributedString = NSMutableAttributedString(string: "")
-        let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(systemName: "arrow.up.arrow.down")?.withTintColor(.systemGray3)
-        attributedString.append(NSAttributedString(string: "인기순 "))
-        attributedString.append(NSAttributedString(attachment: imageAttachment))
-        label.attributedText = attributedString
-        return label
+
+    let sortDropDown: DropDown = {
+        let dropDown = DropDown()
+        dropDown.optionArray = ["인기순", "즉시 구매가순", "즉시 판매가순", "관심 많은순", "발매일순"]
+        dropDown.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        dropDown.text = dropDown.optionArray[0]
+        dropDown.textAlignment = .left
+        dropDown.isSearchEnable = false
+        dropDown.checkMarkEnabled = false
+        dropDown.selectedRowColor = .lightGray
+        dropDown.selectedIndex = 0
+        dropDown.arrowSize = 16
+        dropDown.rowHeight = 60
+        dropDown.listHeight = dropDown.rowHeight * CGFloat(dropDown.optionArray.count)
+        return dropDown
     }()
+
     lazy var productCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -65,14 +70,16 @@ class ProductTableViewCell: UITableViewCell {
     }()
     
     private func configureUI() {
-        self.contentView.addSubview(productCollectionView)
         self.contentView.addSubview(countLabel)
-        self.contentView.addSubview(sortLabel)
+        self.contentView.addSubview(sortDropDown)
+        self.contentView.addSubview(productCollectionView)
         countLabel.snp.makeConstraints {
             $0.top.leading.equalToSuperview().inset(20)
         }
-        sortLabel.snp.makeConstraints {
+        sortDropDown.snp.makeConstraints {
             $0.top.trailing.equalToSuperview().inset(20)
+            $0.width.equalTo(140)
+            $0.height.equalTo(countLabel.snp.height)
         }
         productCollectionView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview().inset(20)

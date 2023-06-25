@@ -36,6 +36,9 @@
 		D32A320D2A16696300579599 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A320C2A16696300579599 /* ProductTableViewCell.swift */; };
 		D3A576022A261DA50093D415 /* SubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A576012A261DA50093D415 /* SubCategoryTableViewCell.swift */; };
 		D3FDD3FE2A3DEBD400C90E8F /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = D3FDD3FD2A3DEBD400C90E8F /* iOSDropDown */; };
+		D3FDD4042A4837DC00C90E8F /* DimmedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD4032A4837DC00C90E8F /* DimmedViewController.swift */; };
+		D3FDD4062A48386F00C90E8F /* FilterPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD4052A48386F00C90E8F /* FilterPopupViewController.swift */; };
+		D3FDD4082A484C4900C90E8F /* FilterPopupContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD4072A484C4900C90E8F /* FilterPopupContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +84,9 @@
 		D32A320A2A1662F600579599 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		D32A320C2A16696300579599 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		D3A576012A261DA50093D415 /* SubCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		D3FDD4032A4837DC00C90E8F /* DimmedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmedViewController.swift; sourceTree = "<group>"; };
+		D3FDD4052A48386F00C90E8F /* FilterPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupViewController.swift; sourceTree = "<group>"; };
+		D3FDD4072A484C4900C90E8F /* FilterPopupContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +281,7 @@
 			children = (
 				D32A31FB2A1106CF00579599 /* UIViewController+.swift */,
 				53DDE6DC2A0F89A9007C57BD /* TabBarController.swift */,
+				D3FDD4032A4837DC00C90E8F /* DimmedViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +328,8 @@
 			children = (
 				D3110D2C2A2F5DCE002C8FED /* FilterTableViewCell.swift */,
 				D3110D2E2A2F5DE2002C8FED /* FilterCollectionViewCell.swift */,
+				D3FDD4052A48386F00C90E8F /* FilterPopupViewController.swift */,
+				D3FDD4072A484C4900C90E8F /* FilterPopupContentViewController.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -487,10 +496,12 @@
 				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
 				D32A320B2A1662F600579599 /* ProductCollectionViewCell.swift in Sources */,
 				53D1E22A2A1F3EBE000424FA /* HomeDroppedCollectionViewCell.swift in Sources */,
+				D3FDD4062A48386F00C90E8F /* FilterPopupViewController.swift in Sources */,
 				53DDE6EA2A0FBF06007C57BD /* HomeBannerCollectionViewCell.swift in Sources */,
 				53DDE6E72A0FBD77007C57BD /* HomeBannerTableViewCell.swift in Sources */,
 				53DDE6DD2A0F89A9007C57BD /* TabBarController.swift in Sources */,
 				537F94242A14846D004AE7D7 /* HomeViewModel.swift in Sources */,
+				D3FDD4082A484C4900C90E8F /* FilterPopupContentViewController.swift in Sources */,
 				53D1E2232A1E09F2000424FA /* HomeRecommendCategoryTableViewCell.swift in Sources */,
 				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
 				53D1E2282A1F3EA8000424FA /* HomeDroppedTableViewCell.swift in Sources */,
@@ -502,6 +513,7 @@
 				53D1E22C2A1F4D3C000424FA /* DroppedText.swift in Sources */,
 				D3110D2F2A2F5DE2002C8FED /* FilterCollectionViewCell.swift in Sources */,
 				53DDE6E22A0FB3A1007C57BD /* HomeViewController.swift in Sources */,
+				D3FDD4042A4837DC00C90E8F /* DimmedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

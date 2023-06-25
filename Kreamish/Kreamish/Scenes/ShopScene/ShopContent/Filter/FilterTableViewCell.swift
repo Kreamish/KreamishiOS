@@ -16,6 +16,8 @@ class FilterTableViewCell: UITableViewCell {
     
     private let filterList: [String] = ["카테고리", "성별", "브랜드", "사이즈", "가격"]
     
+    var selectFilterCellClosure: ((Int) -> Void)?
+    
     private lazy var filterCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
@@ -55,6 +57,10 @@ extension FilterTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
         cell.model = filterList[indexPath.item]
         cell.setUp()
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectFilterCellClosure?(indexPath.item)
     }
 }
 

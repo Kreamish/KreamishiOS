@@ -78,6 +78,10 @@ class ShopContentTableViewController: UITableViewController {
         case .filter:
             if let cell = tableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.id) as? FilterTableViewCell {
                 cell.setUp()
+                cell.selectFilterCellClosure = { [weak self] index in
+                    let filterPopupViewController = FilterPopupViewController(index: index)
+                    self?.present(filterPopupViewController, animated: true)
+                }
                 return cell
             } else {
                 return UITableViewCell()

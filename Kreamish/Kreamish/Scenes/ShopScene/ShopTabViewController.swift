@@ -23,7 +23,10 @@ final class ShopTabViewController: TabmanViewController, PageboyViewControllerDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureUI()
+    }
+    
+    func configureUI() {
         view.addSubview(tempView)   // 상단탭 들어갈 영역
         
         viewControllers.append(allViewController)

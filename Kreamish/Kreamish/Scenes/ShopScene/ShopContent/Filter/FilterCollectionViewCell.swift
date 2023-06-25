@@ -37,8 +37,8 @@ class FilterCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
     }
+    
     private func configureUI() {
         self.contentView.layer.cornerRadius = contentView.bounds.height / 2.3
         self.contentView.layer.masksToBounds = true

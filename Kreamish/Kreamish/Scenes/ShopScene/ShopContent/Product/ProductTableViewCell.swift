@@ -14,7 +14,7 @@ class ProductTableViewCell: UITableViewCell {
     static var id: String {
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
-    static let cellHeight = 2500.0
+    static let cellHeight = 3000.0
     
     // swiftlint:disable line_length
     private let productList: [Product] = [
@@ -82,8 +82,11 @@ class ProductTableViewCell: UITableViewCell {
             $0.height.equalTo(countLabel.snp.height)
         }
         productCollectionView.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalToSuperview().inset(20)
+            $0.leading.trailing.equalToSuperview().inset(20)
             $0.top.equalTo(countLabel.snp.bottom).offset(20)
+            $0.bottom.equalTo(contentView.safeAreaLayoutGuide.snp.bottom).inset(20)
+            $0.centerX.equalToSuperview()
+//            $0.height.lessThanOrEqualTo()
         }
     }
     

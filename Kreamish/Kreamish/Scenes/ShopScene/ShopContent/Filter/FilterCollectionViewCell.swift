@@ -19,9 +19,8 @@ class FilterCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var label: UILabel = {
+    lazy var label: UILabel = {
         let label = UILabel()
-        label.text = "카테고리"
         label.font = UIFont.systemFont(ofSize: 16, weight: .light)
         return label
     }()

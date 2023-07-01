@@ -14,7 +14,7 @@ class FilterTableViewCell: UITableViewCell {
     }
     static let cellHeight = 70.0
     
-    private let filterList: [String] = ["카테고리", "성별", "브랜드", "사이즈", "가격"]
+    private let filterList: [String] = ["카테고리", "브랜드", "컬렉션", "가격", "사이즈"]
     
     var selectFilterCellClosure: ((Int) -> Void)?
     
@@ -34,7 +34,7 @@ class FilterTableViewCell: UITableViewCell {
     private func configureUI() {
         self.contentView.addSubview(filterCollectionView)
         filterCollectionView.snp.makeConstraints {
-            $0.width.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(10)
             $0.height.equalToSuperview()
         }
     }

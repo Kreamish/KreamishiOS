@@ -25,7 +25,6 @@ final class ShopTabViewController: TabmanViewController, PageboyViewControllerDa
         super.viewDidLoad()
         configureUI()
     }
-    
     func configureUI() {
         view.addSubview(tempView)   // 상단탭 들어갈 영역
         
@@ -44,13 +43,13 @@ final class ShopTabViewController: TabmanViewController, PageboyViewControllerDa
     }
     
     func setTabBar(bar: TMBar.ButtonBar) {
-        bar.backgroundView.style = .blur(style: .light)
+        bar.backgroundView.style = .flat(color: UIColor.white)
         bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         bar.buttons.customize { (button) in
             button.tintColor = .black
             button.selectedTintColor = .black // 선택 되어 있을 때
-            button.font = .systemFont(ofSize: 16, weight: .light)
-            button.selectedFont = .boldSystemFont(ofSize: 16)
+            button.font = .systemFont(ofSize: 18, weight: .light)
+            button.selectedFont = .boldSystemFont(ofSize: 18)
         }
         // 인디케이터 조정
         bar.indicator.weight = .light

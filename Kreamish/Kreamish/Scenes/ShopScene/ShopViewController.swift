@@ -8,7 +8,7 @@
 import UIKit
 
 class ShopViewController: UIViewController, UISearchBarDelegate {
-    
+    //ki-19 test
     private let searchBar: UISearchBar = { // 검색창
         let searchBar = UISearchBar()
         searchBar.placeholder = "브랜드명, 모델명, 모델번호 등"

@@ -141,10 +141,10 @@ extension ProductTableViewCell: UICollectionViewDelegateFlowLayout {
     }
 }
 
-struct Product {
-    let englishName: String
-    let brand: String
-    let category: String
-    let price: String
-    let imgUrl: String
-}
+//struct Product {
+//    let englishName: String
+//    let brand: String
+//    let category: String
+//    let price: String
+//    let imgUrl: String
+//}

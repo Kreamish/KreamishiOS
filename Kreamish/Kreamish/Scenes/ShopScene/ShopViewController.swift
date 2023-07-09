@@ -8,31 +8,29 @@
 import UIKit
 
 class ShopViewController: UIViewController, UISearchBarDelegate {
-    //ki-19 test
-    private let searchBar: UISearchBar = { // 검색창
+    
+    lazy var searchBar: UISearchBar = { // 검색창
         let searchBar = UISearchBar()
         searchBar.placeholder = "브랜드명, 모델명, 모델번호 등"
         searchBar.searchTextField.font = UIFont.systemFont(ofSize: 14)
         searchBar.setImage(UIImage(), for: UISearchBar.Icon.search, state: .normal)
         searchBar.layer.borderWidth = 1
         searchBar.layer.borderColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0).cgColor
-        
+        searchBar.delegate = self
         return searchBar
     }()
     
-    private let contentView: UIView = {
+    lazy var contentView: UIView = {
         let contentView = UIView()
         contentView.backgroundColor = .white
         return contentView
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        searchBar.delegate = self
-        
+    lazy var shopTapViewController = ShopTabViewController()
+    
+    private func configureUI() {
         view.addSubview(searchBar)
         view.addSubview(contentView)
-        
         view.backgroundColor = .white
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -50,13 +48,18 @@ class ShopViewController: UIViewController, UISearchBarDelegate {
             contentView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 5),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        hideKeyboardWhenTappedBackground()
         
-        let shopTapViewController = ShopTabViewController()
         addChild(shopTapViewController)
         shopTapViewController.view.frame = contentView.bounds
         contentView.addSubview(shopTapViewController.view)
         shopTapViewController.didMove(toParent: self)
+        
+        hideKeyboardWhenTappedBackground()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureUI()
     }
     
     // UISearchBarDelegate

@@ -1,5 +1,5 @@
 //
-//  SubCategoryCollectionViewCell.swift
+//  TrendingKeywordCollectionViewCell.swift
 //  Kreamish
 //
 //  Created by Miyo Lee on 2023/06/04.
@@ -9,12 +9,12 @@ import UIKit
 
 import SnapKit
 
-class SubCategoryCollectionViewCell: UICollectionViewCell {
+class TrendingKeywordCollectionViewCell: UICollectionViewCell {
     static var id: String {  // computed property. 메모리 공간 가지지 않음.
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
     
-    var model: SubCategory? {
+    var model: TrendingKeyword? {
         didSet {    // model의 값이 변경된 직후 호출.
             bind()
         }

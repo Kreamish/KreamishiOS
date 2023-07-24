@@ -11,7 +11,7 @@ import Pageboy
 import Tabman
 
 final class ShopTabViewController: TabmanViewController, PageboyViewControllerDataSource, TMBarDataSource {
-    private var viewModel: ShopTabViewModel?
+    private var viewModel = ShopTabViewModel()
     private var cancellables = Set<AnyCancellable>()
     
     private var viewControllers: [UIViewController] = []
@@ -21,16 +21,11 @@ final class ShopTabViewController: TabmanViewController, PageboyViewControllerDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = ShopTabViewModel()
-        viewModel?.$categoryList
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                self?.configureUI()
-            }
-            .store(in: &cancellables)
-        viewModel?.fetchCategoryList()
+        viewModel.getCategoryList()
     }
-    
+    private func bind() {
+        //categoryList 로딩 다 되면 받아서 viewControllers에 넣는다
+    }
     func configureUI() {
         view.addSubview(tempView)   // 상단탭 들어갈 영역
         

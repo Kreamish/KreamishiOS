@@ -8,31 +8,26 @@
 import Foundation
 
 struct CategoriesResponseDTO: Decodable {
-    private enum CodingKeys: String, CodingKey {
-        case categories = "categories"
-    }
+    let response: CategoriesResponse
+    let error: String? // Assuming error is of type String, modify it as needed
+}
+
+struct CategoriesResponse: Decodable {
+    let empty: Bool
     let categories: [CategoryDTO]
-}
-
-extension CategoriesResponseDTO {
-    struct CategoryDTO: Decodable {
-        private enum CodingKeys: String, CodingKey {
-            case categoryId
-            case name
-        }
-        let categoryId: Int
-        let name: String
-    }
-}
-
-// MARK: - Mappings to Domain
-extension CategoriesResponseDTO {
+    
     func toDomain() -> [Category] {
         return categories.map{ $0.toDomain() }
     }
 }
 
-extension CategoriesResponseDTO.CategoryDTO {
+struct CategoryDTO: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case categoryId
+        case name
+    }
+    let categoryId: Int
+    let name: String
     func toDomain() -> Category {
         return .init(categoryId: categoryId, name: name)
     }

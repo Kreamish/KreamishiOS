@@ -14,7 +14,7 @@ class FilterTableViewCell: UITableViewCell {
     }
     static let cellHeight = 70.0
     
-    private let filterList: [String] = ["카테고리", "브랜드", "컬렉션", "가격", "사이즈"]
+    private let filterList: [String] = ["카테고리", "브랜드", "컬렉션", "사이즈"]
     
     var selectFilterCellClosure: ((Int) -> Void)?
     

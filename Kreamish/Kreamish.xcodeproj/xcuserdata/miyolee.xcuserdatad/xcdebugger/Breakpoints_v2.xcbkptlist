@@ -787,5 +787,549 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2711E741-7AF7-4148-B623-B1F3CC3A579E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Data/Repositories/DefaultCategoriesRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "fetchCategoryList(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B228FB8-0E88-42E1-8BCE-0838050BA113"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Domain/UseCases/GetCategoriesUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "execute(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B7F25C99-2E5E-4EB9-9A8A-D96E281885DE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Presentation/ShopScene/ShopTabViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "load()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "38E2CEC8-9B9C-4968-8B7F-BEF972F38294"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Presentation/ShopScene/ShopTabViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "load()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "38E2CEC8-9B9C-4968-8B7F-BEF972F38294 - 2348e2cef8aa71c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.ShopTabViewModel.load() -&gt; ()"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Presentation/ShopScene/ShopTabViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "38E2CEC8-9B9C-4968-8B7F-BEF972F38294 - ce292fe27ff6df39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Kreamish.Category&gt;, Swift.Error&gt;) -&gt; () in Kreamish.ShopTabViewModel.load() -&gt; ()"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Presentation/ShopScene/ShopTabViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "68BE07CB-70BD-4B47-8A38-9F1C5757A649"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/Endpoint.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "url(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AA3E612C-AECD-4ADF-AD95-0EAE04747767"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Presentation/ShopScene/ShopTabViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "load()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E113C18-9E1B-4C29-9054-571D6323E142"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/Endpoint.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "urlRequest(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A2760846-274F-4C7F-AF4E-3C9FE1E7C82A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/NetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "request(endpoint:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AAD698D5-A69E-4391-9E25-5D2139D86638"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/NetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "request(request:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51912302-E16B-4629-9CA0-32407D3C58BB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/DataTransferService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "request(with:on:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A907592-C32F-4588-B147-856F42D2B4B1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/Endpoint.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "url(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3997F873-19DA-4570-A8BA-B005215B6E74"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/NetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "request(request:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DC4CB8B-3296-4369-A812-A3785B360143"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/NetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "request(request:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFA0A5D3-3174-4ED8-8ABB-E83AB7FFB416"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/NetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "request(request:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DFA0A5D3-3174-4ED8-8ABB-E83AB7FFB416 - 94c69bac96d91bd9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.DefaultNetworkService.request(request: Foundation.URLRequest, completion: (Swift.Result&lt;Swift.Optional&lt;Foundation.Data&gt;, Kreamish.NetworkError&gt;) -&gt; ()) -&gt; Kreamish.NetworkCancellable"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Infrastructure/Network/NetworkService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "DFA0A5D3-3174-4ED8-8ABB-E83AB7FFB416 - 8de8004926e3862"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Kreamish.DefaultNetworkService.request(request: Foundation.URLRequest, completion: (Swift.Result&lt;Swift.Optional&lt;Foundation.Data&gt;, Kreamish.NetworkError&gt;) -&gt; ()) -&gt; Kreamish.NetworkCancellable"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Infrastructure/Network/NetworkService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "67BA10E5-EFD8-41E4-B685-4E745F510608"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/NetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "request(request:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B1C51293-0071-483F-80FD-1FFF062F28DC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/NetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "request(request:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "85158E8F-4B83-4652-A45D-02AB12BC8E3D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/DataTransferService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "request(with:on:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "85158E8F-4B83-4652-A45D-02AB12BC8E3D - 44fb1fadcc5320bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Foundation.Data&gt;, Kreamish.NetworkError&gt;) -&gt; () in Kreamish.DefaultDataTransferService.request&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0 == &#x3c4;_0_1.Response, &#x3c4;_0_1: Kreamish.ResponseRequestable&gt;(with: &#x3c4;_0_1, on: Kreamish.DataTransferDispatchQueue, completion: (Swift.Result&lt;&#x3c4;_0_0, Kreamish.DataTransferError&gt;) -&gt; ()) -&gt; Swift.Optional&lt;Kreamish.NetworkCancellable&gt;"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Infrastructure/Network/DataTransferService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "684">
+               </Location>
+               <Location
+                  uuid = "85158E8F-4B83-4652-A45D-02AB12BC8E3D - cd6c8f530f1540ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Result&lt;Swift.Optional&lt;Foundation.Data&gt;, Kreamish.NetworkError&gt;) -&gt; () in Kreamish.DefaultDataTransferService.request&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0 == &#x3c4;_0_1.Response, &#x3c4;_0_1: Kreamish.ResponseRequestable&gt;(with: &#x3c4;_0_1, on: Kreamish.DataTransferDispatchQueue, completion: (Swift.Result&lt;&#x3c4;_0_0, Kreamish.DataTransferError&gt;) -&gt; ()) -&gt; Swift.Optional&lt;Kreamish.NetworkCancellable&gt;"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Infrastructure/Network/DataTransferService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DB4C741-28A1-4475-8709-3CFEACEB9CE2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/DataTransferService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "request(with:on:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4DB4C741-28A1-4475-8709-3CFEACEB9CE2 - f11eb4e62bb1039d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kreamish.DefaultDataTransferService.request&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0 == &#x3c4;_0_1.Response, &#x3c4;_0_1: Kreamish.ResponseRequestable&gt;(with: &#x3c4;_0_1, on: Kreamish.DataTransferDispatchQueue, completion: (Swift.Result&lt;&#x3c4;_0_0, Kreamish.DataTransferError&gt;) -&gt; ()) -&gt; Swift.Optional&lt;Kreamish.NetworkCancellable&gt;"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Infrastructure/Network/DataTransferService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "4DB4C741-28A1-4475-8709-3CFEACEB9CE2 - 44fb1fadcc532106"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Foundation.Data&gt;, Kreamish.NetworkError&gt;) -&gt; () in Kreamish.DefaultDataTransferService.request&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0 == &#x3c4;_0_1.Response, &#x3c4;_0_1: Kreamish.ResponseRequestable&gt;(with: &#x3c4;_0_1, on: Kreamish.DataTransferDispatchQueue, completion: (Swift.Result&lt;&#x3c4;_0_0, Kreamish.DataTransferError&gt;) -&gt; ()) -&gt; Swift.Optional&lt;Kreamish.NetworkCancellable&gt;"
+                  moduleName = "Kreamish"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miyolee/Kreamish/githubLocal/KreamishiOS/Kreamish/Kreamish/Infrastructure/Network/DataTransferService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "492">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE4B3C97-9846-4491-81C3-54F4DAE8E98B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Presentation/ShopScene/ShopTabViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "load()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA3D20A1-222F-459F-A831-D7EFF87DF94C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/DataTransferService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "request(with:on:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "75DDE2A4-EF9A-4DF4-B03B-51A47122D6F0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/DataTransferService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "request(with:on:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9E909288-3D18-4774-B12B-6AB40D68184F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/DataTransferService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "decode(data:decoder:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "19C011F0-8877-4EC4-A20C-63414D5B9DE4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/DataTransferService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "request(with:on:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2CD98B88-A8F8-4891-A54A-A23C56058719"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Infrastructure/Network/NetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "log(responseData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74E13172-2A3A-4C89-B2E8-2FDFFFFE290C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Data/Repositories/DefaultCategoriesRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "fetchCategoryList(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F993E78-8BA3-4EAB-BED8-AC94AA22C201"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Presentation/ShopScene/ShopTabViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

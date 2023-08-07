@@ -4,43 +4,26 @@
 //
 //  Created by Miyo Lee on 2023/05/18.
 //
-
+import Combine
 import UIKit
 
 import iOSDropDown
 import SnapKit
 
 class ProductTableViewCell: UITableViewCell {
+//    private var viewModel: ProductListViewModel!
+    private var cancellables = Set<AnyCancellable>()
     static var id: String {
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
+    var productsPage: ProductsPage? = nil
     static let cellHeight = 3000.0
-    
-    // swiftlint:disable line_length
-    private let productList: [Product] = [
-        Product(englishName: "LANCER Mens ACTIVE-100 Blue Running Shoe - 7 UK (ACTIVE-100NBL-MSTD-7)", brand: "Reebok", category: "Shoes", price: "119,900", imgUrl: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/81K-j6yqNXL._AC_UL320_.jpg"),
-        Product(englishName: "Wilson mens KAOS Stroke 2.0 India Ink/White/Vivid Blue Tennis Shoe - 10 UK (WRS328850U105)", brand: "New Balance", category: "Shoes", price: "999,900", imgUrl: "https://m.media-amazon.com/images/I/81uis1XGjKL._AC_UL320_.jpg"),
-        Product(englishName: "Men's Jordan 1 Retro High OG Rebellionaire Blk/Wht-Particle Grey (555088 036)", brand: "Nike", category: "Shoes", price: "6,299,300", imgUrl:"https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61HcA++bNJL._AC_UL320_.jpg"),
-        Product(englishName: "Nike Mens Jordan 3 Retro Basketball Shoes", brand: "Skechers", category: "Shoes", price: "6299300", imgUrl: "https://m.media-amazon.com/images/I/51tWQy69c6L._AC_UL320_.jpg"),
-        Product(englishName: "Nike Men's Shoes Jordan 1 High Zoom Air CMFT Black Monarch CT0978-002", brand: "Nike", category: "Shoes", price: "6,299,000", imgUrl: "https://m.media-amazon.com/images/I/61IgNNMa0ZL._AC_UL320_.jpg"),
-        Product(englishName: "Nike Jordan 1 Mid Pink Black", brand: "Under Armour", category: "Shoes", price: "6121000", imgUrl: "https://m.media-amazon.com/images/I/71cBbSQiQ0L._AC_UL320_.jpg"),
-        Product(englishName: "LANCER Mens ACTIVE-100 Blue Running Shoe - 7 UK (ACTIVE-100NBL-MSTD-7)", brand: "Reebok", category: "Shoes", price: "119,900", imgUrl: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/81K-j6yqNXL._AC_UL320_.jpg"),
-        Product(englishName: "Wilson mens KAOS Stroke 2.0 India Ink/White/Vivid Blue Tennis Shoe - 10 UK (WRS328850U105)", brand: "New Balance", category: "Shoes", price: "999,900", imgUrl: "https://m.media-amazon.com/images/I/81uis1XGjKL._AC_UL320_.jpg"),
-        Product(englishName: "Men's Jordan 1 Retro High OG Rebellionaire Blk/Wht-Particle Grey (555088 036)", brand: "Nike", category: "Shoes", price: "6,299,300", imgUrl:"https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61HcA++bNJL._AC_UL320_.jpg"),
-        Product(englishName: "Nike Mens Jordan 3 Retro Basketball Shoes", brand: "Skechers", category: "Shoes", price: "6299300", imgUrl: "https://m.media-amazon.com/images/I/51tWQy69c6L._AC_UL320_.jpg"),
-        Product(englishName: "Nike Men's Shoes Jordan 1 High Zoom Air CMFT Black Monarch CT0978-002", brand: "Nike", category: "Shoes", price: "6,299,000", imgUrl: "https://m.media-amazon.com/images/I/61IgNNMa0ZL._AC_UL320_.jpg"),
-        Product(englishName: "Nike Jordan 1 Mid Pink Black", brand: "Under Armour", category: "Shoes", price: "6,121,000", imgUrl: "https://m.media-amazon.com/images/I/71cBbSQiQ0L._AC_UL320_.jpg")
-    ]
-    // swiftlint:disable line_length
-    
     lazy var countLabel: UILabel = {
         let label = UILabel()
-        label.text = "상품 " + "110,362"
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 16, weight: .light)
         return label
     }()
-
     let sortDropDown: DropDown = {
         let dropDown = DropDown()
         dropDown.optionArray = ["인기순", "즉시 구매가순", "즉시 판매가순", "관심 많은순", "발매일순"]
@@ -56,7 +39,6 @@ class ProductTableViewCell: UITableViewCell {
         dropDown.listHeight = dropDown.rowHeight * CGFloat(dropDown.optionArray.count)
         return dropDown
     }()
-
     lazy var productCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -70,6 +52,8 @@ class ProductTableViewCell: UITableViewCell {
     }()
     
     private func configureUI() {
+        countLabel.text = "상품 \(productsPage?.totalElements ?? 0)"
+        
         self.contentView.addSubview(countLabel)
         self.contentView.addSubview(sortDropDown)
         self.contentView.addSubview(productCollectionView)
@@ -91,16 +75,35 @@ class ProductTableViewCell: UITableViewCell {
     }
     
     func setUp() {
-        self.configureUI()
+        // DI. 나중에 DI Container로 뺄 예정.
+        let dataTransferService = DefaultDataTransferService(
+            with: DefaultNetworkService(config: ApiDataNetworkConfig(baseURL: URL(string: Constants.DEFAULT_DOMAIN)!))
+        )
+        let productsRepository = DefaultProductsRepository(dataTransferService: dataTransferService)
+        let getProductsUseCase = DefaultGetProductsUseCase(productsRepository: productsRepository)
+        
+        let viewModel = ProductListViewModel(getProductsUseCase: getProductsUseCase)
+        // DI. 나중에 DI Container로 뺄 예정.
+        
+        // combine. 데이터 변화를 감지함
+        viewModel.$productsPage
+                    .sink { [weak self] updatedProductsPage in
+                        // Call your specific function in the ViewController
+                        self?.productsPage = updatedProductsPage
+                        self?.configureUI()
+                    }
+                    .store(in: &cancellables)
+        
+        viewModel.getProductsPage()
     }
-    
 }
 
 extension ProductTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     
     // UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productList.count
+//        return productList.count
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -109,7 +112,7 @@ extension ProductTableViewCell: UICollectionViewDataSource, UICollectionViewDele
         guard let cell = cell as? ProductCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.model = productList[indexPath.item]
+//        cell.model = productList[indexPath.item]
         cell.setup()
         return cell
     }
@@ -140,11 +143,3 @@ extension ProductTableViewCell: UICollectionViewDelegateFlowLayout {
         return 0
     }
 }
-
-//struct Product {
-//    let englishName: String
-//    let brand: String
-//    let category: String
-//    let price: String
-//    let imgUrl: String
-//}

@@ -4,7 +4,7 @@
 //
 //  Created by Miyo Lee on 2023/05/18.
 //
-
+import Combine
 import UIKit
 
 import SnapKit
@@ -15,11 +15,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
     
-    var model: Product? {
-        didSet {    // model의 값이 변경된 직후 호출.
-            bind()
-        }
-    }
+    @Published var product: Product?
+    private var cancellables: Set<AnyCancellable> = []
     
     private lazy var thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
@@ -129,23 +126,27 @@ class ProductCollectionViewCell: UICollectionViewCell {
         })
     }
     func setup() {
+        $product.sink { [weak self] newProduct in
+            self?.bind()
+        }
+        .store(in: &cancellables)
         configureUI()
     }
     private func bind() {
-        if let model = model {
+        if let product = product {
             DispatchQueue.global().async {
-                if let url = URL(string: model.imgUrl) {
+                if let url = URL(string: product.imageUrl) {
                     let data = try? Data(contentsOf: url)
                     DispatchQueue.main.async {
                         self.thumbnailImageView.image = UIImage(data: data ?? Data())
                     }
                 }
             }
-            brandLabel.text = model.brand
-            englishNameLabel.text = model.englishName
-            priceLabel.text = model.price + "원"
-            bookMarkCountLabel.text = "2.4" + "만"
-            commentCountLabel.text = "2,545"
+            brandLabel.text = product.brandName
+            englishNameLabel.text = product.name
+            priceLabel.text = "\(product.recentPrice) 원"
+            bookMarkCountLabel.text = "\(product.likeCount)"
+            commentCountLabel.text = "\(product.commentCount)"
         }
     }
 }

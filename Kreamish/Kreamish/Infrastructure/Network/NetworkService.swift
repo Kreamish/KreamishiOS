@@ -35,7 +35,7 @@ protocol NetworkSessionManager {
 
 protocol NetworkErrorLogger {
     func log(request: URLRequest)
-    func log(responseData data: Data?, response: URLResponse?)
+    func log(responseData data: Data?)
     func log(error: Error)
 }
 
@@ -54,7 +54,7 @@ final class DefaultNetworkErrorLogger: NetworkErrorLogger {
         }
     }
     
-    func log(responseData data: Data?, response: URLResponse?) {
+    func log(responseData data: Data?) {
         guard let data = data else { return }
         if let dataDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
             print("responseData: \(String(describing: dataDict))")
@@ -99,7 +99,7 @@ final class DefaultNetworkService {
                 self.logger.log(error: error)
                 completion(.failure(error))
             } else {
-                self.logger.log(responseData: data, response: response)
+                self.logger.log(responseData: data)
                 completion(.success(data))
             }
         }

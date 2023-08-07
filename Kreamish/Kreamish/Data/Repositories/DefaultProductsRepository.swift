@@ -1,13 +1,13 @@
 //
-//  DefaultCategoriesRepository.swift
+//  DefaultProductsRepository.swift
 //  Kreamish
 //
-//  Created by Miyo Lee on 2023/07/16.
+//  Created by Miyo Lee on 2023/08/06.
 //
 import Combine
 import Foundation
 
-final class DefaultCategoriesRepository {
+final class DefaultProductsRepository {
     private let dataTransferService: DataTransferService
     
     init(dataTransferService: DataTransferService) {
@@ -15,17 +15,17 @@ final class DefaultCategoriesRepository {
     }
 }
 
-extension DefaultCategoriesRepository: CategoriesRepository {
-    func fetchCategoryList(completion: @escaping (Result<[Category], Error>) -> Void) -> Cancellable? {
+extension DefaultProductsRepository: ProductsRepository {
+    func fetchProductsPage(completion: @escaping (Result<ProductsPage, Error>) -> Void) -> Cancellable? {
         let task = RepositoryTask()
-        let endpoint = APIEndpoints.getCategories()
+        let endpoint = APIEndpoints.getProducts()
         task.networkTask = self.dataTransferService.request(
                         with: endpoint
                     ) { result in
                         switch result {
                         case .success(let responseDTO):
                             print(responseDTO)
-                            completion(.success(responseDTO.response.toDomain()))
+                            completion(.success(responseDTO.response.productsPage.toDomain()))
                         case .failure(let error):
                             completion(.failure(error))
                         }

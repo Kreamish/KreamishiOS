@@ -11,29 +11,46 @@ import Pageboy
 import Tabman
 
 final class ShopTabViewController: TabmanViewController, PageboyViewControllerDataSource, TMBarDataSource {
-    private var viewModel = ShopTabViewModel()
+//    private var viewModel: ShopTabViewModel!
     private var cancellables = Set<AnyCancellable>()
     
+    private var categoryList: [Category] = []
     private var viewControllers: [UIViewController] = []
     private lazy var tempView: UIView = {   // 상단 탭바 들어갈 자리
         return UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
     }()
     
     override func viewDidLoad() {
+        // DI. 나중에 DI Container로 뺄 예정.
+        let dataTransferService = DefaultDataTransferService(
+            with: DefaultNetworkService(config: ApiDataNetworkConfig(baseURL: URL(string: Constants.DEFAULT_DOMAIN)!))
+        )
+        let categoriesRepository = DefaultCategoriesRepository(dataTransferService: dataTransferService)
+        let getCategoriesUseCase = DefaultGetCategoriesUseCase(categoriesRepository: categoriesRepository)
+        
+        let viewModel = ShopTabViewModel(getCategoriesUseCase: getCategoriesUseCase)
+        // DI. 나중에 DI Container로 뺄 예정.
+        
         super.viewDidLoad()
+        
+        // combine. 데이터 변화를 감지함
+        viewModel.$categoryList
+                    .sink { [weak self] updatedCategoryList in
+                        // Call your specific function in the ViewController
+                        self?.categoryList = updatedCategoryList
+                        self?.configureUI()
+//                        self?.configureUI(with: updatedCategoryList)
+                    }
+                    .store(in: &cancellables)
+        
         viewModel.getCategoryList()
     }
-    private func bind() {
-        //categoryList 로딩 다 되면 받아서 viewControllers에 넣는다
-    }
+    
     func configureUI() {
         view.addSubview(tempView)   // 상단탭 들어갈 영역
         
-        guard let categoryList = viewModel?.categoryList else {
-            return
-        }
-        for i in 0..<viewModel!.categoryList.count {
-            viewControllers.append(ShopContentTableViewController(category: viewModel!.categoryList[i]))
+        for i in 0..<categoryList.count {
+            viewControllers.append(ShopContentTableViewController(category: categoryList[i]))
         }
 
         self.dataSource = self
@@ -84,6 +101,6 @@ final class ShopTabViewController: TabmanViewController, PageboyViewControllerDa
 
     // TMBarDataSource
     func barItem(for bar: Tabman.TMBar, at index: Int) -> Tabman.TMBarItemable {
-        return TMBarItem(title: viewModel?.categoryList[index].name ?? "undefined")
+        return TMBarItem(title: categoryList[index].name ?? "undefined")
     }
 }

@@ -58,6 +58,7 @@
 		D39CDF762A7F8152001EDA73 /* DefaultProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39CDF752A7F8152001EDA73 /* DefaultProductsRepository.swift */; };
 		D39CDF782A7F81CC001EDA73 /* ProductsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39CDF772A7F81CC001EDA73 /* ProductsResponseDTO.swift */; };
 		D39CDF7A2A7FC925001EDA73 /* ProductsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39CDF792A7FC925001EDA73 /* ProductsPage.swift */; };
+		D39CDFA22A938EF4001EDA73 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39CDFA12A938EF4001EDA73 /* ProductDetailViewController.swift */; };
 		D3A576022A261DA50093D415 /* TrendingKeywordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A576012A261DA50093D415 /* TrendingKeywordTableViewCell.swift */; };
 		D3FDD3FE2A3DEBD400C90E8F /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = D3FDD3FD2A3DEBD400C90E8F /* iOSDropDown */; };
 		D3FDD4042A4837DC00C90E8F /* DimmedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD4032A4837DC00C90E8F /* DimmedViewController.swift */; };
@@ -133,6 +134,7 @@
 		D39CDF752A7F8152001EDA73 /* DefaultProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductsRepository.swift; sourceTree = "<group>"; };
 		D39CDF772A7F81CC001EDA73 /* ProductsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponseDTO.swift; sourceTree = "<group>"; };
 		D39CDF792A7FC925001EDA73 /* ProductsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsPage.swift; sourceTree = "<group>"; };
+		D39CDFA12A938EF4001EDA73 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		D3A576012A261DA50093D415 /* TrendingKeywordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingKeywordTableViewCell.swift; sourceTree = "<group>"; };
 		D3FDD4032A4837DC00C90E8F /* DimmedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmedViewController.swift; sourceTree = "<group>"; };
 		D3FDD4052A48386F00C90E8F /* FilterPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupViewController.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 		D32A31FE2A150E6C00579599 /* ShopScene */ = {
 			isa = PBXGroup;
 			children = (
+				D39CDFA02A938E52001EDA73 /* ProductDetail */,
 				D32A32042A165CC400579599 /* ShopContent */,
 				D32A31F62A1104F600579599 /* ShopViewController.swift */,
 				D32A31F82A11052400579599 /* ShopTabViewController.swift */,
@@ -466,6 +469,14 @@
 				D39CDF672A6EB915001EDA73 /* RepositoryTask.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		D39CDFA02A938E52001EDA73 /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				D39CDFA12A938EF4001EDA73 /* ProductDetailViewController.swift */,
+			);
+			path = ProductDetail;
 			sourceTree = "<group>";
 		};
 		D3FEA0972A39B4A400CBD26E /* Frameworks */ = {
@@ -616,6 +627,7 @@
 				D39CDF512A63F72A001EDA73 /* GetCategoriesUseCase.swift in Sources */,
 				53D1E2232A1E09F2000424FA /* HomeRecommendCategoryTableViewCell.swift in Sources */,
 				537A0B812A0A18C500CDEAC3 /* AppDelegate.swift in Sources */,
+				D39CDFA22A938EF4001EDA73 /* ProductDetailViewController.swift in Sources */,
 				53D1E2282A1F3EA8000424FA /* HomeDroppedTableViewCell.swift in Sources */,
 				D39CDF5D2A6412FD001EDA73 /* CategoriesReponseDTO.swift in Sources */,
 				53DDE6EC2A0FC344007C57BD /* IndicatorView.swift in Sources */,

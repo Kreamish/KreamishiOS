@@ -114,7 +114,7 @@ extension ProductTableViewCell: UICollectionViewDataSource, UICollectionViewDele
         }
 //        cell.model = productList[indexPath.item]
         cell.product = productsPage?.products[indexPath.item]
-        cell.setup()
+        cell.setUp()
         return cell
     }
     
@@ -123,7 +123,9 @@ extension ProductTableViewCell: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected!")
+        let product = productsPage?.products[indexPath.item]
+        // 상세페이지로 이동
+        
     }
 }
 

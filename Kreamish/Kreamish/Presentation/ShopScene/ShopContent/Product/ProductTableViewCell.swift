@@ -113,6 +113,7 @@ extension ProductTableViewCell: UICollectionViewDataSource, UICollectionViewDele
             return UICollectionViewCell()
         }
 //        cell.model = productList[indexPath.item]
+        cell.product = productsPage?.products[indexPath.item]
         cell.setup()
         return cell
     }

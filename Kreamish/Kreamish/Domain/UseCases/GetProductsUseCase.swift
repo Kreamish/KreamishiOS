@@ -13,7 +13,7 @@ protocol GetProductsUseCase {
 
 final class DefaultGetProductsUseCase: GetProductsUseCase {
     private let productsRepository: ProductsRepository
-    init(productsRepository: ProductsRepository){   //의존성 주입
+    init(productsRepository: ProductsRepository){   // 의존성 주입
         self.productsRepository = productsRepository
     }
     func execute(completion: @escaping (Result<ProductsPage, Error>) -> Void) -> Cancellable? {

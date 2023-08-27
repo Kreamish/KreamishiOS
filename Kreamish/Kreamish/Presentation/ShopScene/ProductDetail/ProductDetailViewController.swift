@@ -9,7 +9,7 @@ import UIKit
 
 class ProductDetailViewController: UIViewController {
 
-    var product: Product? = nil
+    var product: Product?
     
     private lazy var header: UIView = {
         let view = UIView(frame:.zero)
@@ -33,19 +33,22 @@ class ProductDetailViewController: UIViewController {
         configureUI()
     }
     
-    private func setUp(product: Product) {
+    func setUp(product: Product) {
         self.product = product
     }
     
     private func configureUI() {
-        header.snp.makeConstraints{
+        self.view.addSubview(header)
+        self.view.addSubview(tableView)
+        
+        header.snp.makeConstraints {
             $0.top.equalToSuperview().inset((statusBar?.frame.height)!)
             $0.width.equalToSuperview()
             $0.height.greaterThanOrEqualTo((statusBar?.frame.height)!)
             $0.height.lessThanOrEqualTo(100)
         }
         
-        tableView.snp.makeConstraints{
+        tableView.snp.makeConstraints {
             $0.top.equalTo(header.snp.bottom)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()

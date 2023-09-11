@@ -39,7 +39,6 @@ final class ShopTabViewController: TabmanViewController, PageboyViewControllerDa
                         // Call your specific function in the ViewController
                         self?.categoryList = updatedCategoryList
                         self?.configureUI()
-//                        self?.configureUI(with: updatedCategoryList)
                     }
                     .store(in: &cancellables)
         

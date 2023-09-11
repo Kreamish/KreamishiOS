@@ -16,9 +16,10 @@ final class DefaultProductsRepository {
 }
 
 extension DefaultProductsRepository: ProductsRepository {
-    func fetchProductsPage(completion: @escaping (Result<ProductsPage, Error>) -> Void) -> Cancellable? {
+    func fetchProductsPage(categoryIds: String?, brandIds: String?, collectionIds: String?, page: Int?, size: Int?, completion: @escaping (Result<ProductsPage, Error>) -> Void) -> Cancellable? {
+        let requestDTO = ProductsRequestDTO(categoryIds: categoryIds, brandIds: brandIds, collectionIds: collectionIds, page: page, size: size)
         let task = RepositoryTask()
-        let endpoint = APIEndpoints.getProducts()
+        let endpoint = APIEndpoints.getProducts(with: requestDTO)
         task.networkTask = self.dataTransferService.request(
                         with: endpoint
                     ) { result in

@@ -125,7 +125,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
             make.centerY.equalTo(commentButton)
         })
     }
-    func setup() {
+    func setUp() {
         $product.sink { [weak self] newProduct in
             self?.bind()
         }

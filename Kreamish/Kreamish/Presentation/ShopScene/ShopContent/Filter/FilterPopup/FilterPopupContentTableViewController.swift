@@ -5,13 +5,16 @@
 //  Created by Miyo Lee on 2023/06/26.
 //
 
+import Combine
 import UIKit
 
 import SnapKit
 
 class FilterPopupContentTableViewController: UIViewController {
-    private var selectedFilterId = 1
-    private var subFilterList = ["신발", "아우터", "상의", "하의"]   // 현재 선택된 filter마다 달라짐
+//    private var selectedFilterId = 1
+//    private var subFilterList = ["신발", "아우터", "상의", "하의"]   // 현재 선택된 filter마다 달라짐
+    var viewModel: FilterViewModel?
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.delegate = self
@@ -19,9 +22,8 @@ class FilterPopupContentTableViewController: UIViewController {
         tableView.register(FilterPopupContentTableViewCell.self, forCellReuseIdentifier: FilterPopupContentTableViewCell.id)
         return tableView
     }()
-    func setUp(filterId: Int) { // 아직 사용되지 않음
-        selectedFilterId = filterId
-        // subFilterList도 set하기
+    func setUp(viewModel: FilterViewModel) { // 아직 사용되지 않음
+        self.viewModel = viewModel
     }
     func configureUI() {
         view.addSubview(tableView)
@@ -40,14 +42,17 @@ class FilterPopupContentTableViewController: UIViewController {
 
 extension FilterPopupContentTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        subFilterList.count
+        guard let viewModel = viewModel else {
+            return 0
+        }
+        return viewModel.currentSubFilterList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FilterPopupContentTableViewCell.id, for: indexPath) as? FilterPopupContentTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FilterPopupContentTableViewCell.id, for: indexPath) as? FilterPopupContentTableViewCell, let viewModel = self.viewModel else {
             return UITableViewCell()
         }
-        cell.setup(subFilterName: subFilterList[indexPath.row])
+        cell.setup(subFilter: viewModel.currentSubFilterList[indexPath.row])
         return cell
     }
 }

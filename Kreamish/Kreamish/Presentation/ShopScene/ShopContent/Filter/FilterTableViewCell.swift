@@ -5,6 +5,7 @@
 //  Created by Miyo Lee on 2023/06/06.
 //
 
+import Combine
 import UIKit
 
 class FilterTableViewCell: UITableViewCell {
@@ -14,9 +15,9 @@ class FilterTableViewCell: UITableViewCell {
     }
     static let cellHeight = 70.0
     
-    private let filterList: [String] = ["카테고리", "브랜드", "컬렉션", "사이즈"]
-    
     var selectFilterCellClosure: ((Int) -> Void)?
+    
+    var viewModel: FilterViewModel?
     
     private lazy var filterCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -39,7 +40,8 @@ class FilterTableViewCell: UITableViewCell {
         }
     }
     
-    func setUp() {
+    func setUp(viewModel: FilterViewModel) {
+        self.viewModel = viewModel
         self.configureUI()
     }
 }
@@ -47,14 +49,18 @@ class FilterTableViewCell: UITableViewCell {
 extension FilterTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filterList.count
+        guard let viewModel = viewModel else {
+            return 0
+        }
+        return viewModel.filterList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.id, for: indexPath) as? FilterCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.id, for: indexPath) as? FilterCollectionViewCell
+                , let viewModel = viewModel else {
             return UICollectionViewCell()
         }
-        cell.model = filterList[indexPath.item]
+        cell.filter = viewModel.filterList[indexPath.item]
         cell.setUp()
         return cell
     }
@@ -66,10 +72,11 @@ extension FilterTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
 
 extension FilterTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.id, for: indexPath) as? FilterCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.id, for: indexPath) as? FilterCollectionViewCell
+                , let viewModel = viewModel else {
             return .zero
         }
-        cell.label.text = filterList[indexPath.item]
+        cell.label.text = viewModel.filterList[indexPath.item].name
         cell.label.sizeToFit()  // sizeToFit() : 텍스트에 맞게 사이즈가 조절
         let width = cell.label.frame.width + 40
         let height: CGFloat = 40.0

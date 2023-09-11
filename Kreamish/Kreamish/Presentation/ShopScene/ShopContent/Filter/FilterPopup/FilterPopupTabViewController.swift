@@ -11,8 +11,7 @@ import Pageboy
 import Tabman
 
 class FilterPopupTabViewController: TabmanViewController, PageboyViewControllerDataSource, TMBarDataSource {
-    private let filterList: [String] = ["카테고리", "브랜드", "컬렉션", "가격", "사이즈"]
-    private var selectedIndex: Int
+    var viewModel: FilterViewModel?
     private var viewControllers: [UIViewController] = []
     
     private lazy var tabView: UIView = {
@@ -26,35 +25,32 @@ class FilterPopupTabViewController: TabmanViewController, PageboyViewControllerD
     let contentTableViewController2 = FilterPopupContentTableViewController()
     let contentTableViewController3 = FilterPopupContentTableViewController()
     let contentTableViewController4 = FilterPopupContentTableViewController()
-    let contentTableViewController5 = FilterPopupContentTableViewController()
     
     required init?(coder: NSCoder) {
         fatalError()
     }
-    init(index: Int) {
-        selectedIndex = index
+    init(viewModel: FilterViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
-    func bind() {
-        contentTableViewController1.setUp(filterId: 1)
-        contentTableViewController1.setUp(filterId: 2)
-        contentTableViewController1.setUp(filterId: 3)
-        contentTableViewController1.setUp(filterId: 4)
-        contentTableViewController1.setUp(filterId: 5)
-    }
+    
     func configureUI() {
         
         view.addSubview(tabView)   // 상단탭 들어갈 영역
         
-        viewControllers.append(contentTableViewController1)
-        viewControllers.append(contentTableViewController2)
-        viewControllers.append(contentTableViewController3)
-        viewControllers.append(contentTableViewController4)
-        viewControllers.append(contentTableViewController5)
+        guard let viewModel = self.viewModel else {
+            return
+        }
+        for i in 0..<viewModel.filterList.count {
+            let contentTableViewController = FilterPopupContentTableViewController()
+            contentTableViewController.setUp(viewModel: FilterViewModel(selectedFilterId: i))
+            viewControllers.append(contentTableViewController)
+            
+        }
         
         self.dataSource = self
         self.isScrollEnabled = false    // 스와이프로 안움직이게 처리
@@ -93,10 +89,16 @@ class FilterPopupTabViewController: TabmanViewController, PageboyViewControllerD
     }
     
     func defaultPage(for pageboyViewController: Pageboy.PageboyViewController) -> Pageboy.PageboyViewController.Page? {
-        return .at(index: selectedIndex)
+        guard let viewModel = self.viewModel else {
+            return .at(index: 0)
+        }
+        return .at(index: viewModel.selectedFilterId)
     }
     
     func barItem(for bar: Tabman.TMBar, at index: Int) -> Tabman.TMBarItemable {
-        return TMBarItem(title: filterList[index])
+        guard let viewModel = self.viewModel else {
+            return TMBarItem(title: "error")
+        }
+        return TMBarItem(title: viewModel.filterList[index].name)
     }
 }

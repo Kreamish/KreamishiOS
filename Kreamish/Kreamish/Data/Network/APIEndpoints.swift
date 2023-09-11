@@ -15,11 +15,24 @@ struct APIEndpoints {
             queryParametersEncodable: nil
         )
     }
-    static func getProducts() -> Endpoint<ProductsResponseDTO> {
+    static func getProducts(with productsRequestDTO: ProductsRequestDTO) -> Endpoint<ProductsResponseDTO> {
         return Endpoint(
             path: "items",
             method: .get,
-            queryParametersEncodable: nil   // 필터 구현시 넣어야함
+            queryParametersEncodable: productsRequestDTO
         )
     }
+    static func getSubFiltersCategories() -> Endpoint<SubFiltersCategoriesResponseDTO> {
+        return Endpoint(
+            path: "filter/categories",
+            method: .get
+        )
+    }
+    static func getSubFiltersBrands() -> Endpoint<SubFiltersBrandsResponseDTO> {
+        return Endpoint(
+            path: "filter/brand",
+            method: .get
+        )
+    }
+    
 }

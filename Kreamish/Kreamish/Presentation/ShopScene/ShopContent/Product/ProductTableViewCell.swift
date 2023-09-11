@@ -10,13 +10,18 @@ import UIKit
 import iOSDropDown
 import SnapKit
 
+protocol CollectionViewCellDelegate {
+    func selectedCollectionViewCell(product: Product)
+}
+
 class ProductTableViewCell: UITableViewCell {
-//    private var viewModel: ProductListViewModel!
     private var cancellables = Set<AnyCancellable>()
     static var id: String {
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
     var productsPage: ProductsPage? = nil
+    var delegate: CollectionViewCellDelegate?
+    
     static let cellHeight = 3000.0
     lazy var countLabel: UILabel = {
         let label = UILabel()
@@ -74,7 +79,7 @@ class ProductTableViewCell: UITableViewCell {
         }
     }
     
-    func setUp() {
+    func setUp(category: Category) {
         // DI. 나중에 DI Container로 뺄 예정.
         let dataTransferService = DefaultDataTransferService(
             with: DefaultNetworkService(config: ApiDataNetworkConfig(baseURL: URL(string: Constants.DEFAULT_DOMAIN)!))
@@ -82,14 +87,17 @@ class ProductTableViewCell: UITableViewCell {
         let productsRepository = DefaultProductsRepository(dataTransferService: dataTransferService)
         let getProductsUseCase = DefaultGetProductsUseCase(productsRepository: productsRepository)
         
-        let viewModel = ProductListViewModel(getProductsUseCase: getProductsUseCase)
+        let viewModel = ProductListViewModel(getProductsUseCase: getProductsUseCase, categoryIds: "\(category.categoryId)", brandIds: nil, collectionIds: nil)
         // DI. 나중에 DI Container로 뺄 예정.
         
         // combine. 데이터 변화를 감지함
         viewModel.$productsPage
                     .sink { [weak self] updatedProductsPage in
                         // Call your specific function in the ViewController
-                        self?.productsPage = updatedProductsPage
+                        guard let productsPage = updatedProductsPage else {
+                            return
+                        }
+                        self?.productsPage = productsPage
                         self?.configureUI()
                     }
                     .store(in: &cancellables)
@@ -102,8 +110,7 @@ extension ProductTableViewCell: UICollectionViewDataSource, UICollectionViewDele
     
     // UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return productList.count
-        return 0
+        return self.productsPage?.products.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -114,7 +121,7 @@ extension ProductTableViewCell: UICollectionViewDataSource, UICollectionViewDele
         }
 //        cell.model = productList[indexPath.item]
         cell.product = productsPage?.products[indexPath.item]
-        cell.setup()
+        cell.setUp()
         return cell
     }
     
@@ -123,7 +130,10 @@ extension ProductTableViewCell: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected!")
+        let product = productsPage?.products[indexPath.item]
+        if let delegate = delegate {
+            delegate.selectedCollectionViewCell(product: product!)
+        }
     }
 }
 

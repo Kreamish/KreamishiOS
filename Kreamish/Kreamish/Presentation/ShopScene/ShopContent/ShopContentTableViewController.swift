@@ -8,7 +8,7 @@ enum Item {
 
 class ShopContentTableViewController: UITableViewController {
 
-    private let category: Category    //enum으로 바꿔보기
+    private let category: Category    // enum으로 바꿔보기
     
     private var items: [Item] = [
         .subCategory,
@@ -16,7 +16,7 @@ class ShopContentTableViewController: UITableViewController {
         .product
     ]
     
-    init(category: Category) {    //데이터 관련 초기화
+    init(category: Category) {    // 데이터 관련 초기화
         self.category = category
         super.init(style: .plain)
     }
@@ -29,8 +29,8 @@ class ShopContentTableViewController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         // auto height
-//        tableView.rowHeight = UITableView.automaticDimension;
-//        tableView.estimatedRowHeight = 200;
+        //        tableView.rowHeight = UITableView.automaticDimension;
+        //        tableView.estimatedRowHeight = 200;
         // auto height
         tableView.separatorInset.left = 0
         tableView.allowsSelection = false
@@ -77,9 +77,10 @@ class ShopContentTableViewController: UITableViewController {
             }
         case .filter:
             if let cell = tableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.id) as? FilterTableViewCell {
-                cell.setUp()
+                let filterViewModel = FilterViewModel(selectedFilterId: 0)
+                cell.setUp(viewModel: filterViewModel)
                 cell.selectFilterCellClosure = { [weak self] index in
-                    let filterPopupViewController = FilterPopupViewController(index: index)
+                    let filterPopupViewController = FilterPopupViewController(viewModel: filterViewModel)
                     self?.present(filterPopupViewController, animated: true)
                 }
                 return cell
@@ -88,11 +89,20 @@ class ShopContentTableViewController: UITableViewController {
             }
         case .product:
             if let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.id) as? ProductTableViewCell {
-                cell.setUp()
+                cell.delegate = self
+                cell.setUp(category: self.category)
                 return cell
             } else {
                 return UITableViewCell()
             }
         }
+    }
+}
+
+extension ShopContentTableViewController: CollectionViewCellDelegate {
+    func selectedCollectionViewCell(product: Product) {
+        let vc = ProductDetailViewController()
+        vc.setUp(productId: product.productId)
+        self.present(vc, animated: true)
     }
 }

@@ -77,9 +77,10 @@ class ShopContentTableViewController: UITableViewController {
             }
         case .filter:
             if let cell = tableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.id) as? FilterTableViewCell {
-                cell.setUp()
+                let filterViewModel = FilterViewModel(selectedFilterId: 0)
+                cell.setUp(viewModel: filterViewModel)
                 cell.selectFilterCellClosure = { [weak self] index in
-                    let filterPopupViewController = FilterPopupViewController(index: index)
+                    let filterPopupViewController = FilterPopupViewController(viewModel: filterViewModel)
                     self?.present(filterPopupViewController, animated: true)
                 }
                 return cell
@@ -101,7 +102,7 @@ class ShopContentTableViewController: UITableViewController {
 extension ShopContentTableViewController: CollectionViewCellDelegate {
     func selectedCollectionViewCell(product: Product) {
         let vc = ProductDetailViewController()
-        vc.setUp(product: product)
+        vc.setUp(productId: product.productId)
         self.present(vc, animated: true)
     }
 }

@@ -13,14 +13,15 @@ class FilterPopupContentTableViewCell: UITableViewCell {
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
     
-    var subFilterName: String = ""    // 현재 cell의 subFilter
+    var viewModel: FilterViewModel?
+    
     var allItemssSelected = false
     
     private let items = ["스니커즈", "샌들/슬리퍼", "플랫", "로퍼", "더비/레이스업", "힐/펌프스", "부츠", "기타신발"]
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = subFilterName
+        label.text = ""
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
@@ -72,8 +73,8 @@ class FilterPopupContentTableViewCell: UITableViewCell {
             $0.height.greaterThanOrEqualTo(100)
         }
     }
-    func setup(subFilterName: String) {
-        nameLabel.text = subFilterName
+    func setup(subFilter: SubFilter) {
+        nameLabel.text = subFilter.subFilterName
         configureUI()
     }
 }

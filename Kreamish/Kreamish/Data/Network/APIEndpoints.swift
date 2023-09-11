@@ -22,4 +22,17 @@ struct APIEndpoints {
             queryParametersEncodable: productsRequestDTO
         )
     }
+    static func getSubFiltersCategories() -> Endpoint<SubFiltersCategoriesResponseDTO> {
+        return Endpoint(
+            path: "filter/categories",
+            method: .get
+        )
+    }
+    static func getSubFiltersBrands() -> Endpoint<SubFiltersBrandsResponseDTO> {
+        return Endpoint(
+            path: "filter/brand",
+            method: .get
+        )
+    }
+    
 }

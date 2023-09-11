@@ -9,7 +9,7 @@ import UIKit
 
 class ProductDetailViewController: UIViewController {
 
-    var product: Product?
+    var productDetail: ProductDetail?
     
     private lazy var header: UIView = {
         let view = UIView(frame:.zero)
@@ -29,12 +29,12 @@ class ProductDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setUp(product: product!)
-        configureUI()
     }
     
-    func setUp(product: Product) {
-        self.product = product
+    func setUp(productId: Int) {
+        // productId로 productDetail 받아오기
+        
+        configureUI()
     }
     
     private func configureUI() {

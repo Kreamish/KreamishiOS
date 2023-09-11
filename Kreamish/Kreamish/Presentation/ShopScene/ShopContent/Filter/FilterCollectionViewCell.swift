@@ -13,11 +13,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
     
-    var model: String? {
-        didSet {    // model의 값이 변경된 직후 호출.
-            bind()
-        }
-    }
+    var filter: Filter?
     
     lazy var label: UILabel = {
         let label = UILabel()
@@ -50,12 +46,11 @@ class FilterCollectionViewCell: UICollectionViewCell {
     }
     
     func setUp() {
+        guard let filter = filter else {
+            return
+        }
+        setLabelText(text: filter.name)
         self.configureUI()
     }
     
-    private func bind() {
-        if let model = model {
-            setLabelText(text: model)
-        }
-    }
 }

@@ -5,6 +5,7 @@
 //  Created by Miyo Lee on 2023/06/25.
 //
 
+import Combine
 import UIKit
 
 import Pageboy
@@ -13,7 +14,9 @@ import Tabman
 
 class FilterPopupViewController: DimmedViewController {
 
-    private let selectedIndex: Int
+    @Published var filteredProductCnt: Int = 0
+    var viewModel: FilterViewModel?
+    
     private lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -56,7 +59,10 @@ class FilterPopupViewController: DimmedViewController {
         return view
     }()
     private lazy var tabViewController: UIViewController = {
-        return FilterPopupTabViewController(index: selectedIndex)
+        guard let viewModel = self.viewModel else {
+            return UIViewController()
+        }
+        return FilterPopupTabViewController(viewModel: viewModel)
     }()
     private lazy var bottomBarView: UIView = {
         let view = UIView()
@@ -68,7 +74,7 @@ class FilterPopupViewController: DimmedViewController {
         initButton.setTitleColor(.black, for: .normal)
         
         let submitButton = UIButton()
-        submitButton.setTitle("2,000개 상품 보기", for: .normal)
+        submitButton.setTitle("\(filteredProductCnt)개 상품 보기", for: .normal)
         submitButton.titleLabel!.font = .boldSystemFont(ofSize: 20)
         submitButton.backgroundColor = .black
         submitButton.setTitleColor(.white, for: .normal)
@@ -95,8 +101,8 @@ class FilterPopupViewController: DimmedViewController {
         self.dismiss(animated: true)
     }
     
-    init(index: Int) {
-        selectedIndex = index
+    init(viewModel: FilterViewModel) {
+        self.viewModel = viewModel
         super.init()
     }
     required init?(coder: NSCoder) {

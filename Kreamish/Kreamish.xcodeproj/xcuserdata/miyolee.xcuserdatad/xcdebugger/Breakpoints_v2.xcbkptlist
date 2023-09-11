@@ -909,8 +909,8 @@
             filePath = "Kreamish/Presentation/ShopScene/ShopTabViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "load()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1552,6 +1552,22 @@
             startingLineNumber = "133"
             endingLineNumber = "133"
             landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B0640BD-7F43-4BD0-A2D4-5CE84E1E71E7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kreamish/Presentation/ShopScene/ShopContent/Filter/FilterPopup/FilterPopupContentTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "selectAllItems()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

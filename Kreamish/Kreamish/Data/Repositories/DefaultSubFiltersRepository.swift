@@ -1,0 +1,57 @@
+//
+//  DefaultSubFiltersRepository.swift
+//  Kreamish
+//
+//  Created by Miyo Lee on 2023/09/07.
+//
+
+import Combine
+import Foundation
+
+final class DefaultSubFiltersRepository {
+    private let dataTransferService: DataTransferService
+    
+    init(dataTransferService: DataTransferService) {
+        self.dataTransferService = dataTransferService
+    }
+}
+
+extension DefaultSubFiltersRepository: SubFiltersRepository {
+    func fetchSubFilters(parentFilterId: Int, completion: @escaping (Result<[SubFilter], Error>) -> Void) -> Cancellable? {
+        let task = RepositoryTask()
+        
+        switch parentFilterId {
+        case Constants.FILTER_CATEGORIES_ID:
+            let endpoint = APIEndpoints.getSubFiltersCategories()
+            task.networkTask = self.dataTransferService.request(
+                with: endpoint
+            ) { result in
+                switch result {
+                case .success(let responseDTO):
+                    print(responseDTO)
+                    completion(.success(responseDTO.toDomain()))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        case Constants.FILTER_BRANDS_ID:
+            let endpoint = APIEndpoints.getSubFiltersBrands()
+            task.networkTask = self.dataTransferService.request(
+                with: endpoint
+            ) { result in
+                switch result {
+                case .success(let responseDTO):
+                    print(responseDTO)
+                    completion(.success(responseDTO.toDomain()))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        default:
+            print("error")
+            break
+        }
+        
+        return task
+    }
+}

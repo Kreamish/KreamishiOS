@@ -1,9 +1,3 @@
-//
-//  ShopViewController.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/05/11.
-//
 
 import UIKit
 

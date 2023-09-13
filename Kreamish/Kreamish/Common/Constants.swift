@@ -1,9 +1,3 @@
-//
-//  Constants.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/08/03.
-//
 
 import Foundation
 

@@ -1,9 +1,3 @@
-//
-//  FilterPopupCollectionViewCell.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/07/01.
-//
 
 import UIKit
 
@@ -11,6 +5,7 @@ class FilterPopupCollectionViewCell: UICollectionViewCell {
     static var id: String {
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
+    var itemId: Int = 0
     override var isSelected: Bool {
         didSet {
             if isSelected {
@@ -24,11 +19,13 @@ class FilterPopupCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
     lazy var label: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .light)
         return label
     }()
+    
     func configureUI() {
         self.contentView.layer.cornerRadius = contentView.bounds.height / 2.3
         self.contentView.layer.masksToBounds = true
@@ -39,8 +36,9 @@ class FilterPopupCollectionViewCell: UICollectionViewCell {
             $0.center.equalToSuperview()
         }
     }
-    func setUp(itemName: String) {
-        label.text = itemName
+    func setUp(item: FilterItem) {
+        self.itemId = item.filterItemId
+        label.text = item.filterItemName
         configureUI()
     }
 }

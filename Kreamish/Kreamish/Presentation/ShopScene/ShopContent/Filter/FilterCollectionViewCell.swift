@@ -1,9 +1,3 @@
-//
-//  FilterCollectionViewCell.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/06/06.
-//
 
 import UIKit
 

@@ -1,9 +1,3 @@
-//
-//  GetSubFiltersUseCase.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/09/06.
-//
 
 import Combine
 import Foundation
@@ -13,14 +7,14 @@ protocol GetSubFiltersUseCase {
     func execute(parentFilterId: Int, completion: @escaping (Result<[SubFilter], Error>) -> Void) -> Cancellable?
 }
 
-final class DefaultGetSubFiltersUseCase {
+final class DefaultGetSubFiltersUseCase: GetSubFiltersUseCase {
     private let subFiltersRepository: SubFiltersRepository
     init(subFiltersRepository: SubFiltersRepository) {
         self.subFiltersRepository = subFiltersRepository
     }
     func execute(parentFilterId: Int, completion: @escaping (Result<[SubFilter], Error>) -> Void) -> Cancellable? {
         return subFiltersRepository.fetchSubFilters(parentFilterId: parentFilterId, completion: { result in
-                completion(result)
+            completion(result)
         })
     }
 }

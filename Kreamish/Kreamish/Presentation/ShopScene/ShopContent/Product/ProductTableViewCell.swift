@@ -1,9 +1,4 @@
-//
-//  ProductTableViewCell.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/05/18.
-//
+
 import Combine
 import UIKit
 

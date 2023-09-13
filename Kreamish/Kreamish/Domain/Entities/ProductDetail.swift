@@ -1,9 +1,3 @@
-//
-//  ProductDetail.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/09/04.
-//
 
 import Foundation
 

@@ -1,9 +1,3 @@
-//
-//  DefaultSubFiltersRepository.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/09/07.
-//
 
 import Combine
 import Foundation
@@ -49,7 +43,6 @@ extension DefaultSubFiltersRepository: SubFiltersRepository {
             }
         default:
             print("error")
-            break
         }
         
         return task

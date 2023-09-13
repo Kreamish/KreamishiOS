@@ -1,9 +1,3 @@
-//
-//  FilterPopupTabViewController.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/06/25.
-//
 
 import UIKit
 
@@ -12,6 +6,7 @@ import Tabman
 
 class FilterPopupTabViewController: TabmanViewController, PageboyViewControllerDataSource, TMBarDataSource {
     var viewModel: FilterViewModel?
+    var selectedFilterId: Int = 0
     private var viewControllers: [UIViewController] = []
     
     private lazy var tabView: UIView = {
@@ -20,11 +15,6 @@ class FilterPopupTabViewController: TabmanViewController, PageboyViewControllerD
         return view
     }()
     static var filterPopupTabViewHeight = 0.0
-    
-    let contentTableViewController1 = FilterPopupContentTableViewController()
-    let contentTableViewController2 = FilterPopupContentTableViewController()
-    let contentTableViewController3 = FilterPopupContentTableViewController()
-    let contentTableViewController4 = FilterPopupContentTableViewController()
     
     required init?(coder: NSCoder) {
         fatalError()
@@ -47,9 +37,8 @@ class FilterPopupTabViewController: TabmanViewController, PageboyViewControllerD
         }
         for i in 0..<viewModel.filterList.count {
             let contentTableViewController = FilterPopupContentTableViewController()
-            contentTableViewController.setUp(viewModel: FilterViewModel(selectedFilterId: i))
+            contentTableViewController.setUp(filterId: i, viewModel: viewModel)
             viewControllers.append(contentTableViewController)
-            
         }
         
         self.dataSource = self
@@ -92,7 +81,7 @@ class FilterPopupTabViewController: TabmanViewController, PageboyViewControllerD
         guard let viewModel = self.viewModel else {
             return .at(index: 0)
         }
-        return .at(index: viewModel.selectedFilterId)
+        return .at(index: selectedFilterId)
     }
     
     func barItem(for bar: Tabman.TMBar, at index: Int) -> Tabman.TMBarItemable {

@@ -1,9 +1,4 @@
-//
-//  ProductDetailViewModel.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/09/04.
-//
+
 import Combine
 import Foundation
 

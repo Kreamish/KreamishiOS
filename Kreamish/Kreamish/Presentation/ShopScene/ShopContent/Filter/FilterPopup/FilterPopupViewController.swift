@@ -1,9 +1,3 @@
-//
-//  FilterPopupViewController.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/06/25.
-//
 
 import Combine
 import UIKit
@@ -15,6 +9,7 @@ import Tabman
 class FilterPopupViewController: DimmedViewController {
 
     @Published var filteredProductCnt: Int = 0
+    @Published var selectedFilterItem: [FilterItem] = []
     var viewModel: FilterViewModel?
     
     private lazy var containerView: UIView = {
@@ -63,6 +58,10 @@ class FilterPopupViewController: DimmedViewController {
             return UIViewController()
         }
         return FilterPopupTabViewController(viewModel: viewModel)
+    }()
+    private lazy var selectedItemView: UIView = {   // 선택한 필터 아이템 일렬로 표출.
+        let view = UIView()
+        return view
     }()
     private lazy var bottomBarView: UIView = {
         let view = UIView()

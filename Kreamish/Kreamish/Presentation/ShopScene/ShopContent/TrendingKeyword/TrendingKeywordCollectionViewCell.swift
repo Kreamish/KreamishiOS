@@ -1,9 +1,3 @@
-//
-//  TrendingKeywordCollectionViewCell.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/06/04.
-//
 
 import UIKit
 

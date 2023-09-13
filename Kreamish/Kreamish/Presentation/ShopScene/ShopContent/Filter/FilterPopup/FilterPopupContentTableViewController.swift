@@ -1,9 +1,3 @@
-//
-//  FilterPopupContentTableViewController.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/06/26.
-//
 
 import Combine
 import UIKit
@@ -11,8 +5,9 @@ import UIKit
 import SnapKit
 
 class FilterPopupContentTableViewController: UIViewController {
-//    private var selectedFilterId = 1
-//    private var subFilterList = ["신발", "아우터", "상의", "하의"]   // 현재 선택된 filter마다 달라짐
+    private var cancellables = Set<AnyCancellable>()
+    var filterId: Int = 0
+    var subFilterList: [SubFilter]?
     var viewModel: FilterViewModel?
     
     private lazy var tableView: UITableView = {
@@ -22,8 +17,20 @@ class FilterPopupContentTableViewController: UIViewController {
         tableView.register(FilterPopupContentTableViewCell.self, forCellReuseIdentifier: FilterPopupContentTableViewCell.id)
         return tableView
     }()
-    func setUp(viewModel: FilterViewModel) { // 아직 사용되지 않음
+    func setUp(filterId: Int, viewModel: FilterViewModel) {
+        self.filterId = filterId
         self.viewModel = viewModel
+        viewModel.$currentSubFilterList
+            .sink { [weak self] updatedSubFilterList in
+                guard let subFilterList = updatedSubFilterList else {
+                    return
+                }
+                self?.subFilterList = subFilterList
+                self?.configureUI()
+            }
+            .store(in: &cancellables)
+        
+        viewModel.getSubFilters(filterId: filterId)
     }
     func configureUI() {
         view.addSubview(tableView)
@@ -36,23 +43,19 @@ class FilterPopupContentTableViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
     }
 }
 
 extension FilterPopupContentTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else {
-            return 0
-        }
-        return viewModel.currentSubFilterList.count
+        return self.subFilterList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FilterPopupContentTableViewCell.id, for: indexPath) as? FilterPopupContentTableViewCell, let viewModel = self.viewModel else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FilterPopupContentTableViewCell.id, for: indexPath) as? FilterPopupContentTableViewCell else {
             return UITableViewCell()
         }
-        cell.setup(subFilter: viewModel.currentSubFilterList[indexPath.row])
+        cell.setup(subFilter: self.subFilterList![indexPath.row])
         return cell
     }
 }

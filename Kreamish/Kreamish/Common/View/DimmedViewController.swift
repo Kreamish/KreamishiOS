@@ -1,9 +1,3 @@
-//
-//  DimmedViewController.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/06/25.
-//
 
 import UIKit
 

@@ -1,9 +1,3 @@
-//
-//  CategoriesReponseDTO.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/07/16.
-//
 
 import Foundation
 

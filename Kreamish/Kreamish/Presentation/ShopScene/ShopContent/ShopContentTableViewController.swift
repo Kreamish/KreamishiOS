@@ -1,3 +1,4 @@
+
 import UIKit
 
 enum Item {
@@ -77,10 +78,19 @@ class ShopContentTableViewController: UITableViewController {
             }
         case .filter:
             if let cell = tableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.id) as? FilterTableViewCell {
-                let filterViewModel = FilterViewModel(selectedFilterId: 0)
-                cell.setUp(viewModel: filterViewModel)
+                
+                // DI
+                let dataTransferService = DefaultDataTransferService(
+                    with: DefaultNetworkService(config: ApiDataNetworkConfig(baseURL: URL(string: Constants.DEFAULT_DOMAIN)!))
+                )
+                let subFiltersRepository = DefaultSubFiltersRepository(dataTransferService: dataTransferService)
+                let getSubFiltersUseCase = DefaultGetSubFiltersUseCase(subFiltersRepository: subFiltersRepository)
+                let viewModel = FilterViewModel(getSubFiltersUseCase: getSubFiltersUseCase)
+                // DI
+                
+                cell.setUp(viewModel: viewModel)
                 cell.selectFilterCellClosure = { [weak self] index in
-                    let filterPopupViewController = FilterPopupViewController(viewModel: filterViewModel)
+                    let filterPopupViewController = FilterPopupViewController(viewModel: viewModel)
                     self?.present(filterPopupViewController, animated: true)
                 }
                 return cell

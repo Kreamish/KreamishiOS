@@ -1,23 +1,18 @@
-//
-//  FilterPopupContentTableViewCell.swift
-//  Kreamish
-//
-//  Created by Miyo Lee on 2023/06/26.
-//
 
+import Combine
 import UIKit
 
 class FilterPopupContentTableViewCell: UITableViewCell {
-
+    private var cancellables = Set<AnyCancellable>()
     static var id: String {
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
     
-    var viewModel: FilterViewModel?
+//    var viewModel: FilterViewModel?
     
     var allItemssSelected = false
     
-    private let items = ["스니커즈", "샌들/슬리퍼", "플랫", "로퍼", "더비/레이스업", "힐/펌프스", "부츠", "기타신발"]
+    private var itemList: [FilterItem] = []
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -74,20 +69,21 @@ class FilterPopupContentTableViewCell: UITableViewCell {
         }
     }
     func setup(subFilter: SubFilter) {
-        nameLabel.text = subFilter.subFilterName
+        self.nameLabel.text = subFilter.subFilterName
+        self.itemList = subFilter.filterItems
         configureUI()
     }
 }
 
 extension FilterPopupContentTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        items.count
+        self.itemList.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterPopupCollectionViewCell.id, for: indexPath) as? FilterPopupCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.setUp(itemName: items[indexPath.item])
+        cell.setUp(item: itemList[indexPath.item])
         return cell
     }
 }
@@ -97,7 +93,7 @@ extension FilterPopupContentTableViewCell: UICollectionViewDelegateFlowLayout {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterPopupCollectionViewCell.id, for: indexPath) as? FilterPopupCollectionViewCell else {
             return .zero
         }
-        cell.label.text = items[indexPath.item]
+        cell.label.text = itemList[indexPath.item].filterItemName
         cell.label.sizeToFit()  // sizeToFit() : 텍스트에 맞게 사이즈가 조절
         let width = cell.label.frame.width + 20
         let height: CGFloat = 40.0

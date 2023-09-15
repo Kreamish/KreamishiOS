@@ -18,19 +18,33 @@ class FilterPopupContentTableViewController: UIViewController {
         return tableView
     }()
     func setUp(filterId: Int, viewModel: FilterViewModel) {
-        self.filterId = filterId
         self.viewModel = viewModel
-        viewModel.$currentSubFilterList
-            .sink { [weak self] updatedSubFilterList in
-                guard let subFilterList = updatedSubFilterList else {
-                    return
+        switch filterId {
+        case Constants.FILTER_CATEGORIES_ID:
+            viewModel.$currentCategoriesSubFilterList
+                .sink { [weak self] updatedSubFilterList in
+                    if !updatedSubFilterList.isEmpty {
+                        self?.subFilterList = updatedSubFilterList
+                        self?.configureUI()
+                    }
                 }
-                self?.subFilterList = subFilterList
-                self?.configureUI()
-            }
-            .store(in: &cancellables)
-        
-        viewModel.getSubFilters(filterId: filterId)
+                .store(in: &cancellables)
+            
+            viewModel.getSubFilters(filterId: filterId)
+        case Constants.FILTER_BRANDS_ID:
+            viewModel.$currentBrandsSubFilterList
+                .sink { [weak self] updatedSubFilterList in
+                    if !updatedSubFilterList.isEmpty {
+                        self?.subFilterList = updatedSubFilterList
+                        self?.configureUI()
+                    }
+                }
+                .store(in: &cancellables)
+            
+            viewModel.getSubFilters(filterId: filterId)
+        default:
+            print("the filterId doesn't exist.")
+        }
     }
     func configureUI() {
         view.addSubview(tableView)

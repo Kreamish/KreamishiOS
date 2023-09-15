@@ -90,7 +90,7 @@ class ShopContentTableViewController: UITableViewController {
                 
                 cell.setUp(viewModel: viewModel)
                 cell.selectFilterCellClosure = { [weak self] index in
-                    let filterPopupViewController = FilterPopupViewController(viewModel: viewModel)
+                    let filterPopupViewController = FilterPopupViewController(viewModel: viewModel, selectedFilterId: index)
                     self?.present(filterPopupViewController, animated: true)
                 }
                 return cell

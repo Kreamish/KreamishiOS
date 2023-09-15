@@ -19,7 +19,8 @@ class FilterPopupTabViewController: TabmanViewController, PageboyViewControllerD
     required init?(coder: NSCoder) {
         fatalError()
     }
-    init(viewModel: FilterViewModel) {
+    init(viewModel: FilterViewModel, selectedFilterId: Int) {
+        self.selectedFilterId = selectedFilterId
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -81,7 +82,7 @@ class FilterPopupTabViewController: TabmanViewController, PageboyViewControllerD
         guard let viewModel = self.viewModel else {
             return .at(index: 0)
         }
-        return .at(index: selectedFilterId)
+        return .at(index: self.selectedFilterId)
     }
     
     func barItem(for bar: Tabman.TMBar, at index: Int) -> Tabman.TMBarItemable {

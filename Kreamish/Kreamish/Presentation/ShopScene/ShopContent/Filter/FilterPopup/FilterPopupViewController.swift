@@ -10,6 +10,7 @@ class FilterPopupViewController: DimmedViewController {
 
     @Published var filteredProductCnt: Int = 0
     @Published var selectedFilterItem: [FilterItem] = []
+    var selectedFilterId: Int = 0
     var viewModel: FilterViewModel?
     
     private lazy var containerView: UIView = {
@@ -57,7 +58,7 @@ class FilterPopupViewController: DimmedViewController {
         guard let viewModel = self.viewModel else {
             return UIViewController()
         }
-        return FilterPopupTabViewController(viewModel: viewModel)
+        return FilterPopupTabViewController(viewModel: viewModel, selectedFilterId: self.selectedFilterId)
     }()
     private lazy var selectedItemView: UIView = {   // 선택한 필터 아이템 일렬로 표출.
         let view = UIView()
@@ -100,7 +101,8 @@ class FilterPopupViewController: DimmedViewController {
         self.dismiss(animated: true)
     }
     
-    init(viewModel: FilterViewModel) {
+    init(viewModel: FilterViewModel, selectedFilterId: Int) {
+        self.selectedFilterId = selectedFilterId
         self.viewModel = viewModel
         super.init()
     }

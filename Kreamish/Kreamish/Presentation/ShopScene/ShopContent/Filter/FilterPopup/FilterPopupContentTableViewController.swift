@@ -6,7 +6,7 @@ import SnapKit
 
 class FilterPopupContentTableViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
-    var filterId: Int = 0
+    var filterId: Int = -1
     var subFilterList: [SubFilter]?
     var viewModel: FilterViewModel?
     
@@ -19,7 +19,8 @@ class FilterPopupContentTableViewController: UIViewController {
     }()
     func setUp(filterId: Int, viewModel: FilterViewModel) {
         self.viewModel = viewModel
-        switch filterId {
+        self.filterId = filterId
+        switch self.filterId {
         case Constants.FILTER_CATEGORIES_ID:
             viewModel.$currentCategoriesSubFilterList
                 .sink { [weak self] updatedSubFilterList in
@@ -69,7 +70,7 @@ extension FilterPopupContentTableViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FilterPopupContentTableViewCell.id, for: indexPath) as? FilterPopupContentTableViewCell else {
             return UITableViewCell()
         }
-        cell.setup(subFilter: self.subFilterList![indexPath.row])
+        cell.setup(viewModel: viewModel!, filterId: self.filterId, subFilter: self.subFilterList![indexPath.row])
         return cell
     }
 }

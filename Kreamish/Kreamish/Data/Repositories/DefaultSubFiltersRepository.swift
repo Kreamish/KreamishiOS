@@ -11,10 +11,10 @@ final class DefaultSubFiltersRepository {
 }
 
 extension DefaultSubFiltersRepository: SubFiltersRepository {
-    func fetchSubFilters(parentFilterId: Int, completion: @escaping (Result<[SubFilter], Error>) -> Void) -> Cancellable? {
+    func fetchSubFilters(filterId: Int, completion: @escaping (Result<[SubFilter], Error>) -> Void) -> Cancellable? {
         let task = RepositoryTask()
         
-        switch parentFilterId {
+        switch filterId {
         case Constants.FILTER_CATEGORIES_ID:
             let endpoint = APIEndpoints.getSubFiltersCategories()
             task.networkTask = self.dataTransferService.request(

@@ -17,6 +17,9 @@ class ShopContentTableViewController: UITableViewController {
         .product
     ]
     
+    var filterViewModel: FilterViewModel? = nil
+    var productListViewModel: ProductListViewModel? = nil
+    
     init(category: Category) {    // 데이터 관련 초기화
         self.category = category
         super.init(style: .plain)
@@ -79,18 +82,18 @@ class ShopContentTableViewController: UITableViewController {
         case .filter:
             if let cell = tableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.id) as? FilterTableViewCell {
                 
-                // DI
+                // DI. 나중에 DI Container로 빼야하나?
                 let dataTransferService = DefaultDataTransferService(
                     with: DefaultNetworkService(config: ApiDataNetworkConfig(baseURL: URL(string: Constants.DEFAULT_DOMAIN)!))
                 )
                 let subFiltersRepository = DefaultSubFiltersRepository(dataTransferService: dataTransferService)
                 let getSubFiltersUseCase = DefaultGetSubFiltersUseCase(subFiltersRepository: subFiltersRepository)
-                let viewModel = FilterViewModel(getSubFiltersUseCase: getSubFiltersUseCase)
-                // DI
+                self.filterViewModel = FilterViewModel(getSubFiltersUseCase: getSubFiltersUseCase)
+                // DI. 나중에 DI Container로 빼야하나?
                 
-                cell.setUp(viewModel: viewModel)
+                cell.setUp(viewModel: filterViewModel!)
                 cell.selectFilterCellClosure = { [weak self] index in
-                    let filterPopupViewController = FilterPopupViewController(viewModel: viewModel, selectedFilterId: index)
+                    let filterPopupViewController = FilterPopupViewController(viewModel: self!.filterViewModel!, selectedFilterId: index)
                     self?.present(filterPopupViewController, animated: true)
                 }
                 return cell
@@ -99,8 +102,19 @@ class ShopContentTableViewController: UITableViewController {
             }
         case .product:
             if let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.id) as? ProductTableViewCell {
+                
+                // DI. 나중에 DI Container로 빼야하나?
+                let dataTransferService = DefaultDataTransferService(
+                    with: DefaultNetworkService(config: ApiDataNetworkConfig(baseURL: URL(string: Constants.DEFAULT_DOMAIN)!))
+                )
+                let productsRepository = DefaultProductsRepository(dataTransferService: dataTransferService)
+                let getProductsUseCase = DefaultGetProductsUseCase(productsRepository: productsRepository)
+                
+                self.productListViewModel = ProductListViewModel(getProductsUseCase: getProductsUseCase, categoryIds: "", brandIds: "", collectionIds: "")
+                // DI. 나중에 DI Container로 빼야하나?
+                
                 cell.delegate = self
-                cell.setUp(category: self.category)
+                cell.setUp(viewModel: self.productListViewModel!, category: self.category)
                 return cell
             } else {
                 return UITableViewCell()

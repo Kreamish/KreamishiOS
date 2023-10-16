@@ -7,19 +7,17 @@ class ProductListViewModel {
     private var productsLoadTask: Cancellable?
     @Published var productsPage: ProductsPage?
     
-    private let categoryIds: String?
-    private let brandIds: String?
-    private let collectionIds: String?
+    private var categoryIds: String = ""
+    private var brandIds: String = ""
+    private var collectionIds: String = ""
+    
     var currentPage = 0
     var totalPage = 0
     var hasMorePages: Bool { currentPage < totalPage }
     var nextPage: Int { hasMorePages ? currentPage + 1 : currentPage }
     
-    init(getProductsUseCase: GetProductsUseCase, categoryIds: String?, brandIds: String?, collectionIds: String?) {
+    init(getProductsUseCase: GetProductsUseCase, categoryIds: String, brandIds: String, collectionIds: String) {
         self.getProductsUseCase = getProductsUseCase
-        self.categoryIds = categoryIds
-        self.brandIds = brandIds
-        self.collectionIds = collectionIds
     }
     
     func getProductsPage() {

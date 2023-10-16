@@ -4,13 +4,14 @@ import UIKit
 
 class FilterPopupContentTableViewCell: UITableViewCell {
     private var cancellables = Set<AnyCancellable>()
+    var viewModel: FilterViewModel?
     static var id: String {
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
     
-//    var viewModel: FilterViewModel?
+    private var filterId: Int = -1
     
-    var allItemssSelected = false
+    var isAllItemSelected = false
     
     private var itemList: [FilterItem] = []
     
@@ -38,10 +39,10 @@ class FilterPopupContentTableViewCell: UITableViewCell {
         return collectionView
     }()
     @objc func selectAllItems() {
-        allItemssSelected = !allItemssSelected
+        isAllItemSelected = !isAllItemSelected
         for item in 0..<subFilterItemCollectionView.numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: item, section: 0)
-            if allItemssSelected {
+            if isAllItemSelected {
                 subFilterItemCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
             } else {
                 subFilterItemCollectionView.deselectItem(at: indexPath, animated: false)
@@ -68,7 +69,9 @@ class FilterPopupContentTableViewCell: UITableViewCell {
             $0.height.greaterThanOrEqualTo(100)
         }
     }
-    func setup(subFilter: SubFilter) {
+    func setup(viewModel: FilterViewModel, filterId: Int, subFilter: SubFilter) {
+        self.viewModel = viewModel
+        self.filterId = filterId
         self.nameLabel.text = subFilter.subFilterName
         self.itemList = subFilter.filterItems
         configureUI()
@@ -85,6 +88,14 @@ extension FilterPopupContentTableViewCell: UICollectionViewDataSource, UICollect
         }
         cell.setUp(item: itemList[indexPath.item])
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedItem = itemList[indexPath.item]
+        viewModel?.addFilterItemToSelection(filterId: self.filterId, item: selectedItem)
+    }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let deselectedItem = itemList[indexPath.item]
+        viewModel?.removeFilterItemToSelection(filterId: self.filterId, item: deselectedItem)
     }
 }
 

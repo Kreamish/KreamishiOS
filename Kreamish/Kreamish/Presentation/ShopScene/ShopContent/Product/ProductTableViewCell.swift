@@ -14,6 +14,12 @@ class ProductTableViewCell: UITableViewCell {
     static var id: String {
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
+    var viewModel: ProductListViewModel? = nil
+    
+    var categoryIds: String = ""
+    var brandIds: String = ""
+    var collectionIds: String = ""
+    
     var productsPage: ProductsPage? = nil
     var delegate: CollectionViewCellDelegate?
     
@@ -74,19 +80,14 @@ class ProductTableViewCell: UITableViewCell {
         }
     }
     
-    func setUp(category: Category) {
-        // DI. 나중에 DI Container로 뺄 예정.
-        let dataTransferService = DefaultDataTransferService(
-            with: DefaultNetworkService(config: ApiDataNetworkConfig(baseURL: URL(string: Constants.DEFAULT_DOMAIN)!))
-        )
-        let productsRepository = DefaultProductsRepository(dataTransferService: dataTransferService)
-        let getProductsUseCase = DefaultGetProductsUseCase(productsRepository: productsRepository)
-        
-        let viewModel = ProductListViewModel(getProductsUseCase: getProductsUseCase, categoryIds: "\(category.categoryId)", brandIds: nil, collectionIds: nil)
-        // DI. 나중에 DI Container로 뺄 예정.
-        
+    func setUp(viewModel: ProductListViewModel, category: Category) {
+        self.viewModel = viewModel
+        self.loadProductList()  // 데이터 받아와 화면에 뿌림
+    }
+    
+    func loadProductList() {
         // combine. 데이터 변화를 감지함
-        viewModel.$productsPage
+        self.viewModel?.$productsPage
                     .sink { [weak self] updatedProductsPage in
                         // Call your specific function in the ViewController
                         guard let productsPage = updatedProductsPage else {
@@ -97,7 +98,8 @@ class ProductTableViewCell: UITableViewCell {
                     }
                     .store(in: &cancellables)
         
-        viewModel.getProductsPage()
+        self.viewModel?.getProductsPage()
+        // combine. 데이터 변화를 감지함
     }
 }
 

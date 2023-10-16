@@ -8,8 +8,7 @@ import Tabman
 
 class FilterPopupViewController: DimmedViewController {
 
-    @Published var filteredProductCnt: Int = 0
-    @Published var selectedFilterItem: [FilterItem] = []
+//    var filteredProductCnt: Int = 0
     var selectedFilterId: Int = 0
     var viewModel: FilterViewModel?
     
@@ -74,13 +73,13 @@ class FilterPopupViewController: DimmedViewController {
         initButton.setTitleColor(.black, for: .normal)
         
         let submitButton = UIButton()
-        submitButton.setTitle("\(filteredProductCnt)개 상품 보기", for: .normal)
+        submitButton.setTitle("상품 보기", for: .normal)
         submitButton.titleLabel!.font = .boldSystemFont(ofSize: 20)
         submitButton.backgroundColor = .black
         submitButton.setTitleColor(.white, for: .normal)
         submitButton.layer.cornerRadius = 10
         submitButton.layer.masksToBounds = true
-        
+        submitButton.addTarget(self, action: #selector(submit), for: .touchUpInside)
         view.addSubview(initButton)
         view.addSubview(submitButton)
         
@@ -97,6 +96,15 @@ class FilterPopupViewController: DimmedViewController {
         }
         return view
     }()
+    
+    @objc func submit() {
+        print("선택한 카테고리:\n \(viewModel?.selectedCategoryItems)")
+        print("선택한 브랜드:\n \(viewModel?.selectedBrandItems)")
+        // 이제 여기서 상품 검색!!!
+        // productListViewModel의 메소드 호출하면되는데... 어떻게??
+        // 일단 싱글톤은 X
+    }
+    
     @objc private func close() {
         self.dismiss(animated: true)
     }

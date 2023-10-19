@@ -7,9 +7,9 @@ class ProductListViewModel {
     private var productsLoadTask: Cancellable?
     @Published var productsPage: ProductsPage?
     
-    private var categoryIds: String = ""
-    private var brandIds: String = ""
-    private var collectionIds: String = ""
+//    private var categoryIds: String = ""
+//    private var brandIds: String = ""
+//    private var collectionIds: String = ""
     
     var currentPage = 0
     var totalPage = 0
@@ -20,11 +20,11 @@ class ProductListViewModel {
         self.getProductsUseCase = getProductsUseCase
     }
     
-    func getProductsPage() {
-        load()
+    func getProductsPage(categoryIds: String, brandIds: String, collectionIds: String) {
+        load(categoryIds: categoryIds, brandIds: brandIds, collectionIds: collectionIds)
     }
     
-    private func load() {
+    private func load(categoryIds: String, brandIds: String, collectionIds: String) {
         productsLoadTask = getProductsUseCase.execute(categoryIds: categoryIds, brandIds: brandIds, collectionIds: collectionIds, page: currentPage, size: 20) { result in
             switch result {
             case .success(let productsPage):

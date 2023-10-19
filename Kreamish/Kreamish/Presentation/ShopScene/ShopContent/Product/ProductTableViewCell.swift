@@ -10,15 +10,16 @@ protocol CollectionViewCellDelegate {
 }
 
 class ProductTableViewCell: UITableViewCell {
+    
     private var cancellables = Set<AnyCancellable>()
     static var id: String {
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
     var viewModel: ProductListViewModel? = nil
     
-    var categoryIds: String = ""
-    var brandIds: String = ""
-    var collectionIds: String = ""
+//    var categoryIds: String = ""
+//    var brandIds: String = ""
+//    var collectionIds: String = ""
     
     var productsPage: ProductsPage? = nil
     var delegate: CollectionViewCellDelegate?
@@ -82,10 +83,10 @@ class ProductTableViewCell: UITableViewCell {
     
     func setUp(viewModel: ProductListViewModel, category: Category) {
         self.viewModel = viewModel
-        self.loadProductList()  // 데이터 받아와 화면에 뿌림
+        self.loadProductList(categoryIds: "", brandIds: "", collectionIds: "")  // 데이터 받아와 화면에 뿌림
     }
     
-    func loadProductList() {
+    func loadProductList(categoryIds: String, brandIds: String, collectionIds: String) {
         // combine. 데이터 변화를 감지함
         self.viewModel?.$productsPage
                     .sink { [weak self] updatedProductsPage in
@@ -98,7 +99,7 @@ class ProductTableViewCell: UITableViewCell {
                     }
                     .store(in: &cancellables)
         
-        self.viewModel?.getProductsPage()
+        self.viewModel?.getProductsPage(categoryIds: categoryIds, brandIds: brandIds, collectionIds: collectionIds)
         // combine. 데이터 변화를 감지함
     }
 }

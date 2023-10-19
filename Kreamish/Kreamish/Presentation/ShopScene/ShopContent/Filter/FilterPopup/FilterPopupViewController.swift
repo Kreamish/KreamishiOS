@@ -6,11 +6,19 @@ import Pageboy
 import SnapKit
 import Tabman
 
+// 선택한 필터 아이템 리스트를 상품 리스트 vc에 보냄.
+protocol SendSelectedFilterData {
+    func sendSelectedFilterIds(categoryIds: String, brandIds: String, collectionIds: String)
+}
+
 class FilterPopupViewController: DimmedViewController {
 
 //    var filteredProductCnt: Int = 0
     var selectedFilterId: Int = 0
     var viewModel: FilterViewModel?
+    
+    //protocol 변수 생성
+    var delegate: SendSelectedFilterData?
     
     private lazy var containerView: UIView = {
         let view = UIView()
@@ -98,11 +106,21 @@ class FilterPopupViewController: DimmedViewController {
     }()
     
     @objc func submit() {
-        print("선택한 카테고리:\n \(viewModel?.selectedCategoryItems)")
-        print("선택한 브랜드:\n \(viewModel?.selectedBrandItems)")
+        print("선택한 카테고리:\n \(String(describing: viewModel?.selectedCategoryItems))")
+        print("선택한 브랜드:\n \(String(describing: viewModel?.selectedBrandItems))")
         // 이제 여기서 상품 검색!!!
-        // productListViewModel의 메소드 호출하면되는데... 어떻게??
-        // 일단 싱글톤은 X
+        // productTableViewCell의 메소드 호출하면되는데... 어떻게? delegate방법으로(protocol)
+        
+        guard let viewModel = self.viewModel else { return }
+        let categoryList: [FilterItem] = viewModel.selectedCategoryItems
+        let brandList: [FilterItem] = viewModel.selectedBrandItems
+        
+        let categoryIdsString = categoryList.map { "\($0.filterItemId)" }.joined(separator: ",")
+        let brandIdsString = brandList.map { "\($0.filterItemId)" }.joined(separator: ",")
+        
+        self.delegate?.sendSelectedFilterIds(categoryIds: categoryIdsString, brandIds: brandIdsString, collectionIds: "")
+        
+        self.dismiss(animated: true)
     }
     
     @objc private func close() {

@@ -7,8 +7,8 @@ enum Item {
     case product
 }
 
-class ShopContentTableViewController: UITableViewController {
-
+class ShopContentTableViewController: UITableViewController, SendSelectedFilterData {
+    
     private let category: Category    // enum으로 바꿔보기
     
     private var items: [Item] = [
@@ -16,6 +16,9 @@ class ShopContentTableViewController: UITableViewController {
         .filter,
         .product
     ]
+    
+    var filterTableViewCell: FilterTableViewCell? = nil
+    var productTableViewCell: ProductTableViewCell? = nil
     
     var filterViewModel: FilterViewModel? = nil
     var productListViewModel: ProductListViewModel? = nil
@@ -80,7 +83,9 @@ class ShopContentTableViewController: UITableViewController {
                 return UITableViewCell()
             }
         case .filter:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.id) as? FilterTableViewCell {
+            filterTableViewCell = tableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.id) as? FilterTableViewCell
+            
+            if let cell = filterTableViewCell {
                 
                 // DI. 나중에 DI Container로 빼야하나?
                 let dataTransferService = DefaultDataTransferService(
@@ -94,6 +99,7 @@ class ShopContentTableViewController: UITableViewController {
                 cell.setUp(viewModel: filterViewModel!)
                 cell.selectFilterCellClosure = { [weak self] index in
                     let filterPopupViewController = FilterPopupViewController(viewModel: self!.filterViewModel!, selectedFilterId: index)
+                    filterPopupViewController.delegate = self
                     self?.present(filterPopupViewController, animated: true)
                 }
                 return cell
@@ -101,8 +107,8 @@ class ShopContentTableViewController: UITableViewController {
                 return UITableViewCell()
             }
         case .product:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.id) as? ProductTableViewCell {
-                
+            productTableViewCell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.id) as? ProductTableViewCell
+            if let cell = productTableViewCell {
                 // DI. 나중에 DI Container로 빼야하나?
                 let dataTransferService = DefaultDataTransferService(
                     with: DefaultNetworkService(config: ApiDataNetworkConfig(baseURL: URL(string: Constants.DEFAULT_DOMAIN)!))
@@ -121,6 +127,11 @@ class ShopContentTableViewController: UITableViewController {
             }
         }
     }
+    
+    // FilterPopupViewController 로부터 선택된 필터 정보 받아서 ProductTableViewCell에 전달.
+    func sendSelectedFilterIds(categoryIds: String, brandIds: String, collectionIds: String) {
+        productTableViewCell?.loadProductList(categoryIds: categoryIds, brandIds: brandIds, collectionIds: collectionIds)
+    }
 }
 
 extension ShopContentTableViewController: CollectionViewCellDelegate {
@@ -130,3 +141,4 @@ extension ShopContentTableViewController: CollectionViewCellDelegate {
         self.present(vc, animated: true)
     }
 }
+

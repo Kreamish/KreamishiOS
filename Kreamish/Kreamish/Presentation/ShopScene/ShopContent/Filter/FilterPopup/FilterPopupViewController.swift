@@ -7,8 +7,8 @@ import SnapKit
 import Tabman
 
 // 선택한 필터 아이템 리스트를 상품 리스트 vc에 보냄.
-protocol SendSelectedFilterData {
-    func sendSelectedFilterIds(categoryIds: String, brandIds: String, collectionIds: String)
+protocol FilterSelectDelegate {
+    func submitSelectedFilterIds(categoryIds: String, brandIds: String, collectionIds: String)
 }
 
 class FilterPopupViewController: DimmedViewController {
@@ -18,7 +18,7 @@ class FilterPopupViewController: DimmedViewController {
     var viewModel: FilterViewModel?
     
     //protocol 변수 생성
-    var delegate: SendSelectedFilterData?
+    var delegate: FilterSelectDelegate?
     
     private lazy var containerView: UIView = {
         let view = UIView()
@@ -118,7 +118,7 @@ class FilterPopupViewController: DimmedViewController {
         let categoryIdsString = categoryList.map { "\($0.filterItemId)" }.joined(separator: ",")
         let brandIdsString = brandList.map { "\($0.filterItemId)" }.joined(separator: ",")
         
-        self.delegate?.sendSelectedFilterIds(categoryIds: categoryIdsString, brandIds: brandIdsString, collectionIds: "")
+        self.delegate?.submitSelectedFilterIds(categoryIds: categoryIdsString, brandIds: brandIdsString, collectionIds: "")
         
         self.dismiss(animated: true)
     }

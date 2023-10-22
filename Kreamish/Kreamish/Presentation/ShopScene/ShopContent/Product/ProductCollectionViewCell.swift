@@ -4,11 +4,17 @@ import UIKit
 
 import SnapKit
 
+protocol ProductBookMarkSelectDelegate {
+    func openBookMarkPopup(product: Product?)
+}
+
 class ProductCollectionViewCell: UICollectionViewCell {
     
     static var id: String {  // computed property. 메모리 공간 가지지 않음.
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
+    
+    var delegate: ProductBookMarkSelectDelegate?
     
     @Published var product: Product?
     private var cancellables: Set<AnyCancellable> = []
@@ -22,22 +28,26 @@ class ProductCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         return imageView
     }()
+    
     private lazy var brandLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
     }()
+    
     private lazy var englishNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.numberOfLines = 2
         return label
     }()
+    
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
     }()
+    
     private lazy var priceTypeLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .light)
@@ -45,24 +55,29 @@ class ProductCollectionViewCell: UICollectionViewCell {
         label.text = "즉시 구매가"
         return label
     }()
+    
     private lazy var bookMarkButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "bookmark"), for: .normal)
         button.tintColor = .gray
+        button.addTarget(self, action: #selector(bookMarkButtonTouched), for: .touchUpInside)
         return button
     }()
+    
     private lazy var bookMarkCountLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = .gray
         return label
     }()
+    
     private lazy var commentButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "ellipsis.bubble"), for: .normal)
         button.tintColor = .gray
         return button
     }()
+    
     private lazy var commentCountLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .light)
@@ -120,6 +135,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
             make.centerY.equalTo(commentButton)
         })
     }
+    
     func setUp() {
         $product.sink { [weak self] newProduct in
             self?.bind()
@@ -127,6 +143,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         .store(in: &cancellables)
         configureUI()
     }
+    
     private func bind() {
         if let product = product {
             DispatchQueue.global().async {
@@ -143,5 +160,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
             bookMarkCountLabel.text = "\(product.likeCount)"
             commentCountLabel.text = "\(product.commentCount)"
         }
+    }
+    
+    @objc private func bookMarkButtonTouched() {
+        self.delegate?.openBookMarkPopup(product: self.product)
     }
 }

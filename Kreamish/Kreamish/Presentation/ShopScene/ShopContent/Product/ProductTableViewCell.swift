@@ -5,8 +5,8 @@ import UIKit
 import iOSDropDown
 import SnapKit
 
-protocol CollectionViewCellDelegate {
-    func selectedCollectionViewCell(product: Product)
+protocol ProductSelectDelegate {
+    func openProductDetail(product: Product)
 }
 
 class ProductTableViewCell: UITableViewCell {
@@ -22,7 +22,7 @@ class ProductTableViewCell: UITableViewCell {
 //    var collectionIds: String = ""
     
     var productsPage: ProductsPage? = nil
-    var delegate: CollectionViewCellDelegate?
+    var delegate: ProductSelectDelegate?
     
     static let cellHeight = 3000.0
     lazy var countLabel: UILabel = {
@@ -129,8 +129,9 @@ extension ProductTableViewCell: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = productsPage?.products[indexPath.item]
+        
         if let delegate = delegate {
-            delegate.selectedCollectionViewCell(product: product!)
+            delegate.openProductDetail(product: product!)
         }
     }
 }

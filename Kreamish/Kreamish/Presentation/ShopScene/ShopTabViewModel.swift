@@ -3,6 +3,7 @@ import Combine
 import Foundation
 
 class ShopTabViewModel {
+    
     private let getCategoriesUseCase: GetCategoriesUseCase
     private var categoriesLoadTask: Cancellable?
     @Published var categoryList: [Category] = []

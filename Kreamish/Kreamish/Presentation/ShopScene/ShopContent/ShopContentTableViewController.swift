@@ -7,7 +7,7 @@ enum Item {
     case product
 }
 
-class ShopContentTableViewController: UITableViewController, SendSelectedFilterData {
+class ShopContentTableViewController: UITableViewController {
     
     private let category: Category    // enum으로 바꿔보기
     
@@ -127,18 +127,29 @@ class ShopContentTableViewController: UITableViewController, SendSelectedFilterD
             }
         }
     }
-    
-    // FilterPopupViewController 로부터 선택된 필터 정보 받아서 ProductTableViewCell에 전달.
-    func sendSelectedFilterIds(categoryIds: String, brandIds: String, collectionIds: String) {
+}
+
+extension ShopContentTableViewController: FilterSelectDelegate {
+    // FilterPopupViewController로부터 선택된 필터 정보 받아서 ProductTableViewCell에 전달.
+    func submitSelectedFilterIds(categoryIds: String, brandIds: String, collectionIds: String) {
         productTableViewCell?.loadProductList(categoryIds: categoryIds, brandIds: brandIds, collectionIds: collectionIds)
     }
 }
 
-extension ShopContentTableViewController: CollectionViewCellDelegate {
-    func selectedCollectionViewCell(product: Product) {
+extension ShopContentTableViewController: ProductSelectDelegate {
+    // ProductTableViewCell로부터 선택된 상품 정보 받아와서 상품 상세페이지로 이동
+    func openProductDetail(product: Product) {
         let vc = ProductDetailViewController()
         vc.setUp(productId: product.productId)
-        self.present(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false)
     }
 }
 
+extension ShopContentTableViewController: ProductBookMarkSelectDelegate {
+    func openBookMarkPopup(product: Product?) {
+        // 북마크 팝업 열기
+    }
+    
+    
+}

@@ -26,8 +26,7 @@ class ProductDetailViewController: UIViewController {
     }
     
     func setUp(productId: Int) {
-        // productId로 productDetail 받아오기
-        
+        // productId로 productDetail 받아오기 api 호출
         configureUI()
     }
     

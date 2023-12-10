@@ -5,8 +5,9 @@ import UIKit
 import iOSDropDown
 import SnapKit
 
-protocol ProductSelectDelegate {
+protocol ProductTableViewCellDelegate {
     func openProductDetail(product: Product)
+    func openfavoritePopup(product: Product?)
 }
 
 class ProductTableViewCell: UITableViewCell {
@@ -22,7 +23,8 @@ class ProductTableViewCell: UITableViewCell {
 //    var collectionIds: String = ""
     
     var productsPage: ProductsPage? = nil
-    var delegate: ProductSelectDelegate?
+    
+    var delegate: ProductTableViewCellDelegate?
     
     static let cellHeight = 3000.0
     lazy var countLabel: UILabel = {
@@ -84,9 +86,11 @@ class ProductTableViewCell: UITableViewCell {
     func setUp(viewModel: ProductListViewModel, category: Category) {
         self.viewModel = viewModel
         self.loadProductList(categoryIds: "", brandIds: "", collectionIds: "")  // 데이터 받아와 화면에 뿌림
+        self.configureUI()
     }
     
     func loadProductList(categoryIds: String, brandIds: String, collectionIds: String) {
+        self.viewModel?.getProductsPage(categoryIds: categoryIds, brandIds: brandIds, collectionIds: collectionIds)
         // combine. 데이터 변화를 감지함
         self.viewModel?.$productsPage
                     .sink { [weak self] updatedProductsPage in
@@ -95,12 +99,10 @@ class ProductTableViewCell: UITableViewCell {
                             return
                         }
                         self?.productsPage = productsPage
-                        self?.configureUI()
+                        print(productsPage)
+                        self?.productCollectionView.reloadData()
                     }
                     .store(in: &cancellables)
-        
-        self.viewModel?.getProductsPage(categoryIds: categoryIds, brandIds: brandIds, collectionIds: collectionIds)
-        // combine. 데이터 변화를 감지함
     }
 }
 
@@ -120,6 +122,7 @@ extension ProductTableViewCell: UICollectionViewDataSource, UICollectionViewDele
 //        cell.model = productList[indexPath.item]
         cell.product = productsPage?.products[indexPath.item]
         cell.setUp()
+        cell.delegate = self
         return cell
     }
     
@@ -151,5 +154,12 @@ extension ProductTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+extension ProductTableViewCell: ProductCollectionViewCellDelegate {
+    func openfavoritePopup(product: Product?) {
+        print("product: \(product)")
+        delegate?.openfavoritePopup(product: product)
     }
 }

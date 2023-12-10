@@ -4,8 +4,8 @@ import UIKit
 
 import SnapKit
 
-protocol ProductBookMarkSelectDelegate {
-    func openBookMarkPopup(product: Product?)
+protocol ProductCollectionViewCellDelegate {
+    func openfavoritePopup(product: Product?)
 }
 
 class ProductCollectionViewCell: UICollectionViewCell {
@@ -14,7 +14,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         NSStringFromClass(Self.self).components(separatedBy: ".").last ?? ""
     }
     
-    var delegate: ProductBookMarkSelectDelegate?
+    var delegate: ProductCollectionViewCellDelegate?
     
     @Published var product: Product?
     private var cancellables: Set<AnyCancellable> = []
@@ -56,15 +56,15 @@ class ProductCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var bookMarkButton: UIButton = {
+    private lazy var favoriteButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "bookmark"), for: .normal)
         button.tintColor = .gray
-        button.addTarget(self, action: #selector(bookMarkButtonTouched), for: .touchUpInside)
+        button.addTarget(self, action: #selector(favoriteButtonTouched), for: .touchUpInside)
         return button
     }()
     
-    private lazy var bookMarkCountLabel: UILabel = {
+    private lazy var favoriteCountLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = .gray
@@ -91,9 +91,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(englishNameLabel)
         contentView.addSubview(priceLabel)
         contentView.addSubview(priceTypeLabel)
-        contentView.addSubview(bookMarkButton)
+        contentView.addSubview(favoriteButton)
         contentView.addSubview(commentButton)
-        contentView.addSubview(bookMarkCountLabel)
+        contentView.addSubview(favoriteCountLabel)
         contentView.addSubview(commentCountLabel)
         
         thumbnailImageView.snp.makeConstraints({ make in
@@ -118,16 +118,16 @@ class ProductCollectionViewCell: UICollectionViewCell {
             make.leading.equalToSuperview().inset(10)
             make.top.equalTo(priceLabel.snp.bottom).offset(4)
         })
-        bookMarkButton.snp.makeConstraints({ make in
+        favoriteButton.snp.makeConstraints({ make in
             make.leading.equalToSuperview().inset(10)
             make.top.equalTo(priceTypeLabel.snp.bottom).offset(10)
         })
-        bookMarkCountLabel.snp.makeConstraints({ make in
-            make.leading.equalTo(bookMarkButton.snp.trailing).offset(2)
-            make.centerY.equalTo(bookMarkButton)
+        favoriteCountLabel.snp.makeConstraints({ make in
+            make.leading.equalTo(favoriteButton.snp.trailing).offset(2)
+            make.centerY.equalTo(favoriteButton)
         })
         commentButton.snp.makeConstraints({ make in
-            make.leading.equalTo(bookMarkCountLabel.snp.trailing).offset(10)
+            make.leading.equalTo(favoriteCountLabel.snp.trailing).offset(10)
             make.top.equalTo(priceTypeLabel.snp.bottom).offset(10)
         })
         commentCountLabel.snp.makeConstraints({ make in
@@ -157,12 +157,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
             brandLabel.text = product.brandName
             englishNameLabel.text = product.name
             priceLabel.text = "\(product.recentPrice) 원"
-            bookMarkCountLabel.text = "\(product.likeCount)"
+            favoriteCountLabel.text = "\(product.likeCount)"
             commentCountLabel.text = "\(product.commentCount)"
         }
     }
     
-    @objc private func bookMarkButtonTouched() {
-        self.delegate?.openBookMarkPopup(product: self.product)
+    @objc private func favoriteButtonTouched() {
+        self.delegate?.openfavoritePopup(product: self.product)
     }
 }

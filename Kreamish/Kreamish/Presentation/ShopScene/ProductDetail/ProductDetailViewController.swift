@@ -7,7 +7,16 @@ class ProductDetailViewController: UIViewController {
     
     private lazy var header: UIView = {
         let view = UIView(frame:.zero)
-        view.backgroundColor = .blue
+        view.backgroundColor = .gray
+        let buttonBack = UIButton()
+        buttonBack.setImage(.init(systemName: "arrow.backward"), for: .normal)
+        buttonBack.addTarget(self, action: #selector(close), for: .touchUpInside)
+        
+        view.addSubview(buttonBack)
+        buttonBack.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview()
+        }
         return view
     }()
     
@@ -47,6 +56,10 @@ class ProductDetailViewController: UIViewController {
             $0.trailing.equalToSuperview()
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
+    }
+    
+    @objc private func close() {
+        self.dismiss(animated: true)
     }
 }
 

@@ -13,7 +13,7 @@ final class HomeDroppedCollectionViewCell: UICollectionViewCell {
         imageView.backgroundColor = .black
         return imageView
     }()
-    private lazy var bookMarkButton: UIButton = {
+    private lazy var favoriteButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "bookmark"), for: .normal)
         button.tintColor = .black
@@ -63,8 +63,8 @@ extension HomeDroppedCollectionViewCell {
             $0.trailing.equalToSuperview()
             $0.height.equalTo(self.goodsImageView.snp.width)
         }
-        self.addSubview(self.bookMarkButton)
-        self.bookMarkButton.snp.makeConstraints {
+        self.addSubview(self.favoriteButton)
+        self.favoriteButton.snp.makeConstraints {
             $0.trailing.equalTo(self.goodsImageView.snp.trailing)
             $0.bottom.equalTo(self.goodsImageView.snp.bottom).inset(5)
             $0.width.equalTo(50)

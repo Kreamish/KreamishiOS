@@ -120,7 +120,9 @@ class ShopContentTableViewController: UITableViewController {
                 // DI. 나중에 DI Container로 빼야하나?
                 
                 cell.delegate = self
+                
                 cell.setUp(viewModel: self.productListViewModel!, category: self.category)
+//                cell.delegate = self
                 return cell
             } else {
                 return UITableViewCell()
@@ -129,6 +131,7 @@ class ShopContentTableViewController: UITableViewController {
     }
 }
 
+
 extension ShopContentTableViewController: FilterSelectDelegate {
     // FilterPopupViewController로부터 선택된 필터 정보 받아서 ProductTableViewCell에 전달.
     func submitSelectedFilterIds(categoryIds: String, brandIds: String, collectionIds: String) {
@@ -136,20 +139,17 @@ extension ShopContentTableViewController: FilterSelectDelegate {
     }
 }
 
-extension ShopContentTableViewController: ProductSelectDelegate {
-    // ProductTableViewCell로부터 선택된 상품 정보 받아와서 상품 상세페이지로 이동
+extension ShopContentTableViewController: ProductTableViewCellDelegate {
     func openProductDetail(product: Product) {
         let vc = ProductDetailViewController()
         vc.setUp(productId: product.productId)
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false)
     }
-}
-
-extension ShopContentTableViewController: ProductBookMarkSelectDelegate {
-    func openBookMarkPopup(product: Product?) {
+    func openfavoritePopup(product: Product?) {
         // 북마크 팝업 열기
+        let vc = FavoritePopupViewController()
+        vc.setUp(product: product)
+        self.present(vc, animated: true)
     }
-    
-    
 }

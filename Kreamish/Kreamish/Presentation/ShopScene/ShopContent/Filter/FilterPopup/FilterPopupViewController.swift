@@ -129,6 +129,9 @@ class FilterPopupViewController: DimmedViewController {
     
     init(viewModel: FilterViewModel, selectedFilterId: Int) {
         self.selectedFilterId = selectedFilterId
+        // 필터 팝업 열 때마다 초기화
+        viewModel.selectedCategoryItems = []
+        viewModel.selectedBrandItems = []
         self.viewModel = viewModel
         super.init()
     }
@@ -137,7 +140,7 @@ class FilterPopupViewController: DimmedViewController {
     }
 
     override func viewDidLoad() {
-        configureUI()
+        self.configureUI()
     }
     
     private func configureUI() {
